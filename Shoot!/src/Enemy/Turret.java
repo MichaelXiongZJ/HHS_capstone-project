@@ -16,7 +16,6 @@ public class Turret extends Enemy{
 	
 	
 	
-	
 	public void draw(PApplet marker) {
 		super.draw(marker);
 		marker.circle((float)getX(),(float)getY(),(float)(30));
