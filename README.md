@@ -79,6 +79,5 @@ Credits:
 * Processing.org
 
 
-* Nont: Bullet Class
+* Nont:
 * Michael: 
-[a]I really like this feature. A suggestion is that you can have the player be able to level up their weapons or abilities.
