@@ -1,8 +1,6 @@
 package actor;
 
-public abstract class Actor {
-
-	
+public abstract class Actor {	
 	
 	//field
 	protected int hp;
@@ -38,8 +36,6 @@ public abstract class Actor {
 		this.vx = vx;
 		this.vy = vy;
 	}
-
-	
 	
 	
 	/**
@@ -66,7 +62,7 @@ public abstract class Actor {
 	}
 	
 	/**
-	 * find wheter or not the actor intersects with others
+	 * find whether or not the actor intersects with others
 	 *
 	 * @return true if intersects with other actors, reactables, or projectiles, false if not
 	 */
