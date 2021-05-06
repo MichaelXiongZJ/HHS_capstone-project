@@ -1,5 +1,7 @@
 package Reactable;
 
-public class Wall {
+import actor.Actor;
+
+public class Wall extends Actor{
 
 }

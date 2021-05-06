@@ -3,9 +3,11 @@ import java.awt.event.MouseEvent;
 
 import Enemy.Enemy;
 import Projectile.Bullet;
+import actor.Player;
 import processing.core.PApplet;
 
 public class DrawingSurface extends PApplet{
+	private Player player;
 	private Bullet bullet;
 	private Enemy enemy;
 	
