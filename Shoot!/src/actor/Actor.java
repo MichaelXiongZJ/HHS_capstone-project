@@ -83,20 +83,74 @@ public abstract class Actor {
 		return false;
 	}
 	
+	/**Return the x-coordinate of the shape.
+	 * 
+	 * @return x-coordinate.
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/**Return the y-coordinate of the shape.
+	 * 
+	 * @return y-coordinate.
+	 */
 	public double getY() {
 		return y;
 	}
 	
-	public void setX(double xNew) {
-		x = xNew;
+	/**Set the x-coordinate as x.
+	 * 
+	 * @param x the new x-coordinate.
+	 * @post Side affect: The x-coordinate changes to x.
+	 */
+	public void setX(double x) {
+		this.x = x;
 	}
 	
-	public void setY(double yNew) {
-		y = yNew;
+	/**Set the y-coordinate as y.
+	 * 
+	 * @param y the new y-coordinate.
+	 * @post Side affect: The y-coordinate changes to y.
+	 */
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	/**Set the stroke color.
+	 * 
+	 * @param c The new stroke color.
+	 * @post Side affect: Stroke color changes to c.
+	 */
+	public void setStroke(Color c) {
+		this.strokeColor = c;
+	}
+	
+	/**Set the fill color.
+	 * 
+	 * @param c The new fill color.
+	 * @post Side affect: fill color changes to c.
+	 */
+	public void setFill(Color c) {
+		this.fillColor = c;
+	}
+	
+	/**Set the shape filled.
+	 * 
+	 * @param f a boolean that tells if the shape is filled.
+	 * @post the fill state will be updated.
+	 */
+	public void setFilled(boolean f) {
+		this.filled = f;
+	}
+	
+	/**Set the width of the stroke width.
+	 * 
+	 * @param w width of the stroke.
+	 * @post width of stroke become w.
+	 */
+	public void setStrokeWidth(int w) {
+		this.strokeWidth = w;
 	}
 	
 	public double getvx() {

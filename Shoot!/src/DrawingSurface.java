@@ -14,15 +14,15 @@ public class DrawingSurface extends PApplet{
 	
 	
 	public DrawingSurface() {
-		player = new Player();
-		turret = new Turret(50, 50);
+		player = new Player(100,100);
+		turret = new Turret(300,300);
 	}
 
 	/**
 	 * Set up when first open
 	 */
 	public void setUp() {
-	//	frameRate(144);
+		frameRate(144);
 	}
 	
 	/**
@@ -31,6 +31,7 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255);
 		turret.draw(this);
+		player.draw(this);
 	}
 	
 	/**
