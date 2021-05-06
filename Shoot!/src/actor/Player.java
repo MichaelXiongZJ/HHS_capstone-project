@@ -14,7 +14,7 @@ public class Player extends Actor{
 	}
 	
 	public Player(double x, double y) {
-		super(hp, x, y, 0, 0);
+		super(hp, x, y, 5, 0);
 		setFill(Color.GREEN);
 	}
 	

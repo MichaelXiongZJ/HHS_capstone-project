@@ -55,7 +55,12 @@ public abstract class Actor {
 	 * indicates action of the actor in 1 frame
 	 */
 	public void act() { //physical behavior
-		
+		double x = getX();
+		double y = getY();
+		x += vx;
+		y += vy;
+		setX(x);
+		setY(y);
 	}
 	
 	/**

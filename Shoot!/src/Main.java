@@ -1,11 +1,13 @@
+import java.awt.CardLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
-public class Main {
+public class Main extends JFrame{
 	/**
 	 * executes the program
 	 * 
@@ -27,4 +29,45 @@ public class Main {
 		window.setVisible(true);
 		canvas.requestFocus();
 	}
+	
+	
+	
+	
+	/*
+	private JPanel cardPanel;
+	private Menu panel1;    
+	private DrawingSurface panel2;
+	
+	public Main(String title) {
+		super(title);
+		setBounds(100, 100, 800, 600);
+	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    
+	    cardPanel = new JPanel();
+	    CardLayout cl = new CardLayout();
+	    cardPanel.setLayout(cl);
+	    
+		panel1 = new Menu(this);    
+	    panel2 = new DrawingSurface();
+	    panel2.init();
+	    
+	    cardPanel.add(panel1,"1");
+	    cardPanel.add(panel2,"2");
+	    
+	    add(cardPanel);
+	
+	    setVisible(true);
+	    
+	}
+
+	public static void main(String[] args)
+	{
+		Main w = new Main("Menu");
+	}
+  
+	public void changePanel() {
+		((CardLayout)cardPanel.getLayout()).next(cardPanel);
+		panel2.requestFocus();
+	}
+  */
 }

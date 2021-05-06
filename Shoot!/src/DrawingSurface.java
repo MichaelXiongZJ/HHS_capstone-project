@@ -1,12 +1,16 @@
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-
+import java.util.ArrayList;
+import processing.core.PApplet;
 import Enemy.Turret;
 import Projectile.Bullet;
 import actor.Player;
-import processing.core.PApplet;
 
 public class DrawingSurface extends PApplet{
+	
+
+	
 	private Player player;
 	private Bullet bullet;
 	private Turret turret;
@@ -14,6 +18,7 @@ public class DrawingSurface extends PApplet{
 	
 	
 	public DrawingSurface() {
+		super();
 		player = new Player(100,100);
 		turret = new Turret(300,300);
 	}
@@ -22,7 +27,7 @@ public class DrawingSurface extends PApplet{
 	 * Set up when first open
 	 */
 	public void setUp() {
-		frameRate(144);
+	//	frameRate(144);
 	}
 	
 	/**
