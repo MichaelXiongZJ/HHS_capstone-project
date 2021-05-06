@@ -1,5 +1,5 @@
 package Projectile;
 
-public class Bullet {
-	
+public class Bullet extends Projectile{
+
 }
