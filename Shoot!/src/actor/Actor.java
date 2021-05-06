@@ -11,11 +11,26 @@ public abstract class Actor {
 	protected int vx;
 	protected int vy;
 	
-	//cons
+	/**
+	 * Initialize actor with default values
+	 */
 	public Actor() {
 		hp = -1;
+		x = 0;
+		y = 0;
+		vx = 0;
+		vy = 0;
 	}
 	
+	/**
+	 * Initialize actor with parameter values
+	 * 
+	 * @param hp Hitpoint
+	 * @param x x-coordinate
+	 * @param y y-coordinate
+	 * @param vx velocity in x axis
+	 * @param vy velocity in y axis
+	 */
 	public Actor(int hp, int x, int y, int vx, int vy) {
 		this.hp = hp;
 		this.x = x;
@@ -27,20 +42,35 @@ public abstract class Actor {
 	
 	
 	
-	//method
+	/**
+	 * indicates action of the actor in 1 frame
+	 */
 	public void act() { //physical behavior
 		
 	}
 	
+	/**
+	 * bounces off object when hit
+	 */
 	public void bounce() {
-		
+		vx = -vx;
+		vy = -vy;
 	}
 	
+	/**
+	 * bounces off window when hit to prevent getting out of the grid
+	 */
 	public void bounceOffWindow() {
-		
+		vx = -vx;
+		vy = -vy;
 	}
 	
-	public void intersects() {
-		
+	/**
+	 * find wheter or not the actor intersects with others
+	 *
+	 * @return true if intersects with other actors, reactables, or projectiles, false if not
+	 */
+	public boolean intersects() {
+		return false;
 	}
 }
