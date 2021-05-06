@@ -1,7 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
-import Enemy.Enemy;
+import Enemy.Turret;
 import Projectile.Bullet;
 import actor.Player;
 import processing.core.PApplet;
@@ -9,14 +9,20 @@ import processing.core.PApplet;
 public class DrawingSurface extends PApplet{
 	private Player player;
 	private Bullet bullet;
-	private Enemy enemy;
+	private Turret turret;
 	
+	
+	
+	public DrawingSurface() {
+		player = new Player();
+		turret = new Turret(50, 50);
+	}
 
 	/**
 	 * Set up when first open
 	 */
 	public void setUp() {
-		
+	//	frameRate(144);
 	}
 	
 	/**
@@ -24,6 +30,7 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		background(255);
+		turret.draw(this);
 	}
 	
 	/**

@@ -1,5 +1,9 @@
 package actor;
 
+import java.awt.Color;
+
+import processing.core.PApplet;
+
 public abstract class Actor {	
 	
 	//field
@@ -8,6 +12,10 @@ public abstract class Actor {
 	private double y;
 	private double vx;
 	private double vy;
+	private int strokeWidth;
+	private Color strokeColor;
+	private Color fillColor;
+	private boolean filled;
 	
 	/**
 	 * Initialize actor with default values
@@ -18,6 +26,7 @@ public abstract class Actor {
 		y = 0;
 		vx = 0;
 		vy = 0;
+		filled = false;
 	}
 	
 	/**
@@ -29,12 +38,16 @@ public abstract class Actor {
 	 * @param vx velocity in x axis
 	 * @param vy velocity in y axis
 	 */
-	public Actor(int hp, int x, int y, int vx, int vy) {
+	public Actor(int hp, double x, double y, double vx, double vy) {
 		this.hp = hp;
 		this.x = x;
 		this.y = y;
 		this.vx = vx;
 		this.vy = vy;
+		strokeColor = Color.BLACK;
+		filled = true;
+		fillColor = Color.WHITE;
+		strokeWidth = 1;
 	}
 	
 	
@@ -101,4 +114,27 @@ public abstract class Actor {
 	public void setvy(double vyNew) {
 		vy = vyNew;
 	}
+	
+	public void accelerate(double ax, double ay) {
+		vx += ax;
+		vy += ay;
+	}
+	
+	/**A drawing surface that will set a random color of the shape.
+	 * @param surface The surface PApplet draws on.
+	 */
+	public void draw(PApplet surface) {
+		if (filled) {
+			surface.fill(fillColor.getRed(), 
+					fillColor.getGreen(),
+					fillColor.getBlue());
+		} else {
+			surface.noFill();
+		}
+		surface.strokeWeight(strokeWidth);
+		surface.stroke(strokeColor.getRed(), 
+				strokeColor.getGreen(), 
+				strokeColor.getBlue());
+	}
+	
 }
