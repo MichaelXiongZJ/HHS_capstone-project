@@ -3,11 +3,11 @@ package actor;
 public abstract class Actor {	
 	
 	//field
-	protected int hp;
-	protected int x;
-	protected int y;
-	protected int vx;
-	protected int vy;
+	private int hp;
+	private double x;
+	private double y;
+	private double vx;
+	private double vy;
 	
 	/**
 	 * Initialize actor with default values
@@ -68,5 +68,37 @@ public abstract class Actor {
 	 */
 	public boolean intersects() {
 		return false;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public void setX(double xNew) {
+		x = xNew;
+	}
+	
+	public void setY(double yNew) {
+		y = yNew;
+	}
+	
+	public double getvx() {
+		return vx;
+	}
+	
+	public double getvy() {
+		return vy;
+	}
+	
+	public void setvx(double vxNew) {
+		vx = vxNew;
+	}
+	
+	public void setvy(double vyNew) {
+		vy = vyNew;
 	}
 }
