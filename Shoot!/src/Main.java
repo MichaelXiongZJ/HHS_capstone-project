@@ -1,8 +1,6 @@
-import java.awt.CardLayout;
-import java.awt.Dimension;
+import java.awt.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
@@ -32,9 +30,9 @@ public class Main extends JFrame{
 	
 	
 	
-	
 	/*
 	private JPanel cardPanel;
+	
 	private Menu panel1;    
 	private DrawingSurface panel2;
 	
@@ -62,12 +60,13 @@ public class Main extends JFrame{
 
 	public static void main(String[] args)
 	{
-		Main w = new Main("Menu");
+		Main w = new Main("AP Animation Demo");
 	}
   
 	public void changePanel() {
 		((CardLayout)cardPanel.getLayout()).next(cardPanel);
 		panel2.requestFocus();
 	}
-  */
+	*/
+  
 }

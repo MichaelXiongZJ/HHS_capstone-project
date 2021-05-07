@@ -23,9 +23,13 @@ public class Player extends Actor{
 	public void draw(PApplet marker) {
 		super.draw(marker);
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
-	//	marker.rotate((float) getDir());
-	//	marker.rect((float)getX(), (float)getY(), 30, 40, 5);
-		
+		marker.push();
+		marker.translate((float)getX(), (float)getY());
+		marker.rotate((float) getDir());
+		marker.rect((float)getX(), (float)getY(), 30, 40, 5);
+		marker.pop();
+//		marker.rotate(-(float) getDir());
+//		marker.translate(0, 0);
 
 	}
 	

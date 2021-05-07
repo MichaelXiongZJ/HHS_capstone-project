@@ -69,9 +69,9 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 		
-	//	pushMatrix();
-	//	player.turnToward(mouseX, mouseY);
-	//	popMatrix();
+		pushMatrix();
+		player.turnToward(mouseX, mouseY);
+		popMatrix();
 		
 		fill(0);
 		text("WASD to move",300, 50);
