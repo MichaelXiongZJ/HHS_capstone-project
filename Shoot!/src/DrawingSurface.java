@@ -28,9 +28,12 @@ public class DrawingSurface extends PApplet{
 	 * Set up when first open
 	 */
 	public void setUp() {
-		frameRate(170);
-		cursor = super.loadImage("img/bullseye.png");
-	//	cursor(cursor);
+//		size(600, 400);
+//		pixelDensity(displayDensity());
+//		frameRate(170);
+//		cursor = super.loadImage("img/bullseye.png");
+//		cursor(cursor);
+//		 smooth(5);
 	}
 	
 	/**
@@ -42,6 +45,10 @@ public class DrawingSurface extends PApplet{
 		turret.draw(this);
 		player.draw(this);
 	//	popMatrix();//?
+		
+		if(player.intersects(turret)) {
+			player.bounce();
+		}
 		
 		if (isPressed(KeyEvent.VK_W)){
 			player.setvy(player.getvy()-1);

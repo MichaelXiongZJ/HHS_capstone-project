@@ -8,7 +8,7 @@ public abstract class Actor {
 	
 	//field
 	private int hp, strokeWidth;
-	private double x, y, vx, vy;
+	private double x, y, vx, vy, radius;
 	private Color strokeColor, fillColor;
 	private boolean filled;
 	
@@ -21,6 +21,7 @@ public abstract class Actor {
 		y = 0;
 		vx = 0;
 		vy = 0;
+		radius = 0;
 		filled = false;
 	}
 	
@@ -39,6 +40,7 @@ public abstract class Actor {
 		this.y = y;
 		this.vx = vx;
 		this.vy = vy;
+		radius = 0;
 		strokeColor = Color.BLACK;
 		filled = true;
 		fillColor = Color.WHITE;
@@ -70,18 +72,9 @@ public abstract class Actor {
 	 * bounces off window when hit to prevent getting out of the grid
 	 */
 	public void bounceOffWindow() {
-		vx = -vx;
-		vy = -vy;
+		
 	}
-	
-	/**
-	 * find whether or not the actor intersects with others
-	 *
-	 * @return true if intersects with other actors, reactables, or projectiles, false if not
-	 */
-	public boolean intersects() {
-		return false;
-	}
+
 	
 	/**Return the x-coordinate of the shape.
 	 * 
@@ -169,6 +162,14 @@ public abstract class Actor {
 		vy = vyNew;
 	}
 	
+	public double getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(double r) {
+		radius = r;
+	}
+	
 	public void accelerate(double ax, double ay) {
 		vx += ax;
 		vy += ay;
@@ -191,4 +192,32 @@ public abstract class Actor {
 				strokeColor.getBlue());
 	}
 	
+	public double getDistance(Actor other) {
+		return Math.sqrt(Math.pow(x-other.x, 2)+Math.pow(y-other.y, 2));
+	}
+	
+	/**
+	 * find whether or not the actor intersects with others
+	 *
+	 * @return true if intersects with other actors, false if not
+	 */
+	public boolean intersects(Actor other) {
+		double d = getDistance(other);
+		if(d <= (getRadius()+other.getRadius())/2) 
+			return true;
+		else 
+			return false;
+		
+	}
+	
+	/**
+	 * Determines whether the point x,y is contained inside this actor.
+	 * @param x The X-coordinate of the point.
+	 * @param y The Y-coordinate of the point.
+	 * @return True if point is inside, false if point is outside.
+	 */
+	public abstract boolean isPointInside(double x, double y);
+	
+	
+
 }
