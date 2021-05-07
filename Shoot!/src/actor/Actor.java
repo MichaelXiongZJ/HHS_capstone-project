@@ -69,10 +69,13 @@ public abstract class Actor {
 	 */
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public void bounce() {
 		vx = -vx;
 		vy = -vy;
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	public boolean bounce() {
