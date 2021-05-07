@@ -68,10 +68,13 @@ public abstract class Actor {
 	 * bounces off object when hit
 	 */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public void bounce() {
 		vx = -vx;
 		vy = -vy;
 =======
+=======
+>>>>>>> Stashed changes
 	public boolean bounce() {
 		vx = -1.5*vx;
 		vy = -1.5*vy;
