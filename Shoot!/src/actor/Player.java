@@ -23,7 +23,8 @@ public class Player extends Actor{
 	
 	public void draw(PApplet marker) {
 		super.draw(marker);
-		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
+	//	marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
+		marker.rect((float)getX(), (float)getY(), 30, 40, 5);
 	}
 	
 	public void act(ArrayList<Actor> other, PApplet surface) {
@@ -37,6 +38,7 @@ public class Player extends Actor{
 				bouncing = true;
 				continue;
 			}
+<<<<<<< Updated upstream
 			else {
 				bouncing = false;
 			}
@@ -46,6 +48,15 @@ public class Player extends Actor{
 	
 	public boolean getBounce() {
 		return bouncing;
+=======
+		
+		
+		
+	}
+	
+	public void fire() {
+		
+>>>>>>> Stashed changes
 	}
 	
 }

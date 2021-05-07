@@ -1,5 +1,6 @@
 
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -69,6 +70,8 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 		
+		
+		
 		fill(0);
 		text("WASD to move",300, 50);
 		
@@ -93,4 +96,7 @@ public class DrawingSurface extends PApplet{
 		return keys.contains(code);
 	}
 	
+	public void mouseMoved(MouseEvent arg0) {
+		player.turnToward(arg0.getX(), arg0.getY());
+	}
 }

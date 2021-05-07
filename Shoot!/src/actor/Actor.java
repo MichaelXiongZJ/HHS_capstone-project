@@ -8,10 +8,9 @@ public abstract class Actor {
 	
 	//field
 	private int hp, strokeWidth;
-	private double x, y, vx, vy, radius;
+	private double x, y, vx, vy, radius, dir;
 	private Color strokeColor, fillColor;
 	private boolean filled;
-	protected boolean bouncing;
 	
 	/**
 	 * Initialize actor with default values
@@ -23,8 +22,8 @@ public abstract class Actor {
 		vx = 0;
 		vy = 0;
 		radius = 0;
+		dir = 0;
 		filled = false;
-		bouncing = false;
 	}
 	
 	/**
@@ -43,11 +42,11 @@ public abstract class Actor {
 		this.vx = vx;
 		this.vy = vy;
 		radius = 0;
+		dir = 0;
 		strokeColor = Color.BLACK;
 		filled = true;
 		fillColor = Color.WHITE;
 		strokeWidth = 1;
-		bouncing = false;
 	}
 	
 	
@@ -68,10 +67,9 @@ public abstract class Actor {
 	/**
 	 * bounces off object when hit
 	 */
-	public boolean bounce() {
+	public void bounce() {
 		vx = -vx;
 		vy = -vy;
-		return true;
 	}
 	
 	/**
@@ -79,8 +77,7 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
-			bouncing = bounce();
-		bouncing = false;
+			bounce();
 	}
 
 	
@@ -231,6 +228,19 @@ public abstract class Actor {
             return false;
     }
 	
+	public void turn(double dir) {
+		this.dir = dir;
+	}
+	
+	public void turnToward(int x, int y) {
+		dir = Math.atan(((double)this.y-y)/(this.x-x));
+		if (this.x > x)
+			dir += Math.PI;
+	}
+	
+	public double getDir() {
+		return dir;
+	}
 	
 
 }
