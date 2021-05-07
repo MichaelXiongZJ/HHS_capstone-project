@@ -63,6 +63,7 @@ public abstract class Actor {
 		setY(y);
 		
 		bounceOffWindow(surface);
+
 	}
 
 	/**
@@ -82,6 +83,10 @@ public abstract class Actor {
 			bounce();
 	}
 
+	
+	public boolean getBounce() {
+		return bouncing;
+	}
 	
 	/**Return the x-coordinate of the shape.
 	 * 
@@ -197,6 +202,7 @@ public abstract class Actor {
 		surface.stroke(strokeColor.getRed(), 
 				strokeColor.getGreen(), 
 				strokeColor.getBlue());
+
 	}
 	
 	public double getDistance(Actor other) {

@@ -19,7 +19,7 @@ public class DrawingSurface extends PApplet{
 	private PImage cursor;
 	
 	public DrawingSurface() {
-//		super();
+		super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		player = new Player(100,100);
@@ -43,13 +43,12 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		background(255);
-	//	pushMatrix();//?
 		for(Actor a : actors) {
 			a.draw(this);
 		}
 		player.draw(this);
-	//	popMatrix();//?
 		
+
 		player.act(actors, this);
 		if (!player.getBounce()) {
 			if (isPressed(KeyEvent.VK_W)) {
@@ -70,7 +69,9 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 		
-		
+	//	pushMatrix();
+	//	player.turnToward(mouseX, mouseY);
+	//	popMatrix();
 		
 		fill(0);
 		text("WASD to move",300, 50);
@@ -80,6 +81,8 @@ public class DrawingSurface extends PApplet{
 		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 600, 70);
 		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
 		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
+		text("mouseX: " + mouseX, 600, 100);
+		text("mouseY: " + mouseY, 600, 110);
 	}
 	
 	
@@ -96,7 +99,6 @@ public class DrawingSurface extends PApplet{
 		return keys.contains(code);
 	}
 	
-	public void mouseMoved(MouseEvent arg0) {
-		player.turnToward(arg0.getX(), arg0.getY());
-	}
+
+	
 }
