@@ -11,6 +11,7 @@ public abstract class Actor {
 	private double x, y, vx, vy, radius, dir;
 	private Color strokeColor, fillColor;
 	private boolean filled;
+	protected boolean bouncing;
 	
 	/**
 	 * Initialize actor with default values
@@ -67,22 +68,10 @@ public abstract class Actor {
 	/**
 	 * bounces off object when hit
 	 */
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	public void bounce() {
-		vx = -vx;
-		vy = -vy;
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	public boolean bounce() {
 		vx = -1.5*vx;
 		vy = -1.5*vy;
 		return true;
->>>>>>> Stashed changes
 	}
 	
 	/**

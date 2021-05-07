@@ -38,7 +38,6 @@ public class Player extends Actor{
 				bouncing = true;
 				continue;
 			}
-<<<<<<< Updated upstream
 			else {
 				bouncing = false;
 			}
@@ -48,15 +47,10 @@ public class Player extends Actor{
 	
 	public boolean getBounce() {
 		return bouncing;
-=======
-		
-		
-		
 	}
 	
 	public void fire() {
 		
->>>>>>> Stashed changes
 	}
 	
 }
