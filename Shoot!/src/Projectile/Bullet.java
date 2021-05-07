@@ -22,3 +22,4 @@ public class Bullet extends Projectile{
 		setvx(20*Math.cos(angle));
 		setvy(20*Math.sin(angle));
 	}
+}

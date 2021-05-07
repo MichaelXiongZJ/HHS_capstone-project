@@ -90,7 +90,7 @@ public class DrawingSurface extends PApplet{
 		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
 		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
 		text("mouseX: " + mouseX, 600, 100);
-		text("mouseY: " + mouseY, 600, 110);d
+		text("mouseY: " + mouseY, 600, 110);
 		for(int a = 0; a < actors.size(); a++) {
 			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 120+a*10);
 		}
