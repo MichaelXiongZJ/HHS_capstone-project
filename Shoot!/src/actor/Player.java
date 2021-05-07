@@ -37,11 +37,11 @@ public class Player extends Actor{
 		for(Actor a : other) {
 			if(intersects(a)) {
 				bounce();
-				getBounce() = true;
+				setBounce(true);
 				continue;
 			}
 			else {
-				bouncing = false;
+				setBounce(false);
 			}
 		
 		}

@@ -69,6 +69,8 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 		
+		checkDeath();
+		
 	//	pushMatrix();
 	//	player.turnToward(mouseX, mouseY);
 	//	popMatrix();
@@ -99,6 +101,12 @@ public class DrawingSurface extends PApplet{
 		return keys.contains(code);
 	}
 	
-
-	
+	public void checkDeath() {	
+		for(int a = 0; a < actors.size(); a++) {
+			if(actors.get(a).getHp() == 0) {
+				actors.remove(a);
+				a--;
+			}
+		}
+	}
 }

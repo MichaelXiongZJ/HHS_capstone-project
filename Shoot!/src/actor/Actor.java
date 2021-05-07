@@ -93,6 +93,14 @@ public abstract class Actor {
 		isBouncing = newBounce;
 	}
 	
+	public int getHp() {
+		return hp;
+	}
+	
+	public void setHp(int newHp) {
+		hp = newHp;
+	}
+	
 	/**Return the x-coordinate of the shape.
 	 * 
 	 * @return x-coordinate.
@@ -221,10 +229,12 @@ public abstract class Actor {
 	 */
 	public boolean intersects(Actor other) {
 		double d = getDistance(other);
-		if(d <= (getRadius()+other.getRadius())/2) 
+		if(d <= (getRadius()+other.getRadius())/2) {
+			other.setHp(other.getHp()-1);
 			return true;
-		else 
+		}else {
 			return false;
+		}
 	}
 
 	
