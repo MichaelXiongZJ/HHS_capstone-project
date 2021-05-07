@@ -9,6 +9,7 @@ public class Player extends Actor{
 	
 	private static int hp = 50;
 	private double friction;
+	
 	public Player() {
 		super();
 	}
@@ -26,7 +27,7 @@ public class Player extends Actor{
         marker.push();
         marker.translate((float)getX(), (float)getY());
         marker.rotate((float) getDir());
-        marker.rect(0, 0, 30, 40, 5);
+        marker.rect(0, -3, 30, 5, 5);
         marker.pop();
 
     }

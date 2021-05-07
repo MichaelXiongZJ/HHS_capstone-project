@@ -23,7 +23,6 @@ public class DrawingSurface extends PApplet{
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		player = new Player(100,100);
-		actors.add(player);
 		actors.add(new Turret(300,300));
 		actors.add(new Turret(400,300));
 		actors.add(new Turret(300,400));
@@ -111,7 +110,10 @@ public class DrawingSurface extends PApplet{
 		return keys.contains(code);
 	}
 	
-	public void checkDeath() {	
+	public void checkDeath() {
+		if(player.getHp() == 0) {
+			player = new Player(100,100);
+		}
 		for(int a = 0; a < actors.size(); a++) {
 			if(actors.get(a).getHp() == 0) {
 				actors.remove(a);
