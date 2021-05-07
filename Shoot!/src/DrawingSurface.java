@@ -5,6 +5,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import Enemy.Turret;
 import Projectile.Bullet;
+import actor.Actor;
 import actor.Player;
 
 public class DrawingSurface extends PApplet{
@@ -12,16 +13,16 @@ public class DrawingSurface extends PApplet{
 
 	
 	private Player player;
-	private ArrayList<Bullet> bullets;
+	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
-	private Turret turret;
 	private PImage cursor;
 	
 	public DrawingSurface() {
 //		super();
 		keys = new ArrayList<Integer>();
+		actors = new ArrayList<Actor>();
 		player = new Player(100,100);
-		turret = new Turret(300,300);
+		actors.add(new Turret(300,300));
 	}
 
 	/**
@@ -42,13 +43,12 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255);
 	//	pushMatrix();//?
-		turret.draw(this);
+		for(Actor a : actors) {
+			a.draw(this);
+		}
 		player.draw(this);
 	//	popMatrix();//?
 		
-		if(player.intersects(turret)) {
-			player.bounce();
-		}
 		
 		if (isPressed(KeyEvent.VK_W)){
 			player.setvy(player.getvy()-1);
@@ -67,8 +67,7 @@ public class DrawingSurface extends PApplet{
 		//	player.setX(player.getX()+1);
 		}
 
-		player.act();
-		turret.act();
+		player.act(actors);
 		
 		fill(0);
 		text("WASD to move",300, 50);

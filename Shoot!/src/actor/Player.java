@@ -26,23 +26,17 @@ public class Player extends Actor{
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
 	}
 	
-	public void act(/*ArrayList<Actor> other*/) {
+	public void act(ArrayList<Actor> other) {
 		super.act();
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
-		
+		for(Actor a : other)
+			if(intersects(a)) {
+				bounce();
+			}
 	}
 	
-	
-	@Override
-	public boolean isPointInside(double x, double y) {
-        if(Math.sqrt(Math.pow(this.getX()-x, 2.0)+Math.pow(this.getY()-y, 2.0)) <= getRadius())
-            return true;
-        else
-            return false;
-    }
-
 	
 	
 }

@@ -216,7 +216,12 @@ public abstract class Actor {
 	 * @param y The Y-coordinate of the point.
 	 * @return True if point is inside, false if point is outside.
 	 */
-	public abstract boolean isPointInside(double x, double y);
+	public boolean isPointInside(double x, double y) {
+        if(Math.sqrt(Math.pow(this.getX()-x, 2.0)+Math.pow(this.getY()-y, 2.0)) <= getRadius())
+            return true;
+        else
+            return false;
+    }
 	
 	
 
