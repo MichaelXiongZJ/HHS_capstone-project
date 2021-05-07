@@ -26,8 +26,8 @@ public class Player extends Actor{
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
 	}
 	
-	public void act(ArrayList<Actor> other) {
-		super.act();
+	public void act(ArrayList<Actor> other, PApplet surface) {
+		super.act(surface);
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		

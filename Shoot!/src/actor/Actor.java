@@ -51,15 +51,17 @@ public abstract class Actor {
 	/**
 	 * indicates action of the actor in 1 frame
 	 */
-	public void act() { //physical behavior
+	public void act(PApplet surface) { //physical behavior
 		double x = getX();
 		double y = getY();
 		x += vx;
 		y += vy;
 		setX(x);
 		setY(y);
+		
+		bounceOffWindow(surface);
 	}
-	
+
 	/**
 	 * bounces off object when hit
 	 */
@@ -71,8 +73,9 @@ public abstract class Actor {
 	/**
 	 * bounces off window when hit to prevent getting out of the grid
 	 */
-	public void bounceOffWindow() {
-		
+	public void bounceOffWindow(PApplet surface) {
+		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
+			bounce();
 	}
 
 	
