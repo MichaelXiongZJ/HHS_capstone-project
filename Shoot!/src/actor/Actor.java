@@ -11,7 +11,7 @@ public abstract class Actor {
 	private double x, y, vx, vy, radius, dir;
 	private Color strokeColor, fillColor;
 	private boolean filled;
-	protected boolean bouncing;
+	private boolean isBouncing;
 	
 	/**
 	 * Initialize actor with default values
@@ -85,7 +85,12 @@ public abstract class Actor {
 
 	
 	public boolean getBounce() {
-		return bouncing;
+		return isBouncing;
+	}
+	
+	
+	public void setBounce(boolean newBounce) {
+		isBouncing = newBounce;
 	}
 	
 	/**Return the x-coordinate of the shape.
@@ -220,8 +225,8 @@ public abstract class Actor {
 			return true;
 		else 
 			return false;
-		
 	}
+
 	
 	/**
 	 * Determines whether the point x,y is contained inside this actor.

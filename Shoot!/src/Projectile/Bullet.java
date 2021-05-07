@@ -13,4 +13,6 @@ public class Bullet extends Projectile{
 		super(hp, x, y, vx, vy);
 		setRadius(5);
 	}
+	
+	
 }
