@@ -50,22 +50,23 @@ public class DrawingSurface extends PApplet{
 	//	popMatrix();//?
 		
 		player.act(actors, this);
-		
-		if (isPressed(KeyEvent.VK_W)){
-			player.setvy(player.getvy()-1);
-		//	player.setY(player.getY()-1);
-		}
-		if (isPressed(KeyEvent.VK_A)){
-			player.setvx(player.getvx()-1);
-		//	player.setX(player.getX()-1);
-		}
-		if (isPressed(KeyEvent.VK_S)){
-			player.setvy(player.getvy()+1);
-		//	player.setY(player.getY()+1);
-		}
-		if (isPressed(KeyEvent.VK_D)){
-			player.setvx(player.getvx()+1);
-		//	player.setX(player.getX()+1);
+		if (!player.getBounce()) {
+			if (isPressed(KeyEvent.VK_W)) {
+				player.setvy(player.getvy() - 1);
+				// player.setY(player.getY()-1);
+			}
+			if (isPressed(KeyEvent.VK_A)) {
+				player.setvx(player.getvx() - 1);
+				// player.setX(player.getX()-1);
+			}
+			if (isPressed(KeyEvent.VK_S)) {
+				player.setvy(player.getvy() + 1);
+				// player.setY(player.getY()+1);
+			}
+			if (isPressed(KeyEvent.VK_D)) {
+				player.setvx(player.getvx() + 1);
+				// player.setX(player.getX()+1);
+			}
 		}
 		
 		fill(0);

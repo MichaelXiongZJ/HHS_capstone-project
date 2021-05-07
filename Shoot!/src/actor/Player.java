@@ -31,12 +31,21 @@ public class Player extends Actor{
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
-		for(Actor a : other)
+		for(Actor a : other) {
 			if(intersects(a)) {
 				bounce();
+				bouncing = true;
+				continue;
 			}
+			else {
+				bouncing = false;
+			}
+		
+		}
 	}
 	
-	
+	public boolean getBounce() {
+		return bouncing;
+	}
 	
 }

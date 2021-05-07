@@ -11,6 +11,7 @@ public abstract class Actor {
 	private double x, y, vx, vy, radius;
 	private Color strokeColor, fillColor;
 	private boolean filled;
+	protected boolean bouncing;
 	
 	/**
 	 * Initialize actor with default values
@@ -23,6 +24,7 @@ public abstract class Actor {
 		vy = 0;
 		radius = 0;
 		filled = false;
+		bouncing = false;
 	}
 	
 	/**
@@ -45,6 +47,7 @@ public abstract class Actor {
 		filled = true;
 		fillColor = Color.WHITE;
 		strokeWidth = 1;
+		bouncing = false;
 	}
 	
 	
@@ -65,9 +68,10 @@ public abstract class Actor {
 	/**
 	 * bounces off object when hit
 	 */
-	public void bounce() {
+	public boolean bounce() {
 		vx = -vx;
 		vy = -vy;
+		return true;
 	}
 	
 	/**
@@ -75,7 +79,8 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
-			bounce();
+			bouncing = bounce();
+		bouncing = false;
 	}
 
 	
