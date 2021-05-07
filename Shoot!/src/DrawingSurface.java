@@ -12,13 +12,14 @@ public class DrawingSurface extends PApplet{
 
 	
 	private Player player;
-	private Bullet bullet;
+	private ArrayList<Bullet> bullets;
+	private ArrayList<Integer> keys;
 	private Turret turret;
-	
-	
+
 	
 	public DrawingSurface() {
-		super();
+//		super();
+		keys = new ArrayList<Integer>();
 		player = new Player(100,100);
 		turret = new Turret(300,300);
 	}
@@ -35,10 +36,50 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		background(255);
+	//	pushMatrix();//?
 		turret.draw(this);
 		player.draw(this);
+	//	popMatrix();//?
+		
+		if (isPressed(KeyEvent.VK_W)){
+			player.setvy(player.getvy()-1);
+		//	player.setY(player.getY()-1);
+		}
+		if (isPressed(KeyEvent.VK_A)){
+			player.setvx(player.getvx()-1);
+		//	player.setX(player.getX()-1);
+		}
+		if (isPressed(KeyEvent.VK_S)){
+			player.setvy(player.getvy()+1);
+		//	player.setY(player.getY()+1);
+		}
+		if (isPressed(KeyEvent.VK_D)){
+			player.setvx(player.getvx()+1);
+		//	player.setX(player.getX()+1);
+		}
+
+		player.act();
+		turret.act();
 	}
 	
+	
+	public void keyPressed() {
+		keys.add(keyCode);
+	}
+
+	public void keyReleased() {
+		while(keys.contains(keyCode))
+			keys.remove(new Integer(keyCode));
+	}
+
+	public boolean isPressed(Integer code) {
+		return keys.contains(code);
+	}
+	
+	
+	
+	
+	//old ones
 	/**
 	 * Listens to the key inputs
 	 * 

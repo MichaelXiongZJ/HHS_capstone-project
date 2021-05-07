@@ -7,14 +7,9 @@ import processing.core.PApplet;
 public abstract class Actor {	
 	
 	//field
-	private int hp;
-	private double x;
-	private double y;
-	private double vx;
-	private double vy;
-	private int strokeWidth;
-	private Color strokeColor;
-	private Color fillColor;
+	private int hp, strokeWidth;
+	private double x, y, vx, vy;
+	private Color strokeColor, fillColor;
 	private boolean filled;
 	
 	/**
