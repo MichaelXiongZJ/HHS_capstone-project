@@ -11,7 +11,7 @@ public abstract class Actor {
 	private double x, y, vx, vy, radius, dir;
 	private Color strokeColor, fillColor;
 	private boolean filled;
-	protected boolean bouncing;
+	private boolean isBouncing;
 	
 	/**
 	 * Initialize actor with default values
@@ -85,7 +85,20 @@ public abstract class Actor {
 
 	
 	public boolean getBounce() {
-		return bouncing;
+		return isBouncing;
+	}
+	
+	
+	public void setBounce(boolean newBounce) {
+		isBouncing = newBounce;
+	}
+	
+	public int getHp() {
+		return hp;
+	}
+	
+	public void setHp(int newHp) {
+		hp = newHp;
 	}
 	
 	/**Return the x-coordinate of the shape.
@@ -216,12 +229,14 @@ public abstract class Actor {
 	 */
 	public boolean intersects(Actor other) {
 		double d = getDistance(other);
-		if(d <= (getRadius()+other.getRadius())/2) 
+		if(d <= (getRadius()+other.getRadius())/2) {
+			other.setHp(other.getHp()-1);
 			return true;
-		else 
+		}else {
 			return false;
-		
+		}
 	}
+
 	
 	/**
 	 * Determines whether the point x,y is contained inside this actor.

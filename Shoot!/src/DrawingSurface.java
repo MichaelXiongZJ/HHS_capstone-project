@@ -72,6 +72,9 @@ public class DrawingSurface extends PApplet{
 		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 		popMatrix();
+		checkDeath();
+
+
 		
 		fill(0);
 		text("WASD to move",300, 50);
@@ -99,6 +102,12 @@ public class DrawingSurface extends PApplet{
 		return keys.contains(code);
 	}
 	
-
-	
+	public void checkDeath() {	
+		for(int a = 0; a < actors.size(); a++) {
+			if(actors.get(a).getHp() == 0) {
+				actors.remove(a);
+				a--;
+			}
+		}
+	}
 }
