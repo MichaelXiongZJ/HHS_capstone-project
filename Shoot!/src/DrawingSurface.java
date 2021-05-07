@@ -1,8 +1,8 @@
-import java.awt.Rectangle;
-import java.awt.Shape;
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
+import processing.core.PImage;
 import Enemy.Turret;
 import Projectile.Bullet;
 import actor.Player;
@@ -15,7 +15,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Bullet> bullets;
 	private ArrayList<Integer> keys;
 	private Turret turret;
-
+	private PImage cursor;
 	
 	public DrawingSurface() {
 //		super();
@@ -28,7 +28,9 @@ public class DrawingSurface extends PApplet{
 	 * Set up when first open
 	 */
 	public void setUp() {
-	//	frameRate(144);
+		frameRate(170);
+		cursor = super.loadImage("img/bullseye.png");
+	//	cursor(cursor);
 	}
 	
 	/**
@@ -60,6 +62,9 @@ public class DrawingSurface extends PApplet{
 
 		player.act();
 		turret.act();
+		
+		fill(0);
+		text("WASD to move",300, 50);
 	}
 	
 	
@@ -74,48 +79,6 @@ public class DrawingSurface extends PApplet{
 
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
-	}
-	
-	
-	
-	
-	//old ones
-	/**
-	 * Listens to the key inputs
-	 * 
-	 * @param e KeyEvent object to keep track of the keys
-	 */
-	public void keyReleased(KeyEvent e) {
-		if (keyCode == KeyEvent.VK_W) {
-			
-		}
-		if (keyCode == KeyEvent.VK_A) {
-			
-		}
-		if (keyCode == KeyEvent.VK_S) {
-			
-		}
-		if (keyCode == KeyEvent.VK_D) {
-			
-		}
-	}
-	
-	/**
-	 * Listens to mouse pressed inputs
-	 * 
-	 * @param e MouseEvent object to keep track of the pressing
-	 */
-	public void mousePressed(MouseEvent e) {
-		
-	}
-	
-	/**
-	 * Listens to mouse clicked inputs
-	 * 
-	 * @param e MouseEvent object to keep track of the clicking
-	 */
-	public void mouseClicked(MouseEvent e) {
-		
 	}
 	
 }
