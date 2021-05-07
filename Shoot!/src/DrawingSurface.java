@@ -23,7 +23,11 @@ public class DrawingSurface extends PApplet{
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		player = new Player(100,100);
+		actors.add(player);
 		actors.add(new Turret(300,300));
+		actors.add(new Turret(400,300));
+		actors.add(new Turret(300,400));
+		actors.add(new Turret(400,400));
 	}
 
 	/**
@@ -78,6 +82,7 @@ public class DrawingSurface extends PApplet{
 		
 		fill(0);
 		text("WASD to move",300, 50);
+		text("Hit the black circles to kill them",300, 65);
 		
 		//debug
 		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
@@ -85,9 +90,9 @@ public class DrawingSurface extends PApplet{
 		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
 		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
 		text("mouseX: " + mouseX, 600, 100);
-		text("mouseY: " + mouseY, 600, 110);
+		text("mouseY: " + mouseY, 600, 110);d
 		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " hp: " + actors.get(a).getHp(), 600, 120+a*10);
+			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 120+a*10);
 		}
 	}
 	

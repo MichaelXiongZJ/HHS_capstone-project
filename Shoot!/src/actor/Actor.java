@@ -230,6 +230,7 @@ public abstract class Actor {
 	public boolean intersects(Actor other) {
 		double d = getDistance(other);
 		if(d <= (getRadius()+other.getRadius())/2) {
+			setHp(getHp()-1);
 			other.setHp(other.getHp()-1);
 			return true;
 		}else {
