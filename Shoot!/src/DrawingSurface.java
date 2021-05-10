@@ -14,6 +14,7 @@ public class DrawingSurface extends PApplet{
 
 	
 	private Player player;
+//	private Bullet bullet;
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private PImage cursor;
@@ -70,6 +71,12 @@ public class DrawingSurface extends PApplet{
 				player.setvx(player.getvx() + 1);
 				// player.setX(player.getX()+1);
 			}
+//			if (mousePressed) {
+//				bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
+//				actors.add(bullet);
+//				bullet.moveTowards(mouseX, mouseY);
+//				bullet.draw(this);
+//			}
 		}
 		
 		pushMatrix();

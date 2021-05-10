@@ -15,6 +15,19 @@ public abstract class Projectile extends Actor{
 		setFill(Color.YELLOW);
 	}
 	
+	public void setX(double x) {
+		super.setX(x);
+	}
 	
+	public void setY(double y) {
+		super.setY(y);
+	}
 	
+	public double getX() {
+		return super.getX();
+	}
+	
+	public double getY() {
+		return super.getY();
+	}
 }
