@@ -29,5 +29,12 @@ public class Turret extends Enemy{
 		
 	}
 
+
+	@Override
+	public void fire() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

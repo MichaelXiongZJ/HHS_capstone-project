@@ -24,4 +24,6 @@ public abstract class Enemy extends Actor{
 	
 	public abstract void moveAround();
 	
+	public abstract void fire();
+	
 }
