@@ -3,6 +3,7 @@ package actor;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Projectile.Projectile;
 import processing.core.PApplet;
 
 public class Player extends Actor{
@@ -39,8 +40,10 @@ public class Player extends Actor{
 		
 		for(Actor a : other) {
 			if(intersects(a)) {
-				bounce();
-				setBounce(true);
+				if(!(a instanceof Projectile)) {
+					bounce();
+					setBounce(true);
+				}
 				continue;
 			}
 			else {

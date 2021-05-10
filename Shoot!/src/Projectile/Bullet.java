@@ -25,7 +25,7 @@ public class Bullet extends Projectile{
 	
 	public void draw(PApplet marker) {
 		super.draw(marker);
-		marker.circle((float)getX(),(float)getY(),(float)(getRadius())/4);
+		marker.circle((float)getX(),(float)getY(),(float)(getRadius())/2);
 	}
 	
 }
