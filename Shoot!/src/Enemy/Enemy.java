@@ -1,6 +1,8 @@
 package Enemy;
 
 import actor.Actor;
+import processing.core.PApplet;
+
 import java.awt.Color;
 
 public abstract class Enemy extends Actor{
@@ -15,9 +17,11 @@ public abstract class Enemy extends Actor{
 	}
 	
 	
+	public void act(PApplet surface) {
+		super.act(surface);
+		moveAround();
+	}
 	
-	
-	
-	
+	public abstract void moveAround();
 	
 }

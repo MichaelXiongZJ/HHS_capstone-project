@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+
+import Surfaces.DrawingSurface;
+
 import java.awt.event.*;
 
 

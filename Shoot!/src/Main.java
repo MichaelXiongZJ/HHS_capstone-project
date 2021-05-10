@@ -2,6 +2,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import Surfaces.DrawingSurface;
+import Surfaces.Map1;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 

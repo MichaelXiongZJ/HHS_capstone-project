@@ -22,5 +22,12 @@ public class Turret extends Enemy{
 
 	}
 
+
+	@Override
+	public void moveAround() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

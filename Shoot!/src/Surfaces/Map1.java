@@ -1,25 +1,22 @@
+package Surfaces;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import processing.core.PApplet;
-import processing.core.PImage;
+
 import Enemy.Turret;
 import Projectile.Bullet;
 import actor.Actor;
 import actor.Player;
+import processing.core.PImage;
 
-public class DrawingSurface extends PApplet{
-	
-
-	
+public class Map1 extends DrawingSurface{
 	private Player player;
-//	private Bullet bullet;
+	private Bullet bullet;
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private PImage cursor;
 	
-	public DrawingSurface() {
+	public Map1() {
 		super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
@@ -71,12 +68,12 @@ public class DrawingSurface extends PApplet{
 				player.setvx(player.getvx() + 1);
 				// player.setX(player.getX()+1);
 			}
-//			if (mousePressed) {
-//				bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
-//				actors.add(bullet);
-//				bullet.moveTowards(mouseX, mouseY);
-//				bullet.draw(this);
-//			}
+			if (mousePressed) {
+				bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
+				actors.add(bullet);
+				bullet.moveTowards(mouseX, mouseY);
+				bullet.draw(this);
+			}
 		}
 		
 		pushMatrix();
@@ -104,18 +101,6 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	
-	public void keyPressed() {
-		keys.add(keyCode);
-	}
-
-	public void keyReleased() {
-		while(keys.contains(keyCode))
-			keys.remove(new Integer(keyCode));
-	}
-
-	public boolean isPressed(Integer code) {
-		return keys.contains(code);
-	}
 	
 	public void checkDeath() {
 		if(player.getHp() == 0) {
