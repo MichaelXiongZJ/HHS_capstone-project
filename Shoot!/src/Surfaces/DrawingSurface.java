@@ -76,6 +76,14 @@ public class DrawingSurface extends PApplet{
 				player.setvx(player.getvx() + 1);
 				// player.setX(player.getX()+1);
 			}
+//			if (mousePressed) {
+//				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
+//				actors.add(bullet.get(bullet.size()-1));
+//				bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
+//				for(int i = 0; i < bullet.size(); i++) {
+//					bullet.get(i).draw(this);
+//				}
+//			}
 		}
 		for(int i = 0; i < bullet.size(); i++) {
 			bullet.get(i).act(actors, this);
@@ -109,9 +117,9 @@ public class DrawingSurface extends PApplet{
 		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
 		actors.add(bullet.get(bullet.size()-1));
 		bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
-		for(int i = 0; i < bullet.size(); i++) {
-			bullet.get(i).draw(this);
-		}
+//		for(int i = 0; i < bullet.size(); i++) {
+//			bullet.get(i).draw(this);
+//		}
 //		actors.add(bullet);
 		
 //		bullet.draw(this);
