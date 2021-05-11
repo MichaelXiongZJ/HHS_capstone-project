@@ -1,5 +1,7 @@
 package Projectile;
 
+import java.util.ArrayList;
+
 import actor.Actor;
 import processing.core.PApplet;
 
@@ -25,6 +27,21 @@ public class Bullet extends Projectile{
 		}else {
 			setvx(20.0*Math.cos(angle));
 			setvy(20.0*Math.sin(angle));
+		}
+	}
+	
+	public void act(ArrayList<Actor> other, PApplet surface) {
+		super.act(surface);
+		
+		for(int a = 0; a < other.size(); a++) {
+			if(intersects(other.get(a))) {
+				if(!(other.get(a) instanceof Projectile)) {
+					setHp(getHp()-1);
+					other.get(a).setHp(other.get(a).getHp()-1);
+				}
+				continue;
+			}
+		
 		}
 	}
 	

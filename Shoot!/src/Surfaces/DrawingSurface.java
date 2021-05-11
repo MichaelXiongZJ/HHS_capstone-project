@@ -30,6 +30,9 @@ public class DrawingSurface extends PApplet{
 		actors.add(new Turret(400,300));
 		actors.add(new Turret(300,400));
 		actors.add(new Turret(400,400));
+		
+		
+	//	actors.add(player);
 	}
 
 	/**
@@ -75,7 +78,7 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 		for(int i = 0; i < bullet.size(); i++) {
-			bullet.get(i).act(this);
+			bullet.get(i).act(actors, this);
 			//bullet.act(this);
 		}
 		pushMatrix();
