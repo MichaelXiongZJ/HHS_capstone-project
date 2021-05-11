@@ -15,7 +15,7 @@ public class DrawingSurface extends PApplet{
 
 	
 	private Player player;
-	private Bullet bullet;
+	private ArrayList<Bullet> bullet;
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private PImage cursor;
@@ -24,7 +24,7 @@ public class DrawingSurface extends PApplet{
 		super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
-		bullet = new Bullet();
+		bullet = new ArrayList<Bullet>();
 		player = new Player(100,100);
 		actors.add(new Turret(300,300));
 		actors.add(new Turret(400,300));
@@ -74,7 +74,10 @@ public class DrawingSurface extends PApplet{
 				// player.setX(player.getX()+1);
 			}
 		}
-		bullet.act(this);
+		for(int i = 0; i < bullet.size(); i++) {
+			bullet.get(i).act(this);
+			//bullet.act(this);
+		}
 		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 		popMatrix();
@@ -99,11 +102,16 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
-	public void mouseClicked() {
-		bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
-		actors.add(bullet);
-		bullet.moveTowards(mouseX, mouseY);
-		bullet.draw(this);
+	public void mousePressed() {
+		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
+		actors.add(bullet.get(bullet.size()-1));
+		bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
+		for(int i = 0; i < bullet.size(); i++) {
+			bullet.get(i).draw(this);
+		}
+//		actors.add(bullet);
+		
+//		bullet.draw(this);
 	}
 	
 	public void keyPressed() {
