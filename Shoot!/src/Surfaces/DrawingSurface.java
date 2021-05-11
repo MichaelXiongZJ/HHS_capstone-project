@@ -24,6 +24,7 @@ public class DrawingSurface extends PApplet{
 		super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
+		bullet = new Bullet();
 		player = new Player(100,100);
 		actors.add(new Turret(300,300));
 		actors.add(new Turret(400,300));
@@ -72,14 +73,8 @@ public class DrawingSurface extends PApplet{
 				player.setvx(player.getvx() + 1);
 				// player.setX(player.getX()+1);
 			}
-			if (mousePressed) {
-				bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
-				actors.add(bullet);
-				bullet.moveTowards(mouseX, mouseY);
-				bullet.draw(this);
-			}
 		}
-		
+		bullet.act(this);
 		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 		popMatrix();
@@ -104,6 +99,12 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	public void mouseClicked() {
+		bullet = new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy());
+		actors.add(bullet);
+		bullet.moveTowards(mouseX, mouseY);
+		bullet.draw(this);
+	}
 	
 	public void keyPressed() {
 		keys.add(keyCode);

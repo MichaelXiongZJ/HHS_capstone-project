@@ -18,9 +18,14 @@ public class Bullet extends Projectile{
 	}
 	
 	public void moveTowards(double x2, double y2) {
-		double angle = Math.atan((y2-getX())/(x2-getY()));
-		setvx(20*Math.cos(angle));
-		setvy(20*Math.sin(angle));
+		double angle = Math.atan((y2-getY())/(x2-getX()));
+		if (x2-getX() < 0) {
+			setvx(-20.0*Math.cos(angle));
+			setvy(-20.0*Math.sin(angle));
+		}else {
+			setvx(20.0*Math.cos(angle));
+			setvy(20.0*Math.sin(angle));
+		}
 	}
 	
 	public void draw(PApplet marker) {
