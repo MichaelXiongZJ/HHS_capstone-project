@@ -145,6 +145,14 @@ public class DrawingSurface extends PApplet{
 		for(int a = 0; a < actors.size(); a++) {
 			if(actors.get(a).getHp() == 0) {
 				actors.remove(a);
+				
+				a--;
+			}
+		}
+		for(int a = 0; a < bullet.size(); a++) {
+			if(bullet.get(a).getHp() == 0) {
+				bullet.remove(a);
+				
 				a--;
 			}
 		}
