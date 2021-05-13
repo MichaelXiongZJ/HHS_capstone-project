@@ -17,12 +17,13 @@ public abstract class Enemy extends Actor{
 	}
 	
 	
-	public void act(PApplet surface) {
-		super.act(surface);
-		moveAround();
+	public void act(PApplet surface, int time) {
+		super.act(surface, time);
+		moveAround(time);
+		fire();
 	}
 	
-	public abstract void moveAround();
+	public abstract void moveAround(int time);
 	
 	public abstract void fire();
 	

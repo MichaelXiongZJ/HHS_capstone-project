@@ -3,6 +3,7 @@ package actor;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Enemy.Enemy;
 import Projectile.Projectile;
 import processing.core.PApplet;
 
@@ -33,12 +34,12 @@ public class Player extends Actor{
 
     }
 	
-	public void act(ArrayList<Actor> other, PApplet surface) {
-		super.act(surface);
+	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
+		super.act(surface, time);
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
-		for(Actor a : other) {
+		for(Actor a : actors) {
 			if(intersects(a)) {
 				if(!(a instanceof Projectile)) {
 					bounce();

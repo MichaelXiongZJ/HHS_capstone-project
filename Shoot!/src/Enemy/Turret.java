@@ -24,8 +24,7 @@ public class Turret extends Enemy{
 
 
 	@Override
-	public void moveAround() {
-		// TODO Auto-generated method stub
+	public void moveAround(int time) {
 		
 	}
 
@@ -33,7 +32,7 @@ public class Turret extends Enemy{
 	@Override
 	public void fire() {
 		// TODO Auto-generated method stub
-		
+	//	int time = millis();
 	}
 
 	

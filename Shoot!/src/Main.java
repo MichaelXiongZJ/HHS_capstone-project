@@ -7,6 +7,7 @@ import Surfaces.Map1;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+
 public class Main extends JFrame{
 	/**
 	 * executes the program

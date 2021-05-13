@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
+import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
 import actor.Actor;
@@ -19,9 +20,10 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private PImage cursor;
+	private int time;
 	
 	public DrawingSurface() {
-		super();
+	//	super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		bullet = new ArrayList<Bullet>();
@@ -30,7 +32,7 @@ public class DrawingSurface extends PApplet{
 		actors.add(new Turret(400,300));
 		actors.add(new Turret(300,400));
 		actors.add(new Turret(400,400));
-		
+		actors.add(new LoopingShooter(600, 300));
 		
 	//	actors.add(player);
 	}
@@ -51,68 +53,36 @@ public class DrawingSurface extends PApplet{
 	 * draw the game with white background
 	 */
 	public void draw() {
+		time = millis();
 		background(255);
-		for(Actor a : actors) {
-			a.setWindowSizeActor(width, height);
-			a.draw(this);
+		
+		for(int a = 0; a < actors.size(); a++) {
+			actors.get(a).setWindowSizeActor(width, height);
+			actors.get(a).act(this, time);
+			actors.get(a).draw(this);
 		}
+		player.act(actors, this, time);
 		player.draw(this);
 		
+		controlPlayer();
 
-		player.act(actors, this);
-		if (!player.getBounce()) {
-			if (isPressed(KeyEvent.VK_W)) {
-				player.setvy(player.getvy() - 1);
-				// player.setY(player.getY()-1);
-			}
-			if (isPressed(KeyEvent.VK_A)) {
-				player.setvx(player.getvx() - 1);
-				// player.setX(player.getX()-1);
-			}
-			if (isPressed(KeyEvent.VK_S)) {
-				player.setvy(player.getvy() + 1);
-				// player.setY(player.getY()+1);
-			}
-			if (isPressed(KeyEvent.VK_D)) {
-				player.setvx(player.getvx() + 1);
-				// player.setX(player.getX()+1);
-			}
-//			if (mousePressed) {
-//				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
-//				actors.add(bullet.get(bullet.size()-1));
-//				bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
-//				for(int i = 0; i < bullet.size(); i++) {
-//					bullet.get(i).draw(this);
-//				}
-//			}
-		}
 		for(int i = 0; i < bullet.size(); i++) {
-			bullet.get(i).act(actors, this);
+			bullet.get(i).act(actors, this, time);
 			//bullet.act(this);
 		}
-		pushMatrix();
+//		pushMatrix();
 		player.turnToward(mouseX, mouseY);
-		popMatrix();
+//		popMatrix();
+		
+		
 		checkDeath();
-
-
 		
 		fill(0);
 		text("WASD to move",300, 50);
 		text("Hit the black circles to kill them",300, 65);
 		
 		//debug
-		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
-		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 600, 70);
-		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
-		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
-		text("mouseX: " + mouseX, 600, 100);
-		text("mouseY: " + mouseY, 600, 110);
-		text("Player HP: " + player.getHp(), 600, 120);
-//		text("Timer: " + millis(), 600, 130);
-		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
-		}
+		displayInfo();
 	}
 	
 	public void mousePressed() {
@@ -166,5 +136,48 @@ public class DrawingSurface extends PApplet{
 	
 	public int getWindowHeight() {
 		return height;
+	}
+	
+	public void controlPlayer() {
+		if (!player.getBounce()) {
+			if (isPressed(KeyEvent.VK_W)) {
+				player.setvy(player.getvy() - 1);
+				// player.setY(player.getY()-1);
+			}
+			if (isPressed(KeyEvent.VK_A)) {
+				player.setvx(player.getvx() - 1);
+				// player.setX(player.getX()-1);
+			}
+			if (isPressed(KeyEvent.VK_S)) {
+				player.setvy(player.getvy() + 1);
+				// player.setY(player.getY()+1);
+			}
+			if (isPressed(KeyEvent.VK_D)) {
+				player.setvx(player.getvx() + 1);
+				// player.setX(player.getX()+1);
+			}
+//			if (mousePressed) {
+//				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
+//				actors.add(bullet.get(bullet.size()-1));
+//				bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
+//				for(int i = 0; i < bullet.size(); i++) {
+//					bullet.get(i).draw(this);
+//				}
+//			}
+		}
+	}
+	
+	public void displayInfo() {
+		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
+		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 600, 70);
+		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
+		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
+		text("mouseX: " + mouseX, 600, 100);
+		text("mouseY: " + mouseY, 600, 110);
+		text("Player HP: " + player.getHp(), 600, 120);
+		text("Timer: " + time, 600, 130);
+		for(int a = 0; a < actors.size(); a++) {
+			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
+		}
 	}
 }

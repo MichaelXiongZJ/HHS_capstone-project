@@ -30,8 +30,8 @@ public class Bullet extends Projectile{
 		}
 	}
 	
-	public void act(ArrayList<Actor> other, PApplet surface) {
-		super.act(surface);
+	public void act(ArrayList<Actor> other, PApplet surface, int time) {
+		super.act(surface, time);
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
