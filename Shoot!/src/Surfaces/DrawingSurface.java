@@ -39,7 +39,7 @@ public class DrawingSurface extends PApplet{
 	 * Set up when first open
 	 */
 	public void setUp() {
-		size(600, 1000);
+//		size(600, 400);
 //		pixelDensity(displayDensity());
 //		frameRate(170);
 //		cursor = super.loadImage("img/bullseye.png");
@@ -109,8 +109,9 @@ public class DrawingSurface extends PApplet{
 		text("mouseX: " + mouseX, 600, 100);
 		text("mouseY: " + mouseY, 600, 110);
 		text("Player HP: " + player.getHp(), 600, 120);
+//		text("Timer: " + millis(), 600, 130);
 		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 130+a*10);
+			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
 		}
 	}
 	

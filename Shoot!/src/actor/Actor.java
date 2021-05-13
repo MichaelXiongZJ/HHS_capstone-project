@@ -82,7 +82,7 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 //		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
-		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2)
+		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowWidth - getRadius()/2)
 			bounce();
 	}
 
