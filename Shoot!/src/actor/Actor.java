@@ -2,6 +2,7 @@ package actor;
 
 import java.awt.Color;
 
+import Surfaces.DrawingSurface;
 import processing.core.PApplet;
 
 public abstract class Actor {	
@@ -12,6 +13,7 @@ public abstract class Actor {
 	private Color strokeColor, fillColor;
 	private boolean filled;
 	private boolean isBouncing;
+	private int windowWidth, windowHeight;
 	
 	/**
 	 * Initialize actor with default values
@@ -79,7 +81,8 @@ public abstract class Actor {
 	 * bounces off window when hit to prevent getting out of the grid
 	 */
 	public void bounceOffWindow(PApplet surface) {
-		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
+//		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
+		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2)
 			bounce();
 	}
 
@@ -264,5 +267,8 @@ public abstract class Actor {
 		return dir;
 	}
 	
-
+	public void setWindowSizeActor(int width, int height) {
+		windowWidth = width;
+		windowHeight = height;
+	}
 }

@@ -39,7 +39,7 @@ public class DrawingSurface extends PApplet{
 	 * Set up when first open
 	 */
 	public void setUp() {
-//		size(600, 400);
+		size(600, 1000);
 //		pixelDensity(displayDensity());
 //		frameRate(170);
 //		cursor = super.loadImage("img/bullseye.png");
@@ -53,6 +53,7 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255);
 		for(Actor a : actors) {
+			a.setWindowSizeActor(width, height);
 			a.draw(this);
 		}
 		player.draw(this);
@@ -156,5 +157,13 @@ public class DrawingSurface extends PApplet{
 				a--;
 			}
 		}
+	}
+	
+	public int getWindowWidth() {
+		return width;
+	}
+	
+	public int getWindowHeight() {
+		return height;
 	}
 }
