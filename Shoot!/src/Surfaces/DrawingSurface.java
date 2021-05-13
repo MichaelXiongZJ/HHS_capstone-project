@@ -32,7 +32,7 @@ public class DrawingSurface extends PApplet{
 		actors.add(new Turret(400,300));
 		actors.add(new Turret(300,400));
 		actors.add(new Turret(400,400));
-		actors.add(new LoopingShooter(600, 300));
+		actors.add(new LoopingShooter(500, 300));
 		
 	//	actors.add(player);
 	}

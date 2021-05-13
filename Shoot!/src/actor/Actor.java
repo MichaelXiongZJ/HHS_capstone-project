@@ -71,19 +71,31 @@ public abstract class Actor {
 	/**
 	 * bounces off object when hit
 	 */
-	public boolean bounce() {
+	public boolean bounce(/*Actor other*/) {
 		vx = -1.5*vx;
 		vy = -1.5*vy;
 		return true;
+		
+//		double xDiff = other.getX() - getX();
+//		double yDiff = other.getY() - getY();
+//		double angle = Math.sin(yDiff/xDiff);
+//		
+//		
+//		return true;
 	}
 	
 	/**
 	 * bounces off window when hit to prevent getting out of the grid
 	 */
 	public void bounceOffWindow(PApplet surface) {
-	//	if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayWidth - getRadius()/2)
-		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowWidth - getRadius()/2)
+		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
+			vx = -1.5*vx;
+			vy = -1.5*vy;
+		//	isBouncing = true;
+	//	if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2) {
 			bounce();
+
+		}
 	}
 
 	
