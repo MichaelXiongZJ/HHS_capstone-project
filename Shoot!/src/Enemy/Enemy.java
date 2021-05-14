@@ -12,10 +12,20 @@ public abstract class Enemy extends Actor{
 
 	private int MAX_HP;
 	
+	/**
+	 * @author Michael
+	 */
 	public Enemy() {
 		super();
 	}
 	
+	/**
+	 * 
+	 * @param hp starting hp of the actor
+	 * @param x x coord
+	 * @param y y coord
+	 * @author Michael
+	 */
 	public Enemy(int hp, double x, double y) {
 		super(hp, x, y, 0, 0);
 		MAX_HP = hp;
@@ -34,7 +44,7 @@ public abstract class Enemy extends Actor{
 	
 	/**
 	 * indicates action of the actor in 1 frame
-	 * @author Michael
+	 * @author Nont & Michael
 	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
 		super.act(actors, surface, time);
@@ -58,7 +68,9 @@ public abstract class Enemy extends Actor{
 	
 	public abstract void moveAround(int time);
 	
-	
+	/**
+	 * Update color based on hp
+	 */
 	public void updateColor() {
 		setFill(new Color(255*((getHp()-MAX_HP)/MAX_HP)));
 	}

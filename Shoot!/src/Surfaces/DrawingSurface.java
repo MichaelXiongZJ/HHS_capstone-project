@@ -1,5 +1,6 @@
 package Surfaces;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Enemy> enemies;
 	private PImage cursor;
 	private int time;
+	
 	
 	public DrawingSurface() {
 	//	super();
@@ -70,7 +72,7 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		time = millis();
-		background(255);
+		background(129, 199, 212);
 		
 		for(int a = 0; a < actors.size(); a++) {
 			actors.get(a).setWindowSizeActor(width, height);
@@ -135,16 +137,14 @@ public class DrawingSurface extends PApplet{
 			actors.add(player);
 		}
 		for(int a = 0; a < actors.size(); a++) {
-			if(actors.get(a).getHp() <= 0) {
+			if(actors.get(a).getHp() <= 0 && !actors.get(a).getInvincible()) {
 				actors.remove(a);
-				
 				a--;
 			}
 		}
 		for(int a = 0; a < bullet.size(); a++) {
 			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
-				
 				a--;
 			}
 		}

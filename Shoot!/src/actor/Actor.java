@@ -13,12 +13,12 @@ public abstract class Actor {
 	private int hp, strokeWidth;
 	private double x, y, vx, vy, radius, dir;
 	private Color strokeColor, fillColor;
-	private boolean filled;
-	private boolean isBouncing;
+	private boolean filled, isBouncing, invincible;
 	private int windowWidth, windowHeight;
 	
 	/**
 	 * Initialize actor with default values
+	 * @author Michael
 	 */
 	public Actor() {
 		hp = -1;
@@ -29,6 +29,7 @@ public abstract class Actor {
 		radius = 0;
 		dir = 0;
 		filled = false;
+		invincible = false;
 	}
 	
 	/**
@@ -53,6 +54,7 @@ public abstract class Actor {
 		filled = true;
 		fillColor = Color.WHITE;
 		strokeWidth = 1;
+		invincible = false;
 	}
 	
 	
@@ -385,5 +387,20 @@ public abstract class Actor {
 	public void setWindowSizeActor(int width, int height) {
 		windowWidth = width;
 		windowHeight = height;
+	}
+	
+	/**
+	 * set this actor's invincibility
+	 */
+	public void setInvincible(boolean a) {
+		invincible = a;
+	}
+	
+	/**
+	 * get the invincibility of the actor
+	 * @return invincible
+	 */
+	public boolean getInvincible() {
+		return invincible;
 	}
 }
