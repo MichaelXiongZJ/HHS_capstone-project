@@ -50,23 +50,23 @@ public class Wall extends Actor{
 		
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a))) {
-				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this)) {
+				if(!(actors.get(a) == this)) {
 					actors.get(a).bounce();
 				}
 				continue;
 			}
-			else {
-//				setBounce(false);
-			}
-		
 		}
 	}
 	
 	
 	public boolean intersects(Actor other) {
-		if((other.getX()>=this.getX()) && (other.getX()<=(this.getX()+width)) && (other.getY()>=this.getY()) && (other.getY()<=(this.getY()+height)))
+		if((other.getX() >= (this.getX()-width/2)) && 
+			(other.getX() <= (this.getX()+width/2)) && 
+				(other.getY() >= (this.getY()-height/2)) && 
+					(other.getY() <= (this.getY()+height/2))){
 			return true;
-		else
+		}else {
 			return false;	
+		}
 	}
 }
