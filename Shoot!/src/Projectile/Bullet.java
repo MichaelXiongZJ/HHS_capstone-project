@@ -22,11 +22,11 @@ public class Bullet extends Projectile{
 	public void moveTowards(double x2, double y2) {
 		double angle = Math.atan((y2-getY())/(x2-getX()));
 		if (x2-getX() < 0) {
-			setvx(-15.0*Math.cos(angle));
-			setvy(-15.0*Math.sin(angle));
+			setvx(-20.0*Math.cos(angle));
+			setvy(-20.0*Math.sin(angle));
 		}else {
-			setvx(15.0*Math.cos(angle));
-			setvy(15.0*Math.sin(angle));
+			setvx(20.0*Math.cos(angle));
+			setvy(20.0*Math.sin(angle));
 		}
 	}
 	

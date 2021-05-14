@@ -72,15 +72,17 @@ public abstract class Actor {
 	/**
 	 * bounces off object when hit
 	 */
-	public boolean bounce(/*Actor other*/) {
+	public boolean bounce() {
 		vx = -1.5*vx;
 		vy = -1.5*vy;
 		return true;
 		
 //		double xDiff = other.getX() - getX();
 //		double yDiff = other.getY() - getY();
-//		double angle = Math.sin(yDiff/xDiff);
-//		
+////		double angle = Math.sin(yDiff/xDiff);
+//		if((yDiff<0) && (vx)) {
+//			
+//		}
 //		
 //		return true;
 	}

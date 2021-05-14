@@ -79,9 +79,9 @@ public class DrawingSurface extends PApplet{
 		
 		controlPlayer();
 
-		for(int i = 0; i < bullet.size(); i++) {
-			bullet.get(i).act(actors, this, time);
-		}
+//		for(int i = 0; i < bullet.size(); i++) {
+//			bullet.get(i).act(actors, this, time);
+//		}
 //		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 //		popMatrix();
@@ -155,19 +155,15 @@ public class DrawingSurface extends PApplet{
 		if (!player.getBounce()) {
 			if (isPressed(KeyEvent.VK_W)) {
 				player.setvy(player.getvy() - 1);
-				// player.setY(player.getY()-1);
 			}
 			if (isPressed(KeyEvent.VK_A)) {
 				player.setvx(player.getvx() - 1);
-				// player.setX(player.getX()-1);
 			}
 			if (isPressed(KeyEvent.VK_S)) {
 				player.setvy(player.getvy() + 1);
-				// player.setY(player.getY()+1);
 			}
 			if (isPressed(KeyEvent.VK_D)) {
 				player.setvx(player.getvx() + 1);
-				// player.setX(player.getX()+1);
 			}
 //			if (mousePressed) {
 //				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
