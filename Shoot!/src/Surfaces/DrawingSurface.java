@@ -144,6 +144,12 @@ public class DrawingSurface extends PApplet{
 				a--;
 			}
 		}
+		for(int a = 0; a < enemies.size(); a++) {
+			if(enemies.get(a).getHp() <= 0) {
+				enemies.remove(a);
+				a--;
+			}
+		}
 	}
 	
 	public int getWindowWidth() {
