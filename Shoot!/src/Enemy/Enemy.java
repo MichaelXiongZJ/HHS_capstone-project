@@ -39,14 +39,9 @@ public abstract class Enemy extends Actor{
 	public void draw(PApplet marker) {
 		super.draw(marker);
 		updateColor();//?????
-		marker.push();
-		if (isRotate) {
-			marker.translate((float)getX(),(float)getY());
-			marker.rotate(angle);
-		}
-		else
-			marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
-		marker.pop();
+//		marker.push();
+		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
+//		marker.pop();
 	}
 	
 	/**
@@ -82,8 +77,4 @@ public abstract class Enemy extends Actor{
 		setFill(new Color(255*((getHp()-MAX_HP)/MAX_HP)));
 	}
 	
-	public void rotate(int angle) {
-		isRotate = true;
-		this.angle = angle;
-	}
 }

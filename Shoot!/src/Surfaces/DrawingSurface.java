@@ -73,7 +73,7 @@ public class DrawingSurface extends PApplet{
 		time = millis();
 		background(129, 199, 212);
 		
-		for(int a = 0; a < actors.size(); a++) {
+		for(int a = actors.size() - 1; a >= 0; a--) {
 			actors.get(a).setWindowSizeActor(width, height);
 			actors.get(a).act(actors, this, time);
 			actors.get(a).draw(this);
@@ -200,11 +200,12 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void enemiesFire() {
-		if(frameCount%60 == 0) {
+		if(frameCount%10 == 0) {
 			for(int a = 0; a < enemies.size(); a++) {
 				bullet.add(new Bullet(enemies.get(a).getX(), enemies.get(a).getY(), enemies.get(a).getvx(), enemies.get(a).getvy()));
 				actors.add(bullet.get(bullet.size()-1));
-				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+1, enemies.get(a).getY()+1);
+//				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+1, enemies.get(a).getY()+1);
+				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+Math.cos(5*frameCount/180.0*Math.PI), enemies.get(a).getY()-Math.sin(5*frameCount/180.0*Math.PI));
 			}
 		}
 	}
