@@ -83,83 +83,83 @@ public abstract class Actor {
 	 * bounces off object when hit
 	 * @author Michael
 	 */
-	public boolean bounce(Actor other) {
-//		vx = -1.5*vx;
-//		vy = -1.5*vy;
-//		return true;
-
-		double angle = getAngle(other);
-		if(angle == 0 || angle == 360) {
-			if(vx == 0) {
-				vx = 2;
-			}else {
-				vx = -vx;
-			}
-		}else if(angle>0 && angle<90) {
-			if(vx == 0) {
-				vx = -2;
-			}else {
-				vx = -vx;
-			}
-			if(vy == 0) {
-				vy = 2;
-			}else {
-				vy = -vy;
-			}
-		}else if(angle == 90) {
-			if(vy == 0) {
-				vy = -2;
-			}else {
-				vy = -vy;
-			}
-		}else if(angle>90 && angle<180) {
-			if(vx == 0) {
-				vx = 2;
-			}else {
-				vx = -vx;
-			}
-			if(vy == 0) {
-				vy = 2;
-			}else {
-				vy = -vy;
-			}
-		}else if(angle == 180) {
-			if(vx == 0) {
-				vx = -2;
-			}else {
-				vx = -vx;
-			}
-		}else if(angle>180 && angle<270) {	
-			if(vx == 0) {
-				vx = -2;
-			}else {
-				vx = -vx;
-			}
-			if(vy == 0) {
-				vy = 2;
-			}else {
-				vy = -vy;
-			}
-		}else if(angle == 270) {
-			if(vy == 0) {
-				vy = 2;
-			}else {
-				vy = -vy;
-			}
-		}else if(angle>270 && angle <360) {
-			if(vx == 0) {
-				vx = 2;
-			}else {
-				vx = -vx;
-			}
-			if(vy == 0) {
-				vy = 2;
-			}else {
-				vy = -vy;
-			}
-		}
-		
+	public boolean bounce() {
+		vx = -1.5*vx;
+		vy = -1.5*vy;
 		return true;
+
+//		double angle = getAngle(other);
+//		if(angle == 0 || angle == 360) {
+//			if(vx == 0) {
+//				vx = 2;
+//			}else {
+//				vx = -vx;
+//			}
+//		}else if(angle>0 && angle<90) {
+//			if(vx == 0) {
+//				vx = -2;
+//			}else {
+//				vx = -vx;
+//			}
+//			if(vy == 0) {
+//				vy = 2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}else if(angle == 90) {
+//			if(vy == 0) {
+//				vy = -2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}else if(angle>90 && angle<180) {
+//			if(vx == 0) {
+//				vx = 2;
+//			}else {
+//				vx = -vx;
+//			}
+//			if(vy == 0) {
+//				vy = 2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}else if(angle == 180) {
+//			if(vx == 0) {
+//				vx = -2;
+//			}else {
+//				vx = -vx;
+//			}
+//		}else if(angle>180 && angle<270) {	
+//			if(vx == 0) {
+//				vx = -2;
+//			}else {
+//				vx = -vx;
+//			}
+//			if(vy == 0) {
+//				vy = 2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}else if(angle == 270) {
+//			if(vy == 0) {
+//				vy = 2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}else if(angle>270 && angle <360) {
+//			if(vx == 0) {
+//				vx = 2;
+//			}else {
+//				vx = -vx;
+//			}
+//			if(vy == 0) {
+//				vy = 2;
+//			}else {
+//				vy = -vy;
+//			}
+//		}
+//		
+//		return true;
 	}
 	
 	
@@ -180,15 +180,17 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
-			vx = -1.5*vx;
-			vy = -1.5*vy;
-			isBouncing = true;
-	//	if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2) {
-			if(this instanceof Projectile) {
-				bounce(null);
-			}
-
+			bounce();
 		}
+		
+//		
+//		if(!((x>=this.getX()) && (x<=(this.getX()+surface.displayWidth)) && (y>=this.getY()) && (y<=(this.getY()+surface.displayHeight)))) {
+//			if(this instanceof Projectile) {
+//				bounce(null);
+//			}
+//		}
+		
+		
 	}
 
 	/**
