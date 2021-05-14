@@ -51,7 +51,10 @@ public class DrawingSurface extends PApplet{
 		
 		actors.add(player);
 		actors.addAll(enemies);
-		actors.add(new Wall(300, 50, 500, 20));
+		actors.add(new Wall(400, 50, 700, 20));
+		actors.add(new Wall(400, 750, 700, 20));
+		actors.add(new Wall(50, 400, 20, 700));
+		actors.add(new Wall(750, 400, 20, 700));
 	}
 
 	/**
