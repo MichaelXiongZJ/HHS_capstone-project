@@ -68,8 +68,8 @@ public class DrawingSurface extends PApplet{
 	 * draw the game with white background
 	 */
 	public void draw() {
-		cursor = super.loadImage("img/bullseye.png");
-		cursor(cursor);
+//		cursor = super.loadImage("src/bullseye.png");
+//		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
 		
