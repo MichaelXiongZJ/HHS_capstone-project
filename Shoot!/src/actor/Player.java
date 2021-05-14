@@ -23,6 +23,11 @@ public class Player extends Actor{
 		setRadius(30);
 	}
 	
+
+	/**A drawing surface that will set a random color of the shape.
+	 * @param surface The surface PApplet draws on.
+	 * @author Nont & Michael
+	 */
 	public void draw(PApplet marker) {
         super.draw(marker);
         marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
@@ -34,6 +39,10 @@ public class Player extends Actor{
 
     }
 	
+	/**
+	 * indicates action of the actor in 1 frame
+	 * @author Michael
+	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
 		super.act(actors, surface, time);
 		setvx(getvx()*friction);
