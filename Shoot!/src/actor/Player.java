@@ -18,7 +18,7 @@ public class Player extends Actor{
 	
 	public Player(double x, double y) {
 		super(hp, x, y, 0, 0);
-		setFill(Color.GREEN);
+		setFill(new Color(233, 205, 76));
 		friction = 0.75;
 		setRadius(30);
 	}
@@ -48,18 +48,23 @@ public class Player extends Actor{
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
-//		for(Actor a : actors) {
-//			if(intersects(a)) {
-//				if(!(a instanceof Projectile) && !(a == this)) {
-//					bounce();
-//					setBounce(true);
-//				}
-//				continue;
-//			}
-//			else {
-//				setBounce(false);
-//			}
-//		}
+		for(Actor a : actors) {
+			if(intersects(a)) {
+				if(!(a instanceof Projectile) && !(a == this)) {
+					if(a.getvx()!=0 || a.getvy()!=0) {
+						setvx(-a.getvx());
+						setvy(-a.getvy());
+					}else {
+						bounce();
+						setBounce(true);
+					}
+				}
+				continue;
+			}
+			else {
+				setBounce(false);
+			}
+		}
 		
 	}
 

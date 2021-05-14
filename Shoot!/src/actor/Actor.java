@@ -79,13 +79,17 @@ public abstract class Actor {
 
 	}
 
+
 	/**
 	 * bounces off object when hit
 	 * @author Michael
 	 */
 	public boolean bounce() {
 		vx = -1.5*vx;
+		x += vx;
 		vy = -1.5*vy;
+		y += vy;
+		
 		return true;
 
 //		double angle = getAngle(other);
@@ -488,4 +492,7 @@ public abstract class Actor {
 	public boolean getInvincible() {
 		return invincible;
 	}
+	
+	
+	
 }

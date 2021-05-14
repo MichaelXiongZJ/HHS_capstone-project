@@ -3,7 +3,6 @@ import java.awt.*;
 import javax.swing.*;
 
 import Surfaces.DrawingSurface;
-import Surfaces.Map1;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
@@ -22,7 +21,7 @@ public class Main extends JFrame{
 		JFrame window = (JFrame)canvas.getFrame();
 
 		window.setLocation(300,150);
-		window.setSize(800, 800);
+		window.setSize(1000, 800);
 		window.setMinimumSize(new Dimension(100,100));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(true);

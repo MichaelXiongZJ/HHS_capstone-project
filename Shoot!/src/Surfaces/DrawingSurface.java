@@ -51,28 +51,25 @@ public class DrawingSurface extends PApplet{
 		
 		actors.add(player);
 		actors.addAll(enemies);
-		actors.add(new Wall(400, 50, 700, 20));
-		actors.add(new Wall(400, 750, 700, 20));
-		actors.add(new Wall(50, 400, 20, 700));
-		actors.add(new Wall(750, 400, 20, 700));
+//		actors.add(new Wall(400, 50, 700, 20));
+//		actors.add(new Wall(400, 750, 700, 20));
+//		actors.add(new Wall(50, 400, 20, 700));
+//		actors.add(new Wall(750, 400, 20, 700));
 	}
 
 	/**
 	 * Set up when first open
 	 */
 	public void setUp() {
-//		size(600, 400);
-//		pixelDensity(displayDensity());
-//		frameRate(170);
-//		cursor = super.loadImage("img/bullseye.png");
-//		cursor(cursor);
-//		smooth(5);
+
 	}
 	
 	/**
 	 * draw the game with white background
 	 */
 	public void draw() {
+		cursor = super.loadImage("img/bullseye.png");
+		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
 		
@@ -95,16 +92,23 @@ public class DrawingSurface extends PApplet{
 		if(enemies.size() <= 3) 
 			spawnEnemies();
 		
+		for(int a = 0; a< enemies.size(); a++) {
+			enemies.get(a).updateColor();
+		}
+		
 		enemiesFire();
 		
 		checkDeath();
 		
 		fill(0);
-		text("WASD to move",300, 50);
-		text("Hit the black circles to kill them",300, 65);
-		
+		textSize(17);
+		text("Use WASD keys to move around",250, 50);
+		text("Point your mouse at the direction of the target, and left click to shoot",250, 65);
+		text("Fire at the targets to destory them!",250, 80);
+		textSize(14);
+		text("Player HP: " + player.getHp(), 700, 100);
 		//debug
-		displayInfo();
+	//	displayInfo();
 	}
 	
 	public void mousePressed() {
