@@ -216,15 +216,18 @@ public class DrawingSurface extends PApplet{
 	
 	public void spawnEnemies() {
 		for (int j = 0; j < 1; j++) {
-			for (int i = 0; i < killCount; i++) {
+			for (; enemies.size()-3 < killCount/3;) {
 				double turretX, turretY;
 				boolean isEnoughSpace = true;
 				turretX = Math.random() * width;
 				turretY = Math.random() * height;
+				Turret test = new Turret(turretX, turretY);
 				for (Actor a : actors) {
-					if (new Turret(turretX, turretY).intersects(a))
+					if (test.intersects(a)) {
 						isEnoughSpace = false;
+					}
 				}
+				test = null;
 				if (isEnoughSpace) {
 					enemies.add(new Turret(turretX, turretY));
 					actors.add(enemies.get(enemies.size() - 1));

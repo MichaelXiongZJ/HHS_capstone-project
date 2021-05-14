@@ -17,7 +17,7 @@ public class LoopingShooter extends Enemy{
 	 * @param y y coord
 	 */
 	public LoopingShooter(double x, double y) {
-		super(25, x, y);
+		super(5, x, y);
 		setFill(Color.GRAY);
 		setRadius(40);
 	}
