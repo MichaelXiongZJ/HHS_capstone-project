@@ -60,10 +60,10 @@ public class Wall extends Actor{
 	
 	
 	public boolean intersects(Actor other) {
-		if((other.getX() >= (this.getX()-width/2)) && 
-			(other.getX() <= (this.getX()+width/2)) && 
-				(other.getY() >= (this.getY()-height/2)) && 
-					(other.getY() <= (this.getY()+height/2))){
+		if(((other.getX()+other.getRadius()/2) >= (this.getX()-width/2)) && 
+			((other.getX()-other.getRadius()/2) <= (this.getX()+width/2)) && 
+				((other.getY()+other.getRadius()/2) >= (this.getY()-height/2)) && 
+					((other.getY()-other.getRadius()/2) <= (this.getY()+height/2))){
 			return true;
 		}else {
 			return false;	
