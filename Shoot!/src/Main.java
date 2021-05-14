@@ -13,9 +13,9 @@ public class Main extends JFrame{
 	 * 
 	 * @param args argument for the main method
 	 */
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		DrawingSurface drawing = new DrawingSurface();
-		PApplet.runSketch(new String[]{"Demo"}, drawing);
+		PApplet.runSketch(new String[]{""}, drawing);
 		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
