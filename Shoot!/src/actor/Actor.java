@@ -12,7 +12,7 @@ public abstract class Actor {
 	
 	//field
 	private int hp, strokeWidth;
-	private double x, y, vx, vy, radius, dir;
+	private double x, y, vx, vy, radius, dir, ax, ay;
 	private Color strokeColor, fillColor;
 	private boolean filled, isBouncing, invincible;
 	private int windowWidth, windowHeight;
@@ -27,6 +27,8 @@ public abstract class Actor {
 		y = 0;
 		vx = 0;
 		vy = 0;
+		ax = 0;
+		ay = 0;
 		radius = 0;
 		dir = 0;
 		filled = false;
@@ -49,6 +51,8 @@ public abstract class Actor {
 		this.y = y;
 		this.vx = vx;
 		this.vy = vy;
+		ax = 0;
+		ay = 0;
 		radius = 0;
 		dir = 0;
 		strokeColor = Color.BLACK;
@@ -85,18 +89,74 @@ public abstract class Actor {
 //		return true;
 
 		double angle = getAngle(other);
-		if(angle>0 && angle<90) {
-			vx = -2;
-			vy = 2;
+		if(angle == 0 || angle == 360) {
+			if(vx == 0) {
+				vx = 2;
+			}else {
+				vx = -vx;
+			}
+		}else if(angle>0 && angle<90) {
+			if(vx == 0) {
+				vx = -2;
+			}else {
+				vx = -vx;
+			}
+			if(vy == 0) {
+				vy = 2;
+			}else {
+				vy = -vy;
+			}
+		}else if(angle == 90) {
+			if(vy == 0) {
+				vy = -2;
+			}else {
+				vy = -vy;
+			}
 		}else if(angle>90 && angle<180) {
-			vx = 2;
-			vy = 2;
-		}else if(angle>180 && angle<270) {
-			vx = -2;
-			vy = 2;
+			if(vx == 0) {
+				vx = 2;
+			}else {
+				vx = -vx;
+			}
+			if(vy == 0) {
+				vy = 2;
+			}else {
+				vy = -vy;
+			}
+		}else if(angle == 180) {
+			if(vx == 0) {
+				vx = -2;
+			}else {
+				vx = -vx;
+			}
+		}else if(angle>180 && angle<270) {	
+			if(vx == 0) {
+				vx = -2;
+			}else {
+				vx = -vx;
+			}
+			if(vy == 0) {
+				vy = 2;
+			}else {
+				vy = -vy;
+			}
+		}else if(angle == 270) {
+			if(vy == 0) {
+				vy = 2;
+			}else {
+				vy = -vy;
+			}
 		}else if(angle>270 && angle <360) {
-			vx = 2;
-			vy = 2;
+			if(vx == 0) {
+				vx = 2;
+			}else {
+				vx = -vx;
+			}
+			if(vy == 0) {
+				vy = 2;
+			}else {
+				vy = -vy;
+			}
 		}
 		
 		return true;
