@@ -10,7 +10,6 @@ import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
-//import Projectile.PlayerBullet;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -52,7 +51,7 @@ public class DrawingSurface extends PApplet{
 		
 		actors.add(player);
 		actors.addAll(enemies);
-		actors.add(new Wall(100, 50, 500, 5));
+		actors.add(new Wall(300, 50, 500, 20));
 	}
 
 	/**
@@ -103,9 +102,6 @@ public class DrawingSurface extends PApplet{
 		displayInfo();
 	}
 	
-	/**
-	 * called everytime mouse is pressed
-	 */
 	public void mousePressed() {
 		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
 		actors.add(bullet.get(bullet.size()-1));
@@ -145,13 +141,6 @@ public class DrawingSurface extends PApplet{
 		for(int a = 0; a < bullet.size(); a++) {
 			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
-				a--;
-			}
-		}
-		for(int a = 0; a < enemies.size(); a++) {
-			if(enemies.get(a).getHp() <= 0) {
-				enemies.remove(a);
-				
 				a--;
 			}
 		}

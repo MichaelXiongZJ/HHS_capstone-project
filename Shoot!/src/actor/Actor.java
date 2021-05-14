@@ -79,8 +79,8 @@ public abstract class Actor {
 	 * @author Michael
 	 */
 	public boolean bounce() {
-		vx = -1.5*vx;
-		vy = -1.5*vy;
+		vx = -vx;
+		vy = -vy;
 		return true;
 		
 //		double xDiff = other.getX() - getX();

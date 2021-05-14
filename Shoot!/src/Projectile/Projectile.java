@@ -32,8 +32,7 @@ public abstract class Projectile extends Actor{
 		return super.getY();
 	}
 	
-	
-	
+
 	public boolean bounce() {
 		setvx(-getvx());
 		setvy(-getvy());

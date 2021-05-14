@@ -48,19 +48,19 @@ public class Player extends Actor{
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
-		for(Actor a : actors) {
-			if(intersects(a)) {
-				if(!(a instanceof Projectile) && !(a == this)) {
-					bounce();
-					setBounce(true);
-				}
-				continue;
-			}
-			else {
-				setBounce(false);
-			}
+//		for(Actor a : actors) {
+//			if(intersects(a)) {
+//				if(!(a instanceof Projectile) && !(a == this)) {
+//					bounce();
+//					setBounce(true);
+//				}
+//				continue;
+//			}
+//			else {
+//				setBounce(false);
+//			}
+//		}
 		
-		}
 	}
 
 	
