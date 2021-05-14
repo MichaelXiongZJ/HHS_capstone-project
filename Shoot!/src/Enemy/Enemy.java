@@ -33,16 +33,17 @@ public abstract class Enemy extends Actor{
 		super.act(actors, surface, time);
 		moveAround(time);
 		
-		for(Actor a : actors) {
-			if(intersects(a)) {
-				if(!(a instanceof Projectile) && !(a == this)) {
-					bounce();
-					setBounce(true);
+		for(int a = 0; a < actors.size(); a++) {
+			if(intersects(actors.get(a))) {
+				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this)) {
+//					bounce();
+//					setBounce(true);
+					actors.get(a).bounce();
 				}
 				continue;
 			}
 			else {
-				setBounce(false);
+//				setBounce(false);
 			}
 		
 		}

@@ -81,12 +81,12 @@ public class DrawingSurface extends PApplet{
 
 		for(int i = 0; i < bullet.size(); i++) {
 			bullet.get(i).act(actors, this, time);
-			//bullet.act(this);
 		}
 //		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 //		popMatrix();
 		
+		enemiesFire();
 		
 		checkDeath();
 		
@@ -191,6 +191,16 @@ public class DrawingSurface extends PApplet{
 		text("Timer: " + time, 600, 130);
 		for(int a = 0; a < actors.size(); a++) {
 			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
+		}
+	}
+	
+	public void enemiesFire() {
+		while(time%1000 == 0) {
+			for(int a = 0; a < enemies.size(); a++) {
+				bullet.add(new Bullet(enemies.get(a).getX(), enemies.get(a).getY(), enemies.get(a).getvx(), enemies.get(a).getvy()));
+				actors.add(bullet.get(bullet.size()-1));
+				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+1, enemies.get(a).getY()+1);
+			}
 		}
 	}
 }

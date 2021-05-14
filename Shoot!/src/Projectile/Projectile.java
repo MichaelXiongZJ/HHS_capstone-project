@@ -31,20 +31,6 @@ public abstract class Projectile extends Actor{
 	public double getY() {
 		return super.getY();
 	}
-	/*
-	public boolean intersects(Actor other) {
-		double d = getDistance(other);
-		if(d <= (getRadius()+other.getRadius())/2) {
-	//		setHp(getHp()-1);
-			if(!(other instanceof Player)) {
-				other.setHp(other.getHp()-1);
-			}
-			return true;
-		}else {
-			return false;
-		}
-	}*/
-	
 	
 	
 	
