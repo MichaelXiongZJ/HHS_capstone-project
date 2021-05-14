@@ -33,7 +33,7 @@ public abstract class Projectile extends Actor{
 	}
 	
 
-	public boolean bounce() {
+	public boolean bounce(Actor other) {
 		setvx(-getvx());
 		setvy(-getvy());
 		setHp(getHp()-1);

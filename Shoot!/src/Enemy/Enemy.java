@@ -57,7 +57,7 @@ public abstract class Enemy extends Actor{
 				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this)) {
 //					bounce();
 //					setBounce(true);
-					actors.get(a).bounce();
+					actors.get(a).bounce(this);
 				}
 				continue;
 			}

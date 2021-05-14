@@ -3,6 +3,7 @@ package actor;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Projectile.Projectile;
 import Surfaces.DrawingSurface;
 import processing.core.PApplet;
 
@@ -78,20 +79,40 @@ public abstract class Actor {
 	 * bounces off object when hit
 	 * @author Michael
 	 */
-	public boolean bounce() {
-		vx = -1.5*vx;
-		vy = -1.5*vy;
-		return true;
-		
-//		double xDiff = other.getX() - getX();
-//		double yDiff = other.getY() - getY();
-////		double angle = Math.sin(yDiff/xDiff);
-//		if((yDiff<0) && (vx)) {
-//			
-//		}
-//		
+	public boolean bounce(Actor other) {
+//		vx = -1.5*vx;
+//		vy = -1.5*vy;
 //		return true;
+
+		double angle = getAngle(other);
+		if(angle>0 && angle<90) {
+			vx = -2;
+			vy = 2;
+		}else if(angle>90 && angle<180) {
+			vx = 2;
+			vy = 2;
+		}else if(angle>180 && angle<270) {
+			vx = -2;
+			vy = 2;
+		}else if(angle>270 && angle <360) {
+			vx = 2;
+			vy = 2;
+		}
+		
+		return true;
 	}
+	
+	
+	public double getAngle(Actor other) {
+	    double angle = Math.toDegrees(Math.atan2(other.getY() - y, other.getX() - x));
+
+	    if(angle < 0){
+	        angle += 360;
+	    }
+
+	    return angle;
+	}
+	
 	
 	/**
 	 * bounces off window when hit to prevent getting out of the grid
@@ -99,11 +120,13 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
-//			vx = -1.5*vx;
-//			vy = -1.5*vy;
-		//	isBouncing = true;
+			vx = -1.5*vx;
+			vy = -1.5*vy;
+			isBouncing = true;
 	//	if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2) {
-			bounce();
+			if(this instanceof Projectile) {
+				bounce(null);
+			}
 
 		}
 	}
