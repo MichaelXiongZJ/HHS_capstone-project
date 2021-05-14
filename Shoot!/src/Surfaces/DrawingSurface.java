@@ -89,7 +89,7 @@ public class DrawingSurface extends PApplet{
 		player.turnToward(mouseX, mouseY);
 //		popMatrix();
 		
-	//	enemiesFire();
+		enemiesFire();
 		
 		checkDeath();
 		
@@ -188,14 +188,14 @@ public class DrawingSurface extends PApplet{
 		text("mouseX: " + mouseX, 600, 100);
 		text("mouseY: " + mouseY, 600, 110);
 		text("Player HP: " + player.getHp(), 600, 120);
-		text("Timer: " + time, 600, 130);
+		text("FrameRate: " + frameCount, 600, 130);
 		for(int a = 0; a < actors.size(); a++) {
 			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
 		}
 	}
 	
 	public void enemiesFire() {
-		while(time%1000 == 0) {
+		if(frameCount%60 == 0) {
 			for(int a = 0; a < enemies.size(); a++) {
 				bullet.add(new Bullet(enemies.get(a).getX(), enemies.get(a).getY(), enemies.get(a).getvx(), enemies.get(a).getvy()));
 				actors.add(bullet.get(bullet.size()-1));
