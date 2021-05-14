@@ -2,6 +2,7 @@ package Projectile;
 
 import java.util.ArrayList;
 
+import Enemy.Enemy;
 import actor.Actor;
 import actor.Player;
 import processing.core.PApplet;
@@ -45,8 +46,11 @@ public class Bullet extends Projectile{
 			if(intersects(other.get(a))) {
 				if(!(other.get(a) instanceof Projectile)) {
 					if(ignorePlayer && other.get(a) instanceof Player) {
-
-					}else {
+						
+					}else if(!ignorePlayer && other.get(a) instanceof Enemy){
+						
+					}
+					else {
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
 					}
