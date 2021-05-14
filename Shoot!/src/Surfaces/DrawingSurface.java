@@ -89,6 +89,8 @@ public class DrawingSurface extends PApplet{
 //		pushMatrix();
 		player.turnToward(mouseX, mouseY);
 //		popMatrix();
+		if(enemies.size() <= 3) 
+			spawnEnemies();
 		
 		enemiesFire();
 		
@@ -207,7 +209,22 @@ public class DrawingSurface extends PApplet{
 				bullet.add(new Bullet(enemies.get(a).getX(), enemies.get(a).getY(), enemies.get(a).getvx(), enemies.get(a).getvy()));
 				actors.add(bullet.get(bullet.size()-1));
 //				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+1, enemies.get(a).getY()+1);
-				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+Math.cos(5*frameCount/180.0*Math.PI), enemies.get(a).getY()-Math.sin(5*frameCount/180.0*Math.PI));
+				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+Math.cos(7*frameCount/180.0*Math.PI), enemies.get(a).getY()-Math.sin(7*frameCount/180.0*Math.PI));
+			}
+		}
+	}
+	
+	public void spawnEnemies() {
+		for (int i = 0; i < killCount; i++) {
+			double turretX, turretY;
+			boolean isEnoughSpace = false;
+			turretX = Math.random()*width;
+			turretY = Math.random()*height;
+			while (!isEnoughSpace) {
+				for (Actor a : actors) {
+					if(!(new Turret(turretX, turretY).intersects(a)))
+						isEnoughSpace = true;
+				}
 			}
 		}
 	}
