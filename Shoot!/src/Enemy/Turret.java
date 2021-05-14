@@ -17,7 +17,7 @@ public class Turret extends Enemy{
 	 * @param y y coord
 	 */
 	public Turret(double x, double y) {
-		super(20, x, y);
+		super(5, x, y);
 		setRadius(40);
 	}
 	
