@@ -77,7 +77,7 @@ public class DrawingSurface extends PApplet{
 			actors.get(a).draw(this);
 		}
 		player.act(actors, this, time);
-		player.draw(this);
+	//	player.draw(this);
 		
 		controlPlayer();
 
@@ -88,7 +88,7 @@ public class DrawingSurface extends PApplet{
 		player.turnToward(mouseX, mouseY);
 //		popMatrix();
 		
-		enemiesFire();
+	//	enemiesFire();
 		
 		checkDeath();
 		
@@ -128,6 +128,7 @@ public class DrawingSurface extends PApplet{
 	public void checkDeath() {
 		if(player.getHp() == 0) {
 			player = new Player(100,100);
+			actors.add(player);
 		}
 		for(int a = 0; a < actors.size(); a++) {
 			if(actors.get(a).getHp() == 0) {
