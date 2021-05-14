@@ -25,7 +25,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Enemy> enemies;
 	private PImage cursor;
 	private int time;
-	
+	private int killCount = 0;
 	
 	public DrawingSurface() {
 	//	super();
@@ -147,6 +147,7 @@ public class DrawingSurface extends PApplet{
 		for(int a = 0; a < enemies.size(); a++) {
 			if(enemies.get(a).getHp() <= 0) {
 				enemies.remove(a);
+				killCount++;
 				a--;
 			}
 		}
@@ -194,8 +195,9 @@ public class DrawingSurface extends PApplet{
 		text("mouseY: " + mouseY, 600, 110);
 		text("Player HP: " + player.getHp(), 600, 120);
 		text("FrameRate: " + frameCount, 600, 130);
+		text("killCount: " + killCount, 600, 140);
 		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 140+a*10);
+			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 150+a*10);
 		}
 	}
 	
