@@ -16,6 +16,12 @@ public class Player extends Actor{
 		super();
 	}
 	
+	/**
+	 * 
+	 * @param x x coord
+	 * @param y y coord
+	 * @author Michael
+	 */
 	public Player(double x, double y) {
 		super(hp, x, y, 0, 0);
 		setFill(new Color(233, 205, 76));

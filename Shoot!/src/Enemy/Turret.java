@@ -12,18 +12,18 @@ public class Turret extends Enemy{
 	}
 	
 	/**
-	 * @author Michael
 	 * A stationary enemy that shoots
 	 * @param x x coord
 	 * @param y y coord
+	 * @author Michael
 	 */
 	public Turret(double x, double y) {
 		super(5, x, y);
 		setRadius(40);
 	}
-	
+
 	/**
-	 * override method
+	 * Turret's moveAround() don't do anything
 	 */
 	public void moveAround(int time) {
 		
