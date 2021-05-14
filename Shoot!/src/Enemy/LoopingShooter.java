@@ -17,23 +17,17 @@ public class LoopingShooter extends Enemy{
 		setRadius(40);
 	}
 	
-	public void draw(PApplet marker) {
-		super.draw(marker);
-		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
-
-	}
+//	public void draw(PApplet marker) {
+//		super.draw(marker);
+//		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
+//
+//	}
 	
 	@Override
 	public void moveAround(int time) {
 		// TODO Auto-generated method stub
 		setvx(Math.sin(Math.toRadians(time/10))*3);
 		setvy(Math.sin(Math.toRadians(time/10)+Math.PI/2)*3);
-	}
-
-	@Override
-	public void fire() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

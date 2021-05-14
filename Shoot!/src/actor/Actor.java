@@ -1,6 +1,7 @@
 package actor;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import Surfaces.DrawingSurface;
 import processing.core.PApplet;
@@ -56,7 +57,7 @@ public abstract class Actor {
 	/**
 	 * indicates action of the actor in 1 frame
 	 */
-	public void act(PApplet surface, int time) { //physical behavior
+	public void act(ArrayList<Actor> actors, PApplet surface, int time) { //physical behavior
 		double x = getX();
 		double y = getY();
 		x += vx;
@@ -89,8 +90,8 @@ public abstract class Actor {
 	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
-			vx = -1.5*vx;
-			vy = -1.5*vy;
+//			vx = -1.5*vx;
+//			vy = -1.5*vy;
 		//	isBouncing = true;
 	//	if(x <= getRadius()/2 || y <= getRadius()/2 || x >= windowWidth - getRadius()/2 || y >= windowHeight - getRadius()/2) {
 			bounce();

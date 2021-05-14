@@ -35,13 +35,13 @@ public class Player extends Actor{
     }
 	
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
-		super.act(surface, time);
+		super.act(actors, surface, time);
 		setvx(getvx()*friction);
 		setvy(getvy()*friction);
 		
 		for(Actor a : actors) {
 			if(intersects(a)) {
-				if(!(a instanceof Projectile)) {
+				if(!(a instanceof Projectile) && !(a == this)) {
 					bounce();
 					setBounce(true);
 				}

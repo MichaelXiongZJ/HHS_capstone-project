@@ -16,11 +16,11 @@ public class Turret extends Enemy{
 	}
 	
 	
-	public void draw(PApplet marker) {
-		super.draw(marker);
-		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
-
-	}
+//	public void draw(PApplet marker) {
+//		super.draw(marker);
+//		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
+//
+//	}
 
 
 	@Override
@@ -29,11 +29,4 @@ public class Turret extends Enemy{
 	}
 
 
-	@Override
-	public void fire() {
-		// TODO Auto-generated method stub
-	//	int time = millis();
-	}
-
-	
 }

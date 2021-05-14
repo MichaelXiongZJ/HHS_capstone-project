@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
+import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
@@ -19,6 +20,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Bullet> bullet;
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
+	private ArrayList<Enemy> enemies;
 	private PImage cursor;
 	private int time;
 	
@@ -26,15 +28,26 @@ public class DrawingSurface extends PApplet{
 	//	super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
+		enemies = new ArrayList<Enemy>();
 		bullet = new ArrayList<Bullet>();
 		player = new Player(100,100);
-		actors.add(new Turret(300,300));
-		actors.add(new Turret(400,300));
-		actors.add(new Turret(300,400));
-		actors.add(new Turret(400,400));
-		actors.add(new LoopingShooter(500, 300));
 		
-	//	actors.add(player);
+		enemies.add(new Turret(300,300));
+		enemies.add(new Turret(400,300));
+		enemies.add(new Turret(300,400));
+		enemies.add(new Turret(400,400));
+		enemies.add(new LoopingShooter(500, 300));
+		enemies.add(new LoopingShooter(500, 400));
+		
+//		actors.add(new Turret(300,300));
+//		actors.add(new Turret(400,300));
+//		actors.add(new Turret(300,400));
+//		actors.add(new Turret(400,400));
+//		actors.add(new LoopingShooter(500, 300));
+//		actors.add(new LoopingShooter(500, 400));
+		
+		actors.add(player);
+		actors.addAll(enemies);
 	}
 
 	/**
@@ -58,7 +71,7 @@ public class DrawingSurface extends PApplet{
 		
 		for(int a = 0; a < actors.size(); a++) {
 			actors.get(a).setWindowSizeActor(width, height);
-			actors.get(a).act(this, time);
+			actors.get(a).act(actors, this, time);
 			actors.get(a).draw(this);
 		}
 		player.act(actors, this, time);
@@ -115,14 +128,14 @@ public class DrawingSurface extends PApplet{
 			player = new Player(100,100);
 		}
 		for(int a = 0; a < actors.size(); a++) {
-			if(actors.get(a).getHp() == 0) {
+			if(actors.get(a).getHp() <= 0) {
 				actors.remove(a);
 				
 				a--;
 			}
 		}
 		for(int a = 0; a < bullet.size(); a++) {
-			if(bullet.get(a).getHp() == 0) {
+			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
 				
 				a--;
