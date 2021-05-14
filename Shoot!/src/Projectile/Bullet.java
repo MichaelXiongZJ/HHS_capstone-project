@@ -3,12 +3,14 @@ package Projectile;
 import java.util.ArrayList;
 
 import actor.Actor;
+import actor.Player;
 import processing.core.PApplet;
 
 public class Bullet extends Projectile{
 
 	private static int hp = 1;
 	private static double MAXSPEED;
+	private boolean ignorePlayer;
 	
 	public Bullet() {
 		super();
@@ -16,6 +18,12 @@ public class Bullet extends Projectile{
 	
 	public Bullet(double x, double y, double vx, double vy) {
 		super(hp, x, y, vx, vy);
+		setRadius(5);
+	}
+	
+	public Bullet(double x, double y, double vx, double vy, boolean ignorePlayer) {
+		super(hp, x, y, vx, vy);
+		this.ignorePlayer = ignorePlayer;
 		setRadius(5);
 	}
 	
@@ -36,8 +44,12 @@ public class Bullet extends Projectile{
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
 				if(!(other.get(a) instanceof Projectile)) {
-					setHp(getHp()-1);
-					other.get(a).setHp(other.get(a).getHp()-1);
+					if(ignorePlayer && other.get(a) instanceof Player) {
+
+					}else {
+						setHp(getHp()-1);
+						other.get(a).setHp(other.get(a).getHp()-1);
+					}
 				}
 				continue;
 			}

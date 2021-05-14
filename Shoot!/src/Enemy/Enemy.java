@@ -22,13 +22,19 @@ public abstract class Enemy extends Actor{
 	//	setFill(Color.BLACK);
 	}
 	
+	/**A drawing surface that will set a random color of the shape.
+	 * @param surface The surface PApplet draws on.
+	 * @author Michael
+	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
 		updateColor();//?????
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
 	}
 	
-	
+	/**
+	 * A 
+	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
 		super.act(actors, surface, time);
 		moveAround(time);

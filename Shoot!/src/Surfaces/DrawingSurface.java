@@ -102,7 +102,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void mousePressed() {
-		bullet.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
+		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
 		actors.add(bullet.get(bullet.size()-1));
 		bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
 //		for(int i = 0; i < bullet.size(); i++) {
@@ -132,14 +132,14 @@ public class DrawingSurface extends PApplet{
 			actors.add(player);
 		}
 		for(int a = 0; a < actors.size(); a++) {
-			if(actors.get(a).getHp() == 0) {
+			if(actors.get(a).getHp() <= 0) {
 				actors.remove(a);
 				
 				a--;
 			}
 		}
 		for(int a = 0; a < bullet.size(); a++) {
-			if(bullet.get(a).getHp() == 0) {
+			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
 				
 				a--;
