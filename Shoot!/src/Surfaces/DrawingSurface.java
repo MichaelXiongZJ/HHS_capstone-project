@@ -69,11 +69,12 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
+	 * 
 	 * draw the game with white background
 	 * @author Nont & Michael
 	 */
 	public void draw() {
-		cursor = super.loadImage("img/bullseye.png");
+		cursor = super.loadImage("src/bullseye.png");
 		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
@@ -153,6 +154,7 @@ public class DrawingSurface extends PApplet{
 	}
 
 	/**
+	 * return true if valid key is pressed.
 	 * @author Michael (based on Example provided by Mr. Shelby)
 	 * @param code contains key code
 	 * @return true if valid key is pressed.
@@ -192,6 +194,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
+	 * return window width
 	 * @author Nont
 	 * @return width of window
 	 */
@@ -200,6 +203,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
+	 * return window height
 	 * @author Nont
 	 * @return height of window
 	 */
@@ -208,8 +212,9 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * @author Nont & Michael
 	 * gets key WASD and move player accordingly
+	 * @author Nont & Michael
+	 * 
 	 */
 	public void controlPlayer() {
 		if (!player.getBounce()) {
@@ -237,8 +242,9 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * @author Nont & Michael
 	 * Shows debugging info
+	 * @author Nont & Michael
+	 * 
 	 */
 	public void displayInfo() {
 		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
@@ -256,8 +262,9 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * @author Nont
 	 * Enemies fire bullet automatically based on framerate.
+	 * @author Nont
+	 * 
 	 */
 	public void enemiesFire() {
 		if(frameCount%10 == 0) {
@@ -271,8 +278,9 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * @author Nont
 	 * Spawn enemies based on kill count.
+	 * @author Nont
+	 * 
 	 */
 	public void spawnEnemies() {
 		for (int j = 0; j < 1; j++) {
