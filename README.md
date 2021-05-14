@@ -16,7 +16,6 @@ Use WASD to move and mouse click to shoot.
 
 Features List (THE ONLY SECTION THAT CANNOT CHANGE LATER):
 Must-have Features:
-
 * 2D map that allows player to move freely
 * The player can fire bullets to hit targets
 * The player can move using WASD keys on his/her keyboard.
@@ -25,7 +24,6 @@ Must-have Features:
 
 
 Want-to-have Features:
-
 * The game will have multiple maps depending on difficulties.
 * Local multiplayer - co-op & pvp
 * Abilities for players, including speed boost, hp regeneration, etc.
@@ -34,7 +32,6 @@ Want-to-have Features:
 
 
 Stretch Features:
-
 * Boss fights - a single target with many skills as well as attack patterns.
 * Friendly bots to help with the fights.
 * Visual effects - Explosion, Muzzle flash, Shiny speed boost, Holy heal lights, etc.
@@ -64,5 +61,6 @@ Credits:
 * Processing.org
 
 
-* Nont:
+* Nont: Bullet Class
 * Michael: 
+[a]I really like this feature. A suggestion is that you can have the player be able to level up their weapons or abilities.
