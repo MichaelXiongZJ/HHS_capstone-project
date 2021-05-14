@@ -9,6 +9,7 @@ import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
+import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
 
@@ -48,6 +49,7 @@ public class DrawingSurface extends PApplet{
 		
 		actors.add(player);
 		actors.addAll(enemies);
+		actors.add(new Wall(100, 50, 500, 5));
 	}
 
 	/**

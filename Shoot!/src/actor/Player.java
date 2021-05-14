@@ -54,9 +54,6 @@ public class Player extends Actor{
 		}
 	}
 
-	public void fire() {
-		
-	}
 	
 	
 	
