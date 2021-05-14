@@ -33,7 +33,8 @@ public abstract class Enemy extends Actor{
 	}
 	
 	/**
-	 * A 
+	 * indicates action of the actor in 1 frame
+	 * @author Michael
 	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
 		super.act(actors, surface, time);
