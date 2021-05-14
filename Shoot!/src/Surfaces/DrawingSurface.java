@@ -9,6 +9,7 @@ import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
+import Projectile.PlayerBullet;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -101,7 +102,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void mousePressed() {
-		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
+		bullet.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
 		actors.add(bullet.get(bullet.size()-1));
 		bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
 //		for(int i = 0; i < bullet.size(); i++) {
