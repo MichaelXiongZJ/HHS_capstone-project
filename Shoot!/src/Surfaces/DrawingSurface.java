@@ -27,6 +27,10 @@ public class DrawingSurface extends PApplet{
 	private int time;
 	private int killCount = 0;
 	
+	/**
+	 * A surface which the game is being drawn on
+	 * @author Nont & Michael
+	 */
 	public DrawingSurface() {
 	//	super();
 		keys = new ArrayList<Integer>();
@@ -66,6 +70,7 @@ public class DrawingSurface extends PApplet{
 	
 	/**
 	 * draw the game with white background
+	 * @author Nont & Michael
 	 */
 	public void draw() {
 //		cursor = super.loadImage("src/bullseye.png");
@@ -111,6 +116,11 @@ public class DrawingSurface extends PApplet{
 	//	displayInfo();
 	}
 	
+	/**
+	 * Called every time mouse is pressed
+	 * shoots the bullet from player
+	 * @author Nont
+	 */
 	public void mousePressed() {
 		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
 		actors.add(bullet.get(bullet.size()-1));
@@ -123,19 +133,38 @@ public class DrawingSurface extends PApplet{
 //		bullet.draw(this);
 	}
 	
+	/**
+	 *Called every time a key is pressed
+	 *Set keys to the key pressed
+	 *@author Michael (based on Example provided by Mr. Shelby)
+	 */
 	public void keyPressed() {
 		keys.add(keyCode);
 	}
 
+	/**
+	 *Called every time a key is released
+	 *Remove keys when the key is released
+	 *@author Michael (based on Example provided by Mr. Shelby)
+	 */
 	public void keyReleased() {
 		while(keys.contains(keyCode))
 			keys.remove(new Integer(keyCode));
 	}
 
+	/**
+	 * @author Michael (based on Example provided by Mr. Shelby)
+	 * @param code contains key code
+	 * @return true if valid key is pressed.
+	 *
+	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
 	}
 	
+	/**
+	 * Check if the HP of each actors is 0, if it is then remove from arraylist
+	 */
 	public void checkDeath() {
 		if(player.getHp() == 0) {
 			player = new Player(100,100);
@@ -162,14 +191,26 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	/**
+	 * @author Nont
+	 * @return width of window
+	 */
 	public int getWindowWidth() {
 		return width;
 	}
 	
+	/**
+	 * @author Nont
+	 * @return height of window
+	 */
 	public int getWindowHeight() {
 		return height;
 	}
 	
+	/**
+	 * @author Nont & Michael
+	 * gets key WASD and move player accordingly
+	 */
 	public void controlPlayer() {
 		if (!player.getBounce()) {
 			if (isPressed(KeyEvent.VK_W)) {
@@ -195,6 +236,10 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	/**
+	 * @author Nont & Michael
+	 * Shows debugging info
+	 */
 	public void displayInfo() {
 		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
 		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 600, 70);
@@ -210,6 +255,10 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	/**
+	 * @author Nont
+	 * Enemies fire bullet automatically based on framerate.
+	 */
 	public void enemiesFire() {
 		if(frameCount%10 == 0) {
 			for(int a = 0; a < enemies.size(); a++) {
@@ -221,6 +270,10 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
+	/**
+	 * @author Nont
+	 * Spawn enemies based on kill count.
+	 */
 	public void spawnEnemies() {
 		for (int j = 0; j < 1; j++) {
 			for (; enemies.size()-3 < killCount/3;) {
