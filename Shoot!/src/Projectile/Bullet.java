@@ -52,8 +52,8 @@ public class Bullet extends Projectile{
 	public Bullet(double x, double y, double vx, double vy, boolean ignorePlayer) {
 		super(hp, x, y, vx, vy, ignorePlayer);
 //		this.ignorePlayer = ignorePlayer;
-		super.setSpeed(15);
-		setRadius(5);
+		super.setSpeed(8);
+		setRadius(10);
 	}
 	
 	/**

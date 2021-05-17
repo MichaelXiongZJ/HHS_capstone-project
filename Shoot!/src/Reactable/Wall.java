@@ -51,7 +51,7 @@ public class Wall extends Actor{
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a))) {
 				if(!(actors.get(a) == this)) {
-					actors.get(a).bounce();
+					actors.get(a).bounce(this);
 				}
 				continue;
 			}

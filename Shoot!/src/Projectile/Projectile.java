@@ -43,6 +43,7 @@ public abstract class Projectile extends Actor{
 	public Projectile(int hp, double x, double y, double vx, double vy, boolean ignorePlayer) {
 		super(hp, x, y, vx, vy);
 		this.ignorePlayer = ignorePlayer;
+		setFill(Color.YELLOW);
 	}
 	
 	/**
