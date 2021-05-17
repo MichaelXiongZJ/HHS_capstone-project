@@ -12,8 +12,8 @@ public class Bullet extends Projectile{
 
 	private static int hp = 1;
 	private static double MAXSPEED;
-	private boolean ignorePlayer;
-	private double speed;
+//	private boolean ignorePlayer;
+//	private double speed;
 	
 	/**
 	 * Bullet class default constructor
@@ -35,7 +35,7 @@ public class Bullet extends Projectile{
 	 */
 	public Bullet(double x, double y, double vx, double vy) {
 		super(hp, x, y, vx, vy);
-		speed = 5;
+		super.setSpeed(5);
 		setFill(new Color(153, 70, 57));
 		setRadius(20);
 	}
@@ -50,9 +50,9 @@ public class Bullet extends Projectile{
 	 * 
 	 */
 	public Bullet(double x, double y, double vx, double vy, boolean ignorePlayer) {
-		super(hp, x, y, vx, vy);
-		this.ignorePlayer = ignorePlayer;
-		speed = 15;
+		super(hp, x, y, vx, vy, ignorePlayer);
+//		this.ignorePlayer = ignorePlayer;
+		super.setSpeed(15);
 		setRadius(5);
 	}
 	
@@ -62,17 +62,17 @@ public class Bullet extends Projectile{
 	 * @param x2 x coord of target
 	 * @param y2 y coord of target
 	 */
-	public void moveTowards(double x2, double y2) {
-		double angle = Math.atan((y2-getY())/(x2-getX()));
-		if (x2-getX() < 0) {
-				setvx(-speed*Math.cos(angle));
-				setvy(-speed*Math.sin(angle));
-
-		}else {
-				setvx(speed*Math.cos(angle));
-				setvy(speed*Math.sin(angle));
-		}
-	}
+//	public void moveTowards(double x2, double y2) {
+//		double angle = Math.atan((y2-getY())/(x2-getX()));
+//		if (x2-getX() < 0) {
+//				setvx(-speed*Math.cos(angle));
+//				setvy(-speed*Math.sin(angle));
+//
+//		}else {
+//				setvx(speed*Math.cos(angle));
+//				setvy(speed*Math.sin(angle));
+//		}
+//	}
 	
 	/**
 	 * make bullet move
@@ -80,27 +80,27 @@ public class Bullet extends Projectile{
 	 * @author Michael
 	 * 
 	 */
-	public void act(ArrayList<Actor> other, PApplet surface, int time) {
-		super.act(other, surface, time);
-		
-		for(int a = 0; a < other.size(); a++) {
-			if(intersects(other.get(a))) {
-				if(!(other.get(a) instanceof Projectile)) {
-					if(ignorePlayer && other.get(a) instanceof Player) {
-						
-					}else if(!ignorePlayer && other.get(a) instanceof Enemy){
-						
-					}
-					else {
-						setHp(getHp()-1);
-						other.get(a).setHp(other.get(a).getHp()-1);
-					}
-				}
-				continue;
-			}
-		
-		}
-	}
+//	public void act(ArrayList<Actor> other, PApplet surface, int time) {
+//		super.act(other, surface, time);
+//		
+//		for(int a = 0; a < other.size(); a++) {
+//			if(intersects(other.get(a))) {
+//				if(!(other.get(a) instanceof Projectile)) {
+//					if(ignorePlayer && other.get(a) instanceof Player) {
+//						
+//					}else if(!ignorePlayer && other.get(a) instanceof Enemy){
+//						
+//					}
+//					else {
+//						setHp(getHp()-1);
+//						other.get(a).setHp(other.get(a).getHp()-1);
+//					}
+//				}
+//				continue;
+//			}
+//		
+//		}
+//	}
 	
 	/**
 	 * Draw the bullets
@@ -111,4 +111,5 @@ public class Bullet extends Projectile{
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
 	}
 	
+
 }
