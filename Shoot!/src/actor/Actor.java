@@ -213,12 +213,12 @@ public abstract class Actor {
 		
 		
 		//x
-		if(x < getRadius()/2 || x > surface.displayWidth - getRadius()/2) {
+		if(x < getRadius()/2 || x > surface.width - getRadius()/2) {
 			vx = -vx;
 			x += vx;
 		}
 		//y
-		if(y < getRadius()/2 || y > surface.displayHeight - getRadius()/2) {
+		if(y < getRadius()/2 || y > surface.height - getRadius()/2) {
 			vy = -vy;
 			y += vy;
 		}

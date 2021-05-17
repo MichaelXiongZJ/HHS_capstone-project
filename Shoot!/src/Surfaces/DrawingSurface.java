@@ -253,7 +253,6 @@ public class DrawingSurface extends PApplet{
 		text("killCount: " + killCount, 700, 180);
 		int b = 1;
 		for(int a = 0; a < actors.size(); a++) {
-
 			if(!(actors.get(a) instanceof Projectile)) {
 				text("Num: " + a + " HP: " + actors.get(a).getHp(), 700, 195+ b*15);
 				b++;
