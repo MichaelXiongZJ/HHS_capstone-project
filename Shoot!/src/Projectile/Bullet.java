@@ -35,11 +35,7 @@ public class Bullet extends Projectile{
 	 */
 	public Bullet(double x, double y, double vx, double vy) {
 		super(hp, x, y, vx, vy);
-<<<<<<< HEAD
-		speed = 2;
-=======
-		super.setSpeed(5);
->>>>>>> dd244c2852ba2246566694de9be61ec19f0e7e68
+		super.setSpeed(2);
 		setFill(new Color(153, 70, 57));
 		setRadius(25);
 	}
@@ -54,17 +50,10 @@ public class Bullet extends Projectile{
 	 * 
 	 */
 	public Bullet(double x, double y, double vx, double vy, boolean ignorePlayer) {
-<<<<<<< HEAD
-		super(hp, x, y, vx, vy);
-		this.ignorePlayer = ignorePlayer;
-		speed = 10;
-		setRadius(8);
-=======
 		super(hp, x, y, vx, vy, ignorePlayer);
 //		this.ignorePlayer = ignorePlayer;
 		super.setSpeed(15);
 		setRadius(5);
->>>>>>> dd244c2852ba2246566694de9be61ec19f0e7e68
 	}
 	
 	/**

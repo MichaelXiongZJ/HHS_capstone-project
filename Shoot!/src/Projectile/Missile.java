@@ -8,17 +8,17 @@ public class Missile extends Projectile {
 		super();
 	}
 
-	public Missile(double x, double y, double vx, double vy) {
-		super(hp, x, y, vx, vy);
-		super.setSpeed(5);
-		setFill(new Color(153, 70, 57));
-		setRadius(20);
-	}
-	
-	public Missile(double x, double y, double vx, double vy, boolean ignorePlayer) {
-		super(hp, x, y, vx, vy, ignorePlayer);
-		super.setSpeed(15);
-		setRadius(5);
-	}
+//	public Missile(double x, double y, double vx, double vy) {
+//		super(hp, x, y, vx, vy);
+//		super.setSpeed(5);
+//		setFill(new Color(153, 70, 57));
+//		setRadius(20);
+//	}
+//	
+//	public Missile(double x, double y, double vx, double vy, boolean ignorePlayer) {
+//		super(hp, x, y, vx, vy, ignorePlayer);
+//		super.setSpeed(15);
+//		setRadius(5);
+//	}
 	
 }
