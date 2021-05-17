@@ -118,6 +118,15 @@ public abstract class Projectile extends Actor{
 		}
 	}
 	
+	
+	public void bounceOffWindow(PApplet surface) {
+		if(getX() < getRadius()/2 || getY() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2 ||  getY() > surface.displayHeight - getRadius()/2) {
+			bounce();
+		}
+	}
+	
+	
+	
 	/**
 	 * set velocity towards target coordinate
 	 * @author Nont
