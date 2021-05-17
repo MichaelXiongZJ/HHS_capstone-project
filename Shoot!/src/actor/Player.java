@@ -61,7 +61,7 @@ public class Player extends Actor{
 						setvx(-a.getvx());
 						setvy(-a.getvy());
 					}else {
-						bounce();
+						bounce(a);
 						setBounce(true);
 					}
 				}

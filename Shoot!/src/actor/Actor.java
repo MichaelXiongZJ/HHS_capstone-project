@@ -84,86 +84,110 @@ public abstract class Actor {
 	 * bounces off object when hit
 	 * @author Michael
 	 */
-	public boolean bounce() {
-		vx = -1.5*vx;
-		x += vx;
-		vy = -1.5*vy;
-		y += vy;
-		
-		return true;
+	public boolean bounce(Actor other) {
+//		vx = -1.5*vx;
+//		x += vx;
+//		vy = -1.5*vy;
+//		y += vy;
+//		
+//		return true;
 
-//		double angle = getAngle(other);
-//		if(angle == 0 || angle == 360) {
+		double angle = getAngle(other);
+		if(angle == 0 || angle == 360) {
 //			if(vx == 0) {
 //				vx = 2;
 //			}else {
 //				vx = -vx;
 //			}
-//		}else if(angle>0 && angle<90) {
+			vx = -vx;
+			x += vx;
+		}else if(angle>0 && angle<90) {
 //			if(vx == 0) {
 //				vx = -2;
 //			}else {
 //				vx = -vx;
 //			}
+			vx = -vx;
+			x += vx;
 //			if(vy == 0) {
 //				vy = 2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}else if(angle == 90) {
+			vy = -vy;
+			y += vy;
+		}else if(angle == 90) {
 //			if(vy == 0) {
 //				vy = -2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}else if(angle>90 && angle<180) {
+			vy = -vy;
+			y += vy;
+		}else if(angle>90 && angle<180) {
 //			if(vx == 0) {
 //				vx = 2;
 //			}else {
 //				vx = -vx;
 //			}
+			vx = -vx;
+			x += vx;
 //			if(vy == 0) {
 //				vy = 2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}else if(angle == 180) {
+			vy = -vy;
+			y += vy;
+		}else if(angle == 180) {
 //			if(vx == 0) {
 //				vx = -2;
 //			}else {
 //				vx = -vx;
 //			}
-//		}else if(angle>180 && angle<270) {	
+			vx = -vx;
+			x += vx;
+		}else if(angle>180 && angle<270) {	
 //			if(vx == 0) {
 //				vx = -2;
 //			}else {
 //				vx = -vx;
 //			}
+			vx = -vx;
+			x += vx;
 //			if(vy == 0) {
 //				vy = 2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}else if(angle == 270) {
+			vy = -vy;
+			y += vy;
+		}else if(angle == 270) {
 //			if(vy == 0) {
 //				vy = 2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}else if(angle>270 && angle <360) {
+			vy = -vy;
+			y += vy;
+		}else if(angle>270 && angle <360) {
 //			if(vx == 0) {
 //				vx = 2;
 //			}else {
 //				vx = -vx;
 //			}
+			vx = -vx;
+			x += vx;
 //			if(vy == 0) {
 //				vy = 2;
 //			}else {
 //				vy = -vy;
 //			}
-//		}
-//		
-//		return true;
+			vy = -vy;
+			y += vy;
+		}
+		
+		return true;
 	}
 	
 	
