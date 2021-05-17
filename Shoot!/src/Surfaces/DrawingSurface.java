@@ -168,21 +168,21 @@ public class DrawingSurface extends PApplet{
 	public void checkDeath() {
 		if(player.getHp() == 0) {
 			player = new Player(100,100);
-			actors.add(player);
+			actors.set(0, player);
 		}
-		for(int a = 0; a < actors.size(); a++) {
+		for(int a = 1; a < actors.size(); a++) {
 			if(actors.get(a).getHp() <= 0 && !actors.get(a).getInvincible()) {
 				actors.remove(a);
 				a--;
 			}
 		}
-		for(int a = 0; a < bullet.size(); a++) {
+		for(int a = 1; a < bullet.size(); a++) {
 			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
 				a--;
 			}
 		}
-		for(int a = 0; a < enemies.size(); a++) {
+		for(int a = 1; a < enemies.size(); a++) {
 			if(enemies.get(a).getHp() <= 0) {
 				enemies.remove(a);
 				killCount++;
