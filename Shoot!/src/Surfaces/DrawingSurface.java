@@ -113,7 +113,7 @@ public class DrawingSurface extends PApplet{
 		textSize(14);
 		text("Player HP: " + player.getHp(), 700, 100);
 		//debug
-	//	displayInfo();
+		displayInfo();
 	}
 	
 	/**
@@ -241,17 +241,17 @@ public class DrawingSurface extends PApplet{
 	 * Shows debugging info
 	 */
 	public void displayInfo() {
-		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 600, 60);
-		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 600, 70);
-		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 600, 80);
-		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 600, 90);
-		text("mouseX: " + mouseX, 600, 100);
-		text("mouseY: " + mouseY, 600, 110);
-		text("Player HP: " + player.getHp(), 600, 120);
-		text("FrameRate: " + frameCount, 600, 130);
-		text("killCount: " + killCount, 600, 140);
+		text("x: " + (double)Math.round(player.getX()* 100000d) / 100000d, 700, 60);
+		text("y: " + (double)Math.round(player.getY()* 100000d) / 100000d, 700, 75);
+		text("vx: " + (double)Math.round(player.getvx()* 100000d) / 100000d, 700, 90);
+		text("vy: " + (double)Math.round(player.getvy()* 100000d) / 100000d, 700, 105);
+		text("mouseX: " + mouseX, 700, 120);
+		text("mouseY: " + mouseY, 700, 135);
+		text("Player HP: " + player.getHp(), 700, 150);
+		text("FrameRate: " + frameCount, 700, 165);
+		text("killCount: " + killCount, 700, 180);
 		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " HP: " + actors.get(a).getHp(), 600, 150+a*10);
+			text("Num: " + a + " HP: " + actors.get(a).getHp(), 700, 195+a*15);
 		}
 	}
 	
@@ -260,12 +260,12 @@ public class DrawingSurface extends PApplet{
 	 * Enemies fire bullet automatically based on framerate.
 	 */
 	public void enemiesFire() {
-		if(frameCount%10 == 0) {
+		if(frameCount%20 == 0) {
 			for(int a = 0; a < enemies.size(); a++) {
 				bullet.add(new Bullet(enemies.get(a).getX(), enemies.get(a).getY(), enemies.get(a).getvx(), enemies.get(a).getvy()));
 				actors.add(bullet.get(bullet.size()-1));
 //				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+1, enemies.get(a).getY()+1);
-				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+Math.cos(7*frameCount/180.0*Math.PI), enemies.get(a).getY()-Math.sin(7*frameCount/180.0*Math.PI));
+				bullet.get(bullet.size()-1).moveTowards(enemies.get(a).getX()+Math.cos(1*frameCount/180.0*Math.PI), enemies.get(a).getY()-Math.sin(1*frameCount/180.0*Math.PI));
 			}
 		}
 	}

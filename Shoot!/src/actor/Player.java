@@ -9,7 +9,7 @@ import processing.core.PApplet;
 
 public class Player extends Actor{
 	
-	private static int hp = 50;
+	private static int hp = 10;
 	private double friction;
 	
 	public Player() {

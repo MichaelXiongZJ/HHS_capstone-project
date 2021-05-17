@@ -183,10 +183,21 @@ public abstract class Actor {
 	 * @author Michael
 	 */
 	public void bounceOffWindow(PApplet surface) {
-		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
-			bounce();
-		}
+//		if(x <= getRadius()/2 || y <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
+//			bounce();
+//		}
 		
+		
+		//x
+		if(x <= getRadius()/2 || x >= surface.displayWidth - getRadius()/2) {
+			vx = -vx;
+			x += vx;
+		}
+		//y
+		if(y <= getRadius()/2 || y >= surface.displayHeight - getRadius()/2) {
+			vy = -vy;
+			y += vy;
+		}
 //		
 //		if(!((x>=this.getX()) && (x<=(this.getX()+surface.displayWidth)) && (y>=this.getY()) && (y<=(this.getY()+surface.displayHeight)))) {
 //			if(this instanceof Projectile) {
