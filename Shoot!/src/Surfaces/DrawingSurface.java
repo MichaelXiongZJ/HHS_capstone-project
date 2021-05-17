@@ -10,6 +10,7 @@ import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
+import Projectile.Projectile;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -250,8 +251,14 @@ public class DrawingSurface extends PApplet{
 		text("Player HP: " + player.getHp(), 700, 150);
 		text("FrameRate: " + frameCount, 700, 165);
 		text("killCount: " + killCount, 700, 180);
+		int b = 1;
 		for(int a = 0; a < actors.size(); a++) {
-			text("Num: " + a + " HP: " + actors.get(a).getHp(), 700, 195+a*15);
+
+			if(!(actors.get(a) instanceof Projectile)) {
+				text("Num: " + a + " HP: " + actors.get(a).getHp(), 700, 195+ b*15);
+				b++;
+			}
+
 		}
 	}
 	
