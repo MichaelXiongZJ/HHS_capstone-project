@@ -177,13 +177,13 @@ public class DrawingSurface extends PApplet{
 				a--;
 			}
 		}
-		for(int a = 1; a < bullet.size(); a++) {
+		for(int a = 0; a < bullet.size(); a++) {
 			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
 				a--;
 			}
 		}
-		for(int a = 1; a < enemies.size(); a++) {
+		for(int a = 0; a < enemies.size(); a++) {
 			if(enemies.get(a).getHp() <= 0) {
 				enemies.remove(a);
 				killCount++;
@@ -302,4 +302,5 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 	}
+
 }
