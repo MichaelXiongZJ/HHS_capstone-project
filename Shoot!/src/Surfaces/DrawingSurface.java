@@ -11,6 +11,8 @@ import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
 import Projectile.Projectile;
+import Reactable.Buff;
+import Reactable.Medkit;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -24,6 +26,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private ArrayList<Enemy> enemies;
+	private ArrayList<Buff> buffs;
 	private PImage cursor;
 	private int time;
 	private int killCount = 0;
@@ -38,6 +41,7 @@ public class DrawingSurface extends PApplet{
 		actors = new ArrayList<Actor>();
 		enemies = new ArrayList<Enemy>();
 		bullet = new ArrayList<Bullet>();
+		buffs = new ArrayList<Buff>();
 		player = new Player(100,100);
 		
 		enemies.add(new Turret(300,300));
@@ -46,7 +50,7 @@ public class DrawingSurface extends PApplet{
 		enemies.add(new Turret(400,400));
 		enemies.add(new LoopingShooter(500, 300));
 		enemies.add(new LoopingShooter(500, 400));
-		
+		buffs.add(new Medkit(200, 200));
 //		actors.add(new Turret(300,300));
 //		actors.add(new Turret(400,300));
 //		actors.add(new Turret(300,400));

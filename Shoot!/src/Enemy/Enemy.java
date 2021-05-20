@@ -39,9 +39,9 @@ public abstract class Enemy extends Actor{
 	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
-//		marker.push();
+		marker.push();
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
-//		marker.pop();
+		marker.pop();
 	}
 	
 	/**

@@ -1,5 +1,5 @@
 package Reactable;
 
-public class CancellableBullet {
+public class CancellableBullet extends Buff{
 
 }
