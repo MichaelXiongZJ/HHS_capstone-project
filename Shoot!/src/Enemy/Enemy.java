@@ -74,7 +74,11 @@ public abstract class Enemy extends Actor{
 	 * Update color based on hp
 	 */
 	public void updateColor() {
-		int color = (int) (254.0*(((double)MAX_HP-(double)getHp())/(double)MAX_HP));
+		int temp = getHp();
+		if(temp < 0) {
+			temp = 0;
+		}
+		int color = (int) (255.0*(((double)MAX_HP-(double)temp)/(double)MAX_HP));
 		setFill(new Color(color, color, color));
 	}
 	

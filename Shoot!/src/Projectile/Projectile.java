@@ -101,13 +101,17 @@ public abstract class Projectile extends Actor{
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
-				if(!(other.get(a) instanceof Projectile)) {
-					if(ignorePlayer && other.get(a) instanceof Player) {
-						
-					}else if(!ignorePlayer && other.get(a) instanceof Enemy){
-						
-					}
-					else {
+				if(ignorePlayer && other.get(a) instanceof Player) {
+					
+					
+				}else if(!ignorePlayer && other.get(a) instanceof Enemy){
+					
+				}
+				else {
+					if(getCancelBullet()) {
+						setHp(getHp()-1);
+						other.get(a).setHp(other.get(a).getHp()-1);
+					}else if(!(other.get(a) instanceof Projectile)) {
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
 					}
@@ -159,5 +163,9 @@ public abstract class Projectile extends Actor{
 	 */
 	public double getSpeed() {
 		return speed;
+	}
+	
+	public boolean getIgnore() {
+		return ignorePlayer;
 	}
 }
