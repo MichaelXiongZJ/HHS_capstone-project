@@ -28,7 +28,7 @@ public abstract class Projectile extends Actor{
 	 */
 	public Projectile(int hp, double x, double y, double vx, double vy) {
 		super(hp, x, y , vx, vy);
-		setFill(Color.YELLOW);
+	//	setFill(Color.YELLOW);
 	}
 	
 	/**

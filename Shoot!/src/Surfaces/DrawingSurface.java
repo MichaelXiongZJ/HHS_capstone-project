@@ -98,14 +98,11 @@ public class DrawingSurface extends PApplet{
 		if(enemies.size() <= 3) 
 			spawnEnemies();
 		
-		for(int a = 0; a< enemies.size(); a++) {
-			enemies.get(a).updateColor();
-		}
-		
 		enemiesFire();
 		
 		checkDeath();
 		
+		pushMatrix();
 		fill(0);
 		textSize(17);
 		text("Use WASD keys to move around",250, 50);
@@ -115,6 +112,7 @@ public class DrawingSurface extends PApplet{
 		text("Player HP: " + player.getHp(), 700, 100);
 		//debug
 		displayInfo();
+		popMatrix();
 	}
 	
 	/**

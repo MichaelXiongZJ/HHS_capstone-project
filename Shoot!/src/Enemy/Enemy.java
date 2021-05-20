@@ -10,7 +10,8 @@ import Projectile.Projectile;
 
 public abstract class Enemy extends Actor{
 
-	private int MAX_HP, angle;
+	private static int MAX_HP;
+	private int angle;
 	private boolean isRotate;
 	/**
 	 * @author Michael
@@ -29,7 +30,7 @@ public abstract class Enemy extends Actor{
 	public Enemy(int hp, double x, double y) {
 		super(hp, x, y, 0, 0);
 		MAX_HP = hp;
-	//	setFill(Color.BLACK);
+//		setFill(Color.BLACK);
 	}
 	
 	/**A drawing surface that will set a random color of the shape.
@@ -38,7 +39,6 @@ public abstract class Enemy extends Actor{
 	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
-		updateColor();//?????
 //		marker.push();
 		marker.circle((float)getX(),(float)getY(),(float)(getRadius()));
 //		marker.pop();
@@ -50,8 +50,8 @@ public abstract class Enemy extends Actor{
 	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
 		super.act(actors, surface, time);
+		updateColor();
 		moveAround(time);
-		
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a))) {
 				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this)) {
@@ -74,7 +74,8 @@ public abstract class Enemy extends Actor{
 	 * Update color based on hp
 	 */
 	public void updateColor() {
-		setFill(new Color(255*((getHp()-MAX_HP)/MAX_HP)));
+		int color = (int) (255.0*(((double)MAX_HP-(double)getHp())/(double)MAX_HP));
+		setFill(new Color(color, color, color));
 	}
 	
 }
