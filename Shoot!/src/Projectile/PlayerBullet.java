@@ -19,7 +19,7 @@ public class PlayerBullet extends Bullet{
 	
 	
 	public void act(ArrayList<Actor> other, PApplet surface, int time) {
-		super.act(other, surface, time);
+		super.actProjectile(other, surface, time);
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
