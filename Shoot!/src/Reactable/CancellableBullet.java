@@ -18,6 +18,7 @@ public class CancellableBullet extends Buff{
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a)) && actors.get(a) instanceof Player) {
 				cancelBullet();
+				setHp(0);
 			}
 		}
 	}
