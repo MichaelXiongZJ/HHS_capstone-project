@@ -101,14 +101,8 @@ public abstract class Projectile extends Actor{
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
-				if(ignorePlayer && other.get(a) instanceof Player) {
-					
-					
-				}else if(!ignorePlayer && other.get(a) instanceof Enemy){
-					
-				}
-				else {
-					if(getCancelBullet()) {
+				if(!(ignorePlayer && other.get(a) instanceof Player) && !(other.get(a) instanceof Enemy)) {
+					if(getCancelBullet() && other.get(a) != this) {
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
 					}else if(!(other.get(a) instanceof Projectile)) {
