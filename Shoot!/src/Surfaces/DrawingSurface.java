@@ -25,6 +25,7 @@ public class DrawingSurface extends PApplet{
 	
 	private Player player;
 	private ArrayList<Bullet> bullet;
+	private ArrayList<PlayerBullet> playerBullets;
 	private ArrayList<Actor> actors;
 	private ArrayList<Integer> keys;
 	private ArrayList<Enemy> enemies;
@@ -45,6 +46,7 @@ public class DrawingSurface extends PApplet{
 		actors = new ArrayList<Actor>();
 		enemies = new ArrayList<Enemy>();
 		bullet = new ArrayList<Bullet>();
+		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
 		player = new Player(100,100);
 		
@@ -104,6 +106,14 @@ public class DrawingSurface extends PApplet{
 			actors.get(a).draw(this);
 		}
 
+		for(int a = 0; a < bullet.size(); a++) {
+			bullet.get(a).act(actors, this, time);
+		}
+		
+		for(int a = 0; a < playerBullets.size(); a++) {
+			playerBullets.get(a).act(actors, this, time);
+		}
+		
 		for(int a = 0; a < buffs.size(); a++) {
 			buffs.get(a).act(actors);
 			buffs.get(a).draw(this);
@@ -147,9 +157,9 @@ public class DrawingSurface extends PApplet{
 	public void mousePressed() {
 
 		if (activeScreen instanceof SecondScreen) {
-			bullet.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
-			actors.add(bullet.get(bullet.size() - 1));
-			bullet.get(bullet.size() - 1).moveTowards(mouseX, mouseY);
+			playerBullets.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
+			actors.add(playerBullets.get(playerBullets.size() - 1));
+			playerBullets.get(playerBullets.size() - 1).moveTowards(mouseX, mouseY);
 		}
 		activeScreen.mousePressed();
 //		for(int i = 0; i < bullet.size(); i++) {
@@ -206,6 +216,12 @@ public class DrawingSurface extends PApplet{
 		for(int a = 0; a < bullet.size(); a++) {
 			if(bullet.get(a).getHp() <= 0) {
 				bullet.remove(a);
+				a--;
+			}
+		}
+		for(int a = 0; a < playerBullets.size(); a++) {
+			if(playerBullets.get(a).getHp() <= 0) {
+				playerBullets.remove(a);
 				a--;
 			}
 		}
