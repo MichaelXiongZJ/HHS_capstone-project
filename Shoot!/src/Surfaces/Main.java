@@ -9,31 +9,31 @@ import processing.core.PApplet;
 
 
 public class Main extends JFrame{
-	/**
-	 * executes the program
-	 * 
-	 * @param args argument for the main method
-	 */
-	public static void main(String args[]) {
-		DrawingSurface drawing = new DrawingSurface();
-		PApplet.runSketch(new String[]{""}, drawing);
-		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
-		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
-		JFrame window = (JFrame)canvas.getFrame();
-
-		window.setLocation(300,150);
-		window.setSize(1000, 800);
-		window.setMinimumSize(new Dimension(500,500));
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(false);
-
-		window.setVisible(true);
-		canvas.requestFocus();
-	}
+//	/**
+//	 * executes the program
+//	 * 
+//	 * @param args argument for the main method
+//	 */
+//	public static void main(String args[]) {
+//		DrawingSurface drawing = new DrawingSurface();
+//		PApplet.runSketch(new String[]{""}, drawing);
+//		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
+//		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
+//		JFrame window = (JFrame)canvas.getFrame();
+//
+//		window.setLocation(300,150);
+//		window.setSize(1000, 800);
+//		window.setMinimumSize(new Dimension(500,500));
+//		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		window.setResizable(false);
+//
+//		window.setVisible(true);
+//		canvas.requestFocus();
+//	}
+//	
 	
 	
 	
-	/*
 	private JPanel cardPanel;
 	
 	private Menu panel1;    
@@ -50,10 +50,10 @@ public class Main extends JFrame{
 	    
 		panel1 = new Menu(this);    
 	    panel2 = new DrawingSurface();
-	    panel2.init();
+//	    panel2.init();
 	    
 	    cardPanel.add(panel1,"1");
-	    cardPanel.add(panel2,"2");
+//	    cardPanel.add(panel2,"2");
 	    
 	    add(cardPanel);
 	
@@ -63,13 +63,13 @@ public class Main extends JFrame{
 
 	public static void main(String[] args)
 	{
-		Main w = new Main("AP Animation Demo");
+		Main w = new Main("Demo");
 	}
-  
-	public void changePanel() {
-		((CardLayout)cardPanel.getLayout()).next(cardPanel);
-		panel2.requestFocus();
-	}
-	*/
+//  
+//	public void changePanel() {
+//		((CardLayout)cardPanel.getLayout()).next(cardPanel);
+//		panel2.requestFocus();
+//	}
+	
   
 }
