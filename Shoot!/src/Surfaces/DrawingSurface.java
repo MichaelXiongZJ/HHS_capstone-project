@@ -197,6 +197,12 @@ public class DrawingSurface extends PApplet{
 				a--;
 			}
 		}
+		for(int a = 0; a < buffs.size(); a++) {
+			if(buffs.get(a).getHp() <= 0) {
+				buffs.remove(a);
+				a--;
+			}
+		}
 	}
 	
 	/**
