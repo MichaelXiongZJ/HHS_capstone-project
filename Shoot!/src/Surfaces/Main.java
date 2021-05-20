@@ -8,7 +8,7 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
 
-public class Main extends JFrame{
+public class Main{
 	/**
 	 * executes the program
 	 * 

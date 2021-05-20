@@ -32,6 +32,7 @@ public class DrawingSurface extends PApplet{
 	private int time;
 	private int killCount = 0;
 	private Screen activeScreen;
+	private ArrayList<Screen> screens;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -67,6 +68,13 @@ public class DrawingSurface extends PApplet{
 //		actors.add(new Wall(400, 750, 700, 20));
 //		actors.add(new Wall(50, 400, 20, 700));
 //		actors.add(new Wall(750, 400, 20, 700));
+		
+		screens = new ArrayList<Screen>();
+		FirstScreen screen1 = new FirstScreen(this);
+		SecondScreen screen2 = new SecondScreen(this);
+		screens.add(screen1);
+		screens.add(screen2);
+		activeScreen = screens.get(0);
 	}
 
 	/**
@@ -81,6 +89,9 @@ public class DrawingSurface extends PApplet{
 	 * @author Nont & Michael
 	 */
 	public void draw() {
+		activeScreen.draw();
+	}
+	public void draw2() {
 //		cursor = super.loadImage("src/bullseye.png");
 //		cursor(cursor);
 		time = millis();
@@ -133,9 +144,13 @@ public class DrawingSurface extends PApplet{
 	 * @author Nont
 	 */
 	public void mousePressed() {
-		bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
-		actors.add(bullet.get(bullet.size()-1));
-		bullet.get(bullet.size()-1).moveTowards(mouseX, mouseY);
+		
+		if (activeScreen instanceof SecondScreen) {
+			bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
+			actors.add(bullet.get(bullet.size() - 1));
+			bullet.get(bullet.size() - 1).moveTowards(mouseX, mouseY);
+		}
+		activeScreen.mousePressed();
 //		for(int i = 0; i < bullet.size(); i++) {
 //			bullet.get(i).draw(this);
 //		}

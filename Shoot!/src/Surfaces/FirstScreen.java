@@ -39,7 +39,7 @@ public class FirstScreen extends Screen {
 
 	
 	public void mousePressed() {
-		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY)/*)*/;
 		if (button.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 	}
