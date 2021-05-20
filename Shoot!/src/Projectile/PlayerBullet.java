@@ -20,7 +20,7 @@ public class PlayerBullet extends Bullet{
 	
 	
 	
-	public void act(ArrayList<Actor> other, PApplet surface, int time, boolean i) {
+	public void act(ArrayList<Actor> other, PApplet surface, int time) {
 		super.actProjectile(other, surface, time);
 		
 		for(int a = 0; a < other.size(); a++) {
