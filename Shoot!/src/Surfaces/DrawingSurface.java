@@ -335,8 +335,8 @@ public class DrawingSurface extends PApplet{
 		}
 	}
 	
-	public void switchScreen(int i) {
-		activeScreen = screens.get(i);
-	}
+//	public void switchScreen(int i) {
+//		activeScreen = screens.get(i);
+//	}
 
 }

@@ -23,12 +23,14 @@ public class PlayerBullet extends Bullet{
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
-				if(getCancelBullet() && other.get(a) != this) {
-					setHp(getHp()-1);
-					other.get(a).setHp(other.get(a).getHp()-1);
-				}else if(!(other.get(a) instanceof Projectile)){
-					setHp(getHp()-1);
-					other.get(a).setHp(other.get(a).getHp()-1);
+				if(!(other.get(a) instanceof Player) && other.get(a) != this) {
+					if(getCancelBullet()) {
+						setHp(getHp()-1);
+						other.get(a).setHp(other.get(a).getHp()-1);
+					}else if(!(other.get(a) instanceof Projectile)){
+						setHp(getHp()-1);
+						other.get(a).setHp(other.get(a).getHp()-1);
+					}
 				}
 				continue;
 			}
