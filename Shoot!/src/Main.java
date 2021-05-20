@@ -22,9 +22,9 @@ public class Main extends JFrame{
 
 		window.setLocation(300,150);
 		window.setSize(1000, 800);
-		window.setMinimumSize(new Dimension(100,100));
+		window.setMinimumSize(new Dimension(500,500));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setResizable(true);
+		window.setResizable(false);
 
 		window.setVisible(true);
 		canvas.requestFocus();
