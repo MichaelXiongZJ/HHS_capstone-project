@@ -90,32 +90,6 @@ public abstract class Projectile extends Actor{
 		return true;
 	}
 	
-	/**
-	 * make bullet move
-	 * check if it hits other actors
-	 * @author Michael
-	 * 
-	 */
-	public void act(ArrayList<Actor> other, PApplet surface, int time) {
-		super.act(other, surface, time);
-		
-		for(int a = 0; a < other.size(); a++) {
-			if(intersects(other.get(a))) {
-				if(!(ignorePlayer && other.get(a) instanceof Player) && !(other.get(a) instanceof Enemy)) {
-					if(getCancelBullet() && other.get(a) != this) {
-						setHp(getHp()-1);
-						other.get(a).setHp(other.get(a).getHp()-1);
-					}else if(!(other.get(a) instanceof Projectile)) {
-						setHp(getHp()-1);
-						other.get(a).setHp(other.get(a).getHp()-1);
-					}
-				}
-				continue;
-			}
-		
-		}
-	}
-	
 	
 	public void bounceOffWindow(PApplet surface) {
 		if(getX() < getRadius()/2 || getY() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2 ||  getY() > surface.displayHeight - getRadius()/2) {
@@ -161,5 +135,9 @@ public abstract class Projectile extends Actor{
 	
 	public boolean getIgnore() {
 		return ignorePlayer;
+	}
+	
+	public void setIgnorePlayer(boolean a) {
+		ignorePlayer = a;
 	}
 }
