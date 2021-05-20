@@ -193,7 +193,7 @@ public class DrawingSurface extends PApplet{
 	 * Check if the HP of each actors is 0, if it is then remove from arraylist
 	 */
 	public void checkDeath() {
-		if(player.getHp() == 0) {
+		if(player.getHp() <= 0) {
 			player = new Player(100,100);
 			actors.set(0, player);
 		}
