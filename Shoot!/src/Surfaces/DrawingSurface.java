@@ -33,7 +33,7 @@ public class DrawingSurface extends PApplet{
 	 * @author Nont & Michael
 	 */
 	public DrawingSurface() {
-	//	super();
+		super();
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		enemies = new ArrayList<Enemy>();
