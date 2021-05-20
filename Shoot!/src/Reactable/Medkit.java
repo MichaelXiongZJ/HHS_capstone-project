@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import actor.Actor;
 import actor.Player;
-import processing.core.PApplet;
 
 public class Medkit extends Buff{
 
@@ -15,7 +14,7 @@ public class Medkit extends Buff{
 		healthAmount = 5;
 	}
 	
-	public void act(ArrayList<Actor> actors, PApplet surface, int time) {
+	public void act(ArrayList<Actor> actors) {
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a)) && actors.get(a) instanceof Player) {
 				actors.get(a).setHp(getHp()+healthAmount);

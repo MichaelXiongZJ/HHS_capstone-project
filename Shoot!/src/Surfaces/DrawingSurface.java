@@ -88,6 +88,11 @@ public class DrawingSurface extends PApplet{
 			actors.get(a).act(actors, this, time);
 			actors.get(a).draw(this);
 		}
+
+		for(int a = 0; a < buffs.size(); a++) {
+			buffs.get(a).act(actors);
+			buffs.get(a).draw(this);
+		}
 		player.act(actors, this, time);
 	//	player.draw(this);
 		

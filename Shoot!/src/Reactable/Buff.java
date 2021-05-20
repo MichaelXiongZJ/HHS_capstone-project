@@ -20,4 +20,8 @@ public abstract class Buff extends Actor{
 		marker.pop();
 	}
 	
+	public void act(ArrayList<Actor> actors) {
+		
+	}
+	
 }
