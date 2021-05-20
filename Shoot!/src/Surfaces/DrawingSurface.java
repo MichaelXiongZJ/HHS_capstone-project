@@ -30,6 +30,7 @@ public class DrawingSurface extends PApplet{
 	private PImage cursor;
 	private int time;
 	private int killCount = 0;
+	private Screen activeScreen;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -314,6 +315,10 @@ public class DrawingSurface extends PApplet{
 					j--;
 			}
 		}
+	}
+	
+	public void switchScreen(int i) {
+		activeScreen = screens.get(i);
 	}
 
 }
