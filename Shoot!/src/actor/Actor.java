@@ -16,6 +16,7 @@ public abstract class Actor {
 	private Color strokeColor, fillColor;
 	private boolean filled, isBouncing, invincible;
 	private int windowWidth, windowHeight;
+	private static boolean cancelBullet;
 	
 	/**
 	 * Initialize actor with default values
@@ -528,6 +529,12 @@ public abstract class Actor {
 		return invincible;
 	}
 	
+	public boolean getCancelBullet() {
+		return cancelBullet;
+	}
 	
+	public void cancelBullet() {
+		cancelBullet = true;
+	}
 	
 }

@@ -101,7 +101,7 @@ public class Bullet extends Projectile{
 //		
 //		}
 //	}
-	
+
 	/**
 	 * Draw the bullets
 	 * @author Nont
