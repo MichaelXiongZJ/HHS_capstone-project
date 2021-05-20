@@ -49,7 +49,7 @@ public class Bullet extends Projectile{
 		
 		for(int a = 0; a < other.size(); a++) {
 			if(intersects(other.get(a))) {
-				if(other.get(a) instanceof Player) {
+				if(!(other.get(a) instanceof Player)) {
 					setHp(getHp()-1);
 					other.get(a).setHp(other.get(a).getHp()-1);
 				}

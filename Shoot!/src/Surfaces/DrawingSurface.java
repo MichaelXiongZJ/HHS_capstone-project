@@ -102,16 +102,20 @@ public class DrawingSurface extends PApplet{
 		
 		for(int a = actors.size() - 1; a >= 0; a--) {
 			actors.get(a).setWindowSizeActor(width, height);
-			actors.get(a).act(actors, this, time);
+	//		actors.get(a).act(actors, this, time);
 			actors.get(a).draw(this);
 		}
+		
+		for(int a = enemies.size()-1; a >=0; a--) {
+			enemies.get(a).act(actors, this, time);
+		}
 
-		for(int a = 0; a < bullet.size(); a++) {
+		for(int a = bullet.size() - 1; a >= 0;  a--) {
 			bullet.get(a).act(actors, this, time);
 		}
 		
-		for(int a = 0; a < playerBullets.size(); a++) {
-			playerBullets.get(a).act(actors, this, time);
+		for(int a = playerBullets.size() -1 ; a >= 0; a--) {
+			playerBullets.get(a).act(actors, this, time, true);
 		}
 		
 		for(int a = 0; a < buffs.size(); a++) {
