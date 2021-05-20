@@ -58,6 +58,10 @@ public class Bullet extends Projectile{
 		
 		}
 	}
+	
+	public void actProjectile(ArrayList<Actor> other, PApplet surface, int time) {
+		super.act(other, surface, time);
+	}
 
 	
 	
