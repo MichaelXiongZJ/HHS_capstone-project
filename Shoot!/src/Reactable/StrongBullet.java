@@ -7,20 +7,23 @@ import Projectile.PlayerBullet;
 import actor.Actor;
 import actor.Player;
 
-public class CancellableBullet extends Buff{
+public class StrongBullet extends Buff{
 
+	private int health;
 	
-	public CancellableBullet(int x, int y) {
+	public StrongBullet(int x, int y) {
 		super(x, y);
-		setFill(Color.PINK);
+		health = 3;
+		setFill(Color.BLUE);
 	}
-	
+
 	public void act(ArrayList<Actor> actors) {
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a)) && actors.get(a) instanceof Player) {
-				PlayerBullet.cancelBullet();
+				PlayerBullet.setHealth(2);
 				setHp(0);
 			}
 		}
 	}
+	
 }
