@@ -16,6 +16,7 @@ import Projectile.Projectile;
 import Reactable.Buff;
 import Reactable.CancellableBullet;
 import Reactable.Medkit;
+import Reactable.StrongBullet;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -60,6 +61,7 @@ public class DrawingSurface extends PApplet{
 		enemies.add(new LoopingShooter(600, 400));
 		buffs.add(new Medkit(200, 200));
 		buffs.add(new CancellableBullet(200, 300));
+		buffs.add(new StrongBullet(200, 400));
 //		actors.add(new Turret(300,300));
 //		actors.add(new Turret(400,300));
 //		actors.add(new Turret(300,400));
@@ -152,6 +154,8 @@ public class DrawingSurface extends PApplet{
 		
 		checkDeath();
 		
+//		deathAnimation(frameCount);
+		
 		pushMatrix();
 		fill(0);
 		textSize(17);
@@ -224,7 +228,7 @@ public class DrawingSurface extends PApplet{
 			actors.set(0, player);
 		}
 		for(int a = 1; a < actors.size(); a++) {
-			if(actors.get(a).getHp() <= 0 && !actors.get(a).getInvincible()) {
+			if(actors.get(a).getHp() <= 0 && !actors.get(a).getInvincible()) {;
 				actors.remove(a);
 				a--;
 			}
@@ -378,5 +382,23 @@ public class DrawingSurface extends PApplet{
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}
+	
+//	public void addToExplosion(Actor a) {
+//		Point pt = null;
+//		pt.setLocation(a.getX(), a.getY());
+////		explosion.add(pt);
+//	}
+//		
+//	
+//	public void deathAnimation(int frame) {
+//
+//
+//		push();
+//		noFill();
+//		stroke(204, 102, 0);
+//		strokeWeight(1);
+//
+//        pop();
+//	}
 
 }

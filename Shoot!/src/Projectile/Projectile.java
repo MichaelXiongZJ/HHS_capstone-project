@@ -83,8 +83,13 @@ public abstract class Projectile extends Actor{
 	 * Bounce bullet, and -1 hp at the same time.
 	 * @author Michael
 	 */
-	public boolean bounce() {
+	public boolean bounceX() {
 		setvx(-getvx());
+		setHp(getHp()-1);
+		return true;
+	}
+	
+	public boolean bounceY() {
 		setvy(-getvy());
 		setHp(getHp()-1);
 		return true;
@@ -92,8 +97,10 @@ public abstract class Projectile extends Actor{
 	
 	
 	public void bounceOffWindow(PApplet surface) {
-		if(getX() < getRadius()/2 || getY() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2 ||  getY() > surface.displayHeight - getRadius()/2) {
-			bounce();
+		if(getX() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2) {
+			bounceX();
+		}else if(getY() < getRadius()/2 || getY() > surface.displayHeight - getRadius()/2) {
+			bounceY();
 		}
 	}
 	

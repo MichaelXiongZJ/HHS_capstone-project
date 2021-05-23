@@ -10,12 +10,16 @@ import processing.core.PApplet;
 
 public class PlayerBullet extends Bullet{
 
+	private static int health = 1;
+	private static boolean cancelBullet;
+	
 	public PlayerBullet(double x, double y, double vx, double vy, boolean ignorePlayer) {	
 		super(x, y, vx, vy);
 		super.setSpeed(8);
 		setRadius(10);
 		setFill(new Color(233, 205, 76));
 		setIgnorePlayer(true);
+		setHp(health);
 	}
 	
 	
@@ -40,5 +44,16 @@ public class PlayerBullet extends Bullet{
 		}
 	}
 	
+	public boolean getCancelBullet() {
+		return cancelBullet;
+	}
+	
+	public static void cancelBullet() {
+		cancelBullet = true;
+	}
+	
+	public static void setHealth(int a) {
+		health = a;
+	}
 	
 }

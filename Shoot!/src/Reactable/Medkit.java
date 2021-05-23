@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import actor.Actor;
 import actor.Player;
+import processing.core.PApplet;
 
 public class Medkit extends Buff{
 
@@ -24,4 +25,24 @@ public class Medkit extends Buff{
 			}
 		}
 	}
+	
+	
+	public void draw(PApplet marker) {
+		super.draw(marker);
+		float x = (float) (getX()-getRadius()/2+3);
+		float y = (float) (getY()-3);
+		float x2 = (float) (getX()-3);
+		float y2 = (float) (getX()-getRadius()/2+3);
+		float length = (float) (getRadius()-6);
+		float width = 6;
+		marker.push();
+		marker.fill(232, 48, 21);
+		marker.noStroke();
+		marker.rect(x, y, length, width, 8);
+		marker.rect(x2, y2, width, length, 8);
+        marker.pop();
+	}
+	
+	
+	
 }
