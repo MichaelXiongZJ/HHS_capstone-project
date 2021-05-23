@@ -26,9 +26,10 @@ public class FirstScreen extends Screen {
 		
 		surface.background(255,255,255);
 		
-		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "Click me!";
+		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+		surface.fill(255);
+		String str = "Start";
 		float w = surface.textWidth(str);
 		surface.text(str, button.x+button.width/2-w/2, button.y+button.height/2);
 		
@@ -39,7 +40,7 @@ public class FirstScreen extends Screen {
 
 	
 	public void mousePressed() {
-		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY)/*)*/;
+		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
 		if (button.contains(p))
 			surface.switchScreen(ScreenSwitcher.SCREEN2);
 	}

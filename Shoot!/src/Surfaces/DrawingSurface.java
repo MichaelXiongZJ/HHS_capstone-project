@@ -1,6 +1,7 @@
 package Surfaces;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class DrawingSurface extends PApplet{
 	private int killCount = 0;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
+	public float ratioX, ratioY;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -92,6 +94,16 @@ public class DrawingSurface extends PApplet{
 	 * @author Nont & Michael
 	 */
 	public void draw() {
+		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
+		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+
+		pushMatrix();
+		
+		scale(ratioX, ratioY);
+		
+		activeScreen.draw();
+		
+		popMatrix();
 		activeScreen.draw();
 	}
 	public void draw2() {
@@ -353,6 +365,14 @@ public class DrawingSurface extends PApplet{
 					j--;
 			}
 		}
+	}
+	
+	public Point assumedCoordinatesToActual(Point assumed) {
+		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
+	}
+
+	public Point actualCoordinatesToAssumed(Point actual) {
+		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 	
 	public void switchScreen(int i) {

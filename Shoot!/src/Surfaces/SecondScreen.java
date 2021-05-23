@@ -1,6 +1,8 @@
 package Surfaces;
 
 
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.*;
 
 
@@ -9,9 +11,11 @@ public class SecondScreen extends Screen {
 	private int x, y;
 	
 	private DrawingSurface surface;
+	private Rectangle button;
 	
 	public SecondScreen(DrawingSurface surface) {
 		super(800,600);
+		button = new Rectangle(0,0,50,25);
 		this.surface = surface;
 		
 		x = 30;
@@ -54,6 +58,22 @@ public class SecondScreen extends Screen {
 //			surface.switchScreen(ScreenSwitcher.SCREEN1);
 //		}
 		surface.draw2();
+		surface.pushStyle();
+		surface.fill(0);
+		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+		surface.fill(255);
+		String str = "back";
+		float w = surface.textWidth(str);
+		surface.text(str, (float)(button.x+button.width/1.5-w/1.5), (float)(button.y+button.height/1.5));
+		
+		surface.popStyle();
+	}
+	
+	public void mousePressed() {
+		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
+		if (button.contains(p)) {
+			surface.switchScreen(ScreenSwitcher.SCREEN1);
+		}
 	}
 	
 }
