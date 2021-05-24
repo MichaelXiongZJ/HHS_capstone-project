@@ -54,11 +54,13 @@ public class FirstMap extends Screen {
 //		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 //			surface.switchScreen(ScreenSwitcher.SCREEN1);
 //		}
+		surface.scale((float)(surface.width/1000.0), (float)(surface.height/800.0));
 		surface.draw2();
 		surface.pushStyle();
 		surface.fill(0);
 		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
 		surface.fill(255);
+		surface.textSize(15);
 		String str = "back";
 		float w = surface.textWidth(str);
 		surface.text(str, (float)(button.x+button.width/1.5-w/1.5), (float)(button.y+button.height/1.5));
