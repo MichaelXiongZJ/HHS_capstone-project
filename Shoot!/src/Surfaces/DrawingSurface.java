@@ -37,7 +37,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Missile> missiles;
 	private PImage cursor;
 	private int time;
-	private int killCount = 0;
+	private int killCount = 30;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 	public float ratioX, ratioY;
@@ -142,8 +142,8 @@ public class DrawingSurface extends PApplet{
 		player = new Player(900,20);
 
 		for(int a = 0; a < 7; a++) {
-			for(int b = 0; b < 7; b++) {
-				enemies.add(new LoopingShooter(200 + 100*a, 100 + 100*b));
+			for(int b = 0; b < 6; b++) {
+				enemies.add(new LoopingShooter(150 + 100*a, 250 + 90*b));
 			}
 		}
 
