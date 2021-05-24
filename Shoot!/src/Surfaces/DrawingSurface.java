@@ -42,6 +42,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Screen> screens;
 	public float ratioX, ratioY;
 	private boolean isMissile;
+	private int level;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -54,6 +55,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void init() {
+		level = 1;
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		enemies = new ArrayList<Enemy>();
@@ -94,6 +96,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void init2() {
+		level = 2;
 		keys = new ArrayList<Integer>();
 		actors = new ArrayList<Actor>();
 		enemies = new ArrayList<Enemy>();
@@ -128,10 +131,27 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void init3() {
+		level = 3;
+		keys = new ArrayList<Integer>();
+		actors = new ArrayList<Actor>();
+		enemies = new ArrayList<Enemy>();
+		bullet = new ArrayList<Bullet>();
+		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
+		missiles = new ArrayList<Missile>();
+		player = new Player(900,20);
 
+		for(int a = 0; a < 8; a++) {
+			for(int b = 0; b < 8; b++) {
+				enemies.add(new Turret(100 + 100*a, 100 + 100*b));
+			}
+		}
 
+		
+		actors.add(player);
+		actors.addAll(walls);
+		actors.addAll(enemies);
 	}
 
 	/**
@@ -165,8 +185,9 @@ public class DrawingSurface extends PApplet{
 		if(killCount == 10) {
 			init2();
 			killCount++;
-		}else if(killCount == 25) {
+		}else if(killCount == 30) {
 			init3();
+			killCount++;
 		}
 
 		for(int a = actors.size() - 1; a >= 0; a--) {
@@ -220,13 +241,12 @@ public class DrawingSurface extends PApplet{
 		pushMatrix();
 		fill(0);
 		textSize(17);
-		text("Use WASD keys to move around",250, 50);
-		text("Point your mouse at the direction of the target, and left click to shoot",250, 65);
-		text("Fire at the targets to destory them!",250, 80);
-		textSize(14);
-		text("Player HP: " + player.getHp(), 700, 100);
+		text("Use WASD keys to move around",200, 50);
+		text("Point your mouse at the direction of the target, and mouse click to shoot",200, 65);
+		text("Click B key to swich to missile weapon type",200, 80);
+		text("Player HP: " + player.getHp(), 800, 100);
 		//debug
-		displayInfo();
+	//	displayInfo();
 		popMatrix();
 	}
 	
