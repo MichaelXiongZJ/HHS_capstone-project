@@ -426,9 +426,9 @@ public abstract class Actor {
 			surface.noFill();
 		}
 		surface.strokeWeight(strokeWidth);
-		surface.stroke(strokeColor.getRed(), 
-				strokeColor.getGreen(), 
-				strokeColor.getBlue());
+//		surface.stroke(strokeColor.getRed(), 
+//				strokeColor.getGreen(), 
+//				strokeColor.getBlue());
 
 	}
 	
