@@ -9,13 +9,14 @@ import processing.core.PApplet;
 public class Missile extends PlayerBullet {
 	
 	private static int hp = 1;
+	private double dir = 0;
 //	public Missile() {
 //		super();
 //	}
 	
 	public Missile(double x, double y, double vx, double vy) {
 		super(x, y, vx, vy, true);
-		super.setSpeed(1);
+		super.setSpeed(1.5);
 		setFill(new Color(153, 70, 57));
 		setRadius(25);
 	}
@@ -34,8 +35,9 @@ public class Missile extends PlayerBullet {
 //	}
 	
 	public void act(ArrayList<Actor> other, PApplet surface, int time) {
-		super.act(other, surface, time);
 		super.moveTowards(surface.mouseX, surface.mouseY);
+		super.act(other, surface, time);
+		
 	}
 	
 	/**
@@ -43,9 +45,20 @@ public class Missile extends PlayerBullet {
 	 * @author Nont
 	 */
 	public void draw(PApplet marker) {
-		super.draw(marker);
-		float xDist = (float) (1.81*getRadius()*Math.sin(25.0*Math.PI/180)/Math.tan(50.0*Math.PI/180));
-		float yDist = (float) (1.81*getRadius()*Math.sin(25.0*Math.PI/180));
-		marker.triangle((float) ((float)getX()+getRadius()), (float)getY(), (float)getX()-xDist, (float)getY()-yDist, (float)getX()-xDist, (float)getY()+yDist);
+		//super.draw(marker);
+		float xDist = (float) (1.01*getRadius()*Math.sin(25.0*Math.PI/180)/Math.tan(50.0*Math.PI/180));
+		float yDist = (float) (1.01*getRadius()*Math.sin(25.0*Math.PI/180));
+		marker.push();
+		turnToward(marker.mouseX, marker.mouseY);
+		marker.translate((float)getX(), (float)getY());
+		marker.rotate((float) dir);
+		marker.triangle((float) (getRadius()), 0, -xDist, -yDist, -xDist, yDist);
+		marker.pop();
+	}
+	
+	public void turnToward(int x, int y) {
+		dir = Math.atan(((double)getY()-y)/(getX()-x));
+		if (getX() > x)
+			dir += Math.PI;
 	}
 }

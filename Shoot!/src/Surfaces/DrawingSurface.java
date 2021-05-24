@@ -11,6 +11,7 @@ import Enemy.Enemy;
 import Enemy.LoopingShooter;
 import Enemy.Turret;
 import Projectile.Bullet;
+import Projectile.Missile;
 import Projectile.PlayerBullet;
 import Projectile.Projectile;
 import Reactable.Buff;
@@ -32,6 +33,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Integer> keys;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Buff> buffs;
+	private ArrayList<Missile> missiles;
 	private PImage cursor;
 	private int time;
 	private int killCount = 0;
@@ -94,6 +96,7 @@ public class DrawingSurface extends PApplet{
 		bullet = new ArrayList<Bullet>();
 		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
+		missiles = new ArrayList<Missile>();
 		player = new Player(100,100);
 		isMissile = false;
 		
@@ -178,6 +181,10 @@ public class DrawingSurface extends PApplet{
 			playerBullets.get(a).act(actors, this, time);
 		}
 		
+		for(int a = missiles.size() -1 ; a >= 0; a--) {
+			missiles.get(a).act(actors, this, time);
+		}
+		
 		for(int a = 0; a < buffs.size(); a++) {
 			buffs.get(a).act(actors);
 			buffs.get(a).draw(this);
@@ -224,9 +231,16 @@ public class DrawingSurface extends PApplet{
 		}
 
 		if (activeScreen instanceof FirstMap) {
-			playerBullets.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
-			actors.add(playerBullets.get(playerBullets.size() - 1));
-			playerBullets.get(playerBullets.size() - 1).moveTowards(mouseX, mouseY);
+			if(!isMissile) {
+				playerBullets.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
+				actors.add(playerBullets.get(playerBullets.size() - 1));
+				playerBullets.get(playerBullets.size() - 1).moveTowards(mouseX, mouseY);
+			}else {
+				missiles.add(new Missile(player.getX(), player.getY(), player.getvx(), player.getvy()));
+				actors.add(missiles.get(missiles.size() - 1));
+				missiles.get(missiles.size() - 1).moveTowards(mouseX, mouseY);
+			}
+			
 		}
 		activeScreen.buttonPressed();
 //		for(int i = 0; i < bullet.size(); i++) {
@@ -342,7 +356,10 @@ public class DrawingSurface extends PApplet{
 				player.setvx(player.getvx() + 1);
 			}
 			if (isPressed(KeyEvent.VK_B)) {
-				
+				if(isMissile)
+					isMissile = false;
+				else
+					isMissile = true;
 			}
 //			if (mousePressed) {
 //				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));
