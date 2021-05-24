@@ -45,6 +45,8 @@ public class DrawingSurface extends PApplet{
 	public DrawingSurface() {
 		super();
 		init();
+		activeScreen = screens.get(0);
+		
 //		keys = new ArrayList<Integer>();
 //		actors = new ArrayList<Actor>();
 //		enemies = new ArrayList<Enemy>();
@@ -122,8 +124,7 @@ public class DrawingSurface extends PApplet{
 		screens.add(screen1);
 		screens.add(screen2);
 		screens.add(screen3);
-		
-		activeScreen = screens.get(0);
+
 	}
 
 	/**
@@ -142,12 +143,9 @@ public class DrawingSurface extends PApplet{
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 
 		pushMatrix();
-		
 		scale(ratioX, ratioY);
-		
-		activeScreen.draw();
-		
 		popMatrix();
+		
 		activeScreen.draw();
 	}
 	public void draw2() {
@@ -215,14 +213,16 @@ public class DrawingSurface extends PApplet{
 	 * @author Nont
 	 */
 	public void mousePressed() {
+		if (activeScreen instanceof MenuScreen) {
+			init();
+		}
 
 		if (activeScreen instanceof FirstMap) {
-			init();
 			playerBullets.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
 			actors.add(playerBullets.get(playerBullets.size() - 1));
 			playerBullets.get(playerBullets.size() - 1).moveTowards(mouseX, mouseY);
 		}
-		activeScreen.mousePressed();
+		activeScreen.buttonPressed();
 //		for(int i = 0; i < bullet.size(); i++) {
 //			bullet.get(i).draw(this);
 //		}
@@ -422,6 +422,10 @@ public class DrawingSurface extends PApplet{
 	
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
+	}
+	
+	public Screen getActiveScreen() {
+		return activeScreen;
 	}
 
 }

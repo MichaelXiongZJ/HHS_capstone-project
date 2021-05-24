@@ -8,18 +8,15 @@ import java.awt.event.*;
 
 public class FirstMap extends Screen {
 	
-	private int x, y;
-	
 	private DrawingSurface surface;
-	private Rectangle button;
 	
+	private Rectangle button;
+
 	public FirstMap(DrawingSurface surface) {
 		super(800,600);
-		button = new Rectangle(0,0,50,25);
 		this.surface = surface;
-		
-		x = 30;
-		y = 30;
+
+		button = new Rectangle(0,0,50,25);
 	}
 	
 	public void draw() {
@@ -69,7 +66,7 @@ public class FirstMap extends Screen {
 		surface.popStyle();
 	}
 	
-	public void mousePressed() {
+	public void buttonPressed() {
 		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
 		if (button.contains(p)) {
 			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);

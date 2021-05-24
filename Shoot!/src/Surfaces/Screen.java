@@ -18,7 +18,7 @@ public abstract class Screen {
 		
 	}
 	
-	public void mousePressed() {
+	public void buttonPressed() {
 		
 	}
 	
