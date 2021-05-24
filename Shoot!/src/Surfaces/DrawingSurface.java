@@ -428,8 +428,8 @@ public class DrawingSurface extends PApplet{
 		activeScreen = screens.get(i);
 	}
 	
-	public Screen getActiveScreen() {
-		return activeScreen;
-	}
+//	public Screen getActiveScreen() {
+//		return activeScreen;
+//	}
 
 }
