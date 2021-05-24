@@ -38,6 +38,7 @@ public class DrawingSurface extends PApplet{
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 	public float ratioX, ratioY;
+	private boolean isMissile;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -94,6 +95,7 @@ public class DrawingSurface extends PApplet{
 		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
 		player = new Player(100,100);
+		isMissile = false;
 		
 		enemies.add(new Turret(300,300));
 		enemies.add(new Turret(400,300));
@@ -338,6 +340,9 @@ public class DrawingSurface extends PApplet{
 			}
 			if (isPressed(KeyEvent.VK_D)) {
 				player.setvx(player.getvx() + 1);
+			}
+			if (isPressed(KeyEvent.VK_B)) {
+				
 			}
 //			if (mousePressed) {
 //				bullet.add(new Bullet(player.getX(), player.getY(), player.getvx(), player.getvy()));

@@ -1,7 +1,9 @@
 package Projectile;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
+import actor.Actor;
 import processing.core.PApplet;
 
 public class Missile extends PlayerBullet {
@@ -30,6 +32,11 @@ public class Missile extends PlayerBullet {
 //		super.setSpeed(15);
 //		setRadius(5);
 //	}
+	
+	public void act(ArrayList<Actor> other, PApplet surface, int time) {
+		super.act(other, surface, time);
+		super.moveTowards(surface.mouseX, surface.mouseY);
+	}
 	
 	/**
 	 * Draw the missile
