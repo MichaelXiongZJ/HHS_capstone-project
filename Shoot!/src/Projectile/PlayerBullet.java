@@ -34,15 +34,13 @@ public class PlayerBullet extends Bullet{
 	public void actPlayerBullet(ArrayList<Actor> other) {
 		for(int a = 0; a < other.size(); a++) {
 			if(other.get(a).intersects(this)) {
-				if(!(other.get(a) instanceof Player) && !(other.get(a) instanceof PlayerBullet)) {
+				if(!(other.get(a) instanceof Player) && !(other.get(a) instanceof PlayerBullet) && !(other.get(a) instanceof Wall)) {
 					if(getCancelBullet()) {
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
 					}else if(!(other.get(a) instanceof Projectile)){
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
-					}else if(other.get(a) instanceof Wall) {
-						bounce();
 					}
 				}
 				continue;

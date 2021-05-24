@@ -33,11 +33,8 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Integer> keys;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Buff> buffs;
-<<<<<<< HEAD
 	private ArrayList<Wall> walls;
-=======
 	private ArrayList<Missile> missiles;
->>>>>>> 8ffdafd0cb71ab7bd71051fbd42769cadb55e049
 	private PImage cursor;
 	private int time;
 	private int killCount = 0;
@@ -100,11 +97,8 @@ public class DrawingSurface extends PApplet{
 		bullet = new ArrayList<Bullet>();
 		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
-<<<<<<< HEAD
 		walls = new ArrayList<Wall>();
-=======
 		missiles = new ArrayList<Missile>();
->>>>>>> 8ffdafd0cb71ab7bd71051fbd42769cadb55e049
 		player = new Player(100,100);
 		isMissile = false;
 		

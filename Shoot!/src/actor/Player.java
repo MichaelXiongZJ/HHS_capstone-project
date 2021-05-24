@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Enemy.Enemy;
 import Projectile.Projectile;
+import Reactable.Wall;
 import processing.core.PApplet;
 
 public class Player extends Actor{
@@ -56,7 +57,7 @@ public class Player extends Actor{
 		
 		for(Actor a : actors) {
 			if(intersects(a)) {
-				if(!(a instanceof Projectile) && !(a == this)) {
+				if(!(a instanceof Projectile) && !(a == this) && !(a instanceof Wall)) {
 					if(a.getvx()!=0 || a.getvy()!=0) {
 						setvx(-a.getvx());
 						setvy(-a.getvy());

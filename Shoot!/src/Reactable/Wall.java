@@ -55,6 +55,9 @@ public class Wall extends Actor{
 			if(intersects(actors.get(a))) {
 				if(!(actors.get(a) == this)) {
 					bounceOnWall(actors.get(a));
+					if(actors.get(a) instanceof Projectile) {
+						actors.get(a).setHp(actors.get(a).getHp()-1);
+					}
 				}
 				continue;
 			}
@@ -69,9 +72,6 @@ public class Wall extends Actor{
 //			((other.getY()-other.getRadius()/2) <= (this.getY()+height/2))){
 		Rectangle bounds = new Rectangle((int)(getX()),(int)(getY()),(int)width, (int)height);
 		if(bounds.contains(other.getX(), other.getY())) {
-			if(other instanceof Player) {
-				System.out.println("player hit wall");
-			}
 			return true;
 		}else {
 			return false;	
@@ -81,12 +81,12 @@ public class Wall extends Actor{
 	
 	public void bounceOnWall(Actor other) {
 		if(width>height) {	//horizontal wall
-			if(getX() <= other.getX() && getX()+width >= other.getX()) {
+			if(getX() < other.getX() && getX()+width > other.getX()) {
 				other.setvy(-other.getvy());
 				other.setY(getY()+other.getvy());
 			}
 		}else {	//vertical wall
-			if(getY() <= other.getY() && getY()+height >= other.getY()) {
+			if(getY() < other.getY() && getY()+height > other.getY()) {
 				other.setvx(-other.getvx());
 				other.setX(getX()+other.getvx());
 			}

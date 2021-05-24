@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import Projectile.Projectile;
+import Reactable.Wall;
 
 public abstract class Enemy extends Actor{
 
@@ -54,7 +55,7 @@ public abstract class Enemy extends Actor{
 		moveAround(time);
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a))) {
-				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this)) {
+				if(!(actors.get(a) instanceof Projectile) && !(actors.get(a) == this) && !(actors.get(a) instanceof Wall)) {
 				//	bounce(actors.get(a));
 //					setBounce(true);
 					actors.get(a).bounce(this);
