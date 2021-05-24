@@ -14,8 +14,9 @@ public class Main{
 	 * 
 	 * @param args argument for the main method
 	 */
+	static DrawingSurface drawing;
 	public static void main(String args[]) {
-		DrawingSurface drawing = new DrawingSurface();
+		drawing = new DrawingSurface();
 		PApplet.runSketch(new String[]{""}, drawing);
 		PSurfaceAWT surf = (PSurfaceAWT) drawing.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
