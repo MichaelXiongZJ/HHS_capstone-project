@@ -165,7 +165,7 @@ public class DrawingSurface extends PApplet{
 //		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
-		
+		scale((float)(width/1000.0), (float)(height/800.0));
 		for(int a = actors.size() - 1; a >= 0; a--) {
 			actors.get(a).setWindowSizeActor(width, height);
 	//		actors.get(a).act(actors, this, time);
@@ -281,7 +281,6 @@ public class DrawingSurface extends PApplet{
 	 * @author Michael (based on Example provided by Mr. Shelby)
 	 * @param code contains key code
 	 * @return true if valid key is pressed.
-	 *
 	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
