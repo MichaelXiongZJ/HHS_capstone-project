@@ -160,6 +160,7 @@ public class DrawingSurface extends PApplet{
 //		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
+		scale((float)(width/1000.0), (float)(height/800.0));
 		
 		if(killCount == 10) {
 			init2();
@@ -283,7 +284,6 @@ public class DrawingSurface extends PApplet{
 	 * @author Michael (based on Example provided by Mr. Shelby)
 	 * @param code contains key code
 	 * @return true if valid key is pressed.
-	 *
 	 */
 	public boolean isPressed(Integer code) {
 		return keys.contains(code);
