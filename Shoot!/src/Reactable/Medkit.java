@@ -39,7 +39,7 @@ public class Medkit extends Buff{
 		marker.fill(232, 48, 21);
 		marker.noStroke();
 		marker.rect(x, y, length, width, 8);
-		marker.rect(x2, y2, width, length, 8);
+		marker.rect((int)(x+length/2.0-0.5*width), (int)(y-length/2.0 + 0.5*width), width, length, 8);
         marker.pop();
 	}
 	
