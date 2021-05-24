@@ -83,12 +83,10 @@ public class Wall extends Actor{
 		if(width>height) {	//horizontal wall
 			if(getX() < other.getX() && getX()+width > other.getX()) {
 				other.setvy(-other.getvy());
-				other.setY(getY()+other.getvy());
 			}
 		}else {	//vertical wall
 			if(getY() < other.getY() && getY()+height > other.getY()) {
 				other.setvx(-other.getvx());
-				other.setX(getX()+other.getvx());
 			}
 		}
 	}
