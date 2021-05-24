@@ -37,7 +37,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Missile> missiles;
 	private PImage cursor;
 	private int time;
-	private int killCount = 30;
+	private int killCount = 0;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 	public float ratioX, ratioY;
