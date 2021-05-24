@@ -37,8 +37,6 @@ public class DrawingSurface extends PApplet{
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 	public float ratioX, ratioY;
-	private FirstScreen screen1;
-	private SecondScreen screen2;
 	
 	/**
 	 * A surface which the game is being drawn on
@@ -117,8 +115,8 @@ public class DrawingSurface extends PApplet{
 //		actors.add(new Wall(750, 400, 20, 700));
 		
 		screens = new ArrayList<Screen>();
-		screen1 = new FirstScreen(this);
-		screen2 = new SecondScreen(this);
+		MenuScreen screen1 = new MenuScreen(this);
+		FirstMap screen2 = new FirstMap(this);
 		screens.add(screen1);
 		screens.add(screen2);
 		activeScreen = screens.get(0);
@@ -214,7 +212,7 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void mousePressed() {
 
-		if (activeScreen instanceof SecondScreen) {
+		if (activeScreen instanceof FirstMap) {
 			init();
 			playerBullets.add(new PlayerBullet(player.getX(), player.getY(), player.getvx(), player.getvy(), true));
 			actors.add(playerBullets.get(playerBullets.size() - 1));

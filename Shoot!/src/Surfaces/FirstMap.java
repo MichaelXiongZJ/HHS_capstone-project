@@ -6,14 +6,14 @@ import java.awt.Rectangle;
 import java.awt.event.*;
 
 
-public class SecondScreen extends Screen {
+public class FirstMap extends Screen {
 	
 	private int x, y;
 	
 	private DrawingSurface surface;
 	private Rectangle button;
 	
-	public SecondScreen(DrawingSurface surface) {
+	public FirstMap(DrawingSurface surface) {
 		super(800,600);
 		button = new Rectangle(0,0,50,25);
 		this.surface = surface;
