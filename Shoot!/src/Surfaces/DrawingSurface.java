@@ -102,15 +102,26 @@ public class DrawingSurface extends PApplet{
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
 		missiles = new ArrayList<Missile>();
-		player = new Player(900,10);
+		player = new Player(900,20);
 
-		walls.add(new Wall(700, 0, 25, 200));
-		walls.add(new Wall());
-		walls.add(new Wall());
-		walls.add(new Wall());
-		walls.add(new Wall());
+		walls.add(new Wall(700, 0, 24, 200));
+		walls.add(new Wall(0, 350-12, 300, 24));
+		walls.add(new Wall(0, 450-12, 300, 24));
+		walls.add(new Wall(700, 350-12, 300, 24));
+		walls.add(new Wall(700, 450-12, 300, 24));
 		
 		
+		enemies.add(new Turret(500, 100));
+		enemies.add(new Turret(500, 700));
+		enemies.add(new Turret(250, 400));
+		enemies.add(new Turret(750, 400));
+		
+		enemies.add(new LoopingShooter(550, 500));
+		
+		buffs.add(new CancellableBullet(100, 400));
+		buffs.add(new StrongBullet(900, 400));
+		buffs.add(new Medkit(900, 700));
+
 		actors.add(player);
 		actors.addAll(walls);
 		actors.addAll(enemies);
