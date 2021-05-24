@@ -51,43 +51,6 @@ public class DrawingSurface extends PApplet{
 		super();
 		init();
 		activeScreen = screens.get(0);
-		
-//		keys = new ArrayList<Integer>();
-//		actors = new ArrayList<Actor>();
-//		enemies = new ArrayList<Enemy>();
-//		bullet = new ArrayList<Bullet>();
-//		playerBullets = new ArrayList<PlayerBullet>();
-//		buffs = new ArrayList<Buff>();
-//		player = new Player(100,100);
-//		
-//		enemies.add(new Turret(300,300));
-//		enemies.add(new Turret(400,300));
-//		enemies.add(new Turret(300,400));
-//		enemies.add(new Turret(400,400));
-//		enemies.add(new LoopingShooter(600, 300));
-//		enemies.add(new LoopingShooter(600, 400));
-//		buffs.add(new Medkit(200, 200));
-//		buffs.add(new CancellableBullet(200, 300));
-////		actors.add(new Turret(300,300));
-////		actors.add(new Turret(400,300));
-////		actors.add(new Turret(300,400));
-////		actors.add(new Turret(400,400));
-////		actors.add(new LoopingShooter(500, 300));
-////		actors.add(new LoopingShooter(500, 400));
-//		
-//		actors.add(player);
-//		actors.addAll(enemies);
-////		actors.add(new Wall(400, 50, 700, 20));
-////		actors.add(new Wall(400, 750, 700, 20));
-////		actors.add(new Wall(50, 400, 20, 700));
-////		actors.add(new Wall(750, 400, 20, 700));
-//		
-//		screens = new ArrayList<Screen>();
-//		screen1 = new FirstScreen(this);
-//		screen2 = new SecondScreen(this);
-//		screens.add(screen1);
-//		screens.add(screen2);
-//		activeScreen = screens.get(0);
 	}
 	
 	public void init() {
@@ -99,19 +62,19 @@ public class DrawingSurface extends PApplet{
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
 		missiles = new ArrayList<Missile>();
-		player = new Player(300,300);
+		player = new Player(50,50);
 		isMissile = false;
 		
+		enemies.add(new Turret(100,300));
 		enemies.add(new Turret(300,300));
-		enemies.add(new Turret(400,300));
-		enemies.add(new Turret(300,400));
-		enemies.add(new Turret(400,400));
-		enemies.add(new LoopingShooter(600, 300));
-		enemies.add(new LoopingShooter(600, 400));
-		buffs.add(new Medkit(200, 200));
-		buffs.add(new CancellableBullet(200, 300));
-		buffs.add(new StrongBullet(200, 400));
-		walls.add(new Wall(500, 500, 500, 20));
+		enemies.add(new Turret(700,500));
+		enemies.add(new Turret(900,500));
+		enemies.add(new LoopingShooter(500, 500));
+		buffs.add(new Medkit(800, 200));
+		buffs.add(new CancellableBullet(800, 700));
+		buffs.add(new StrongBullet(900, 700));
+		walls.add(new Wall(0, 120, 400, 25));
+		walls.add(new Wall(600, 620, 400, 25));
 		actors.add(player);
 		actors.addAll(walls);
 		actors.addAll(enemies);
@@ -139,26 +102,24 @@ public class DrawingSurface extends PApplet{
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
 		missiles = new ArrayList<Missile>();
-		player = new Player(100,100);
+		player = new Player(900,10);
+
+		walls.add(new Wall(700, 0, 25, 200));
+		walls.add(new Wall());
+		walls.add(new Wall());
+		walls.add(new Wall());
+		walls.add(new Wall());
 		
 		
 		actors.add(player);
-
+		actors.addAll(walls);
+		actors.addAll(enemies);
 	}
 	
 	public void init3() {
-		keys = new ArrayList<Integer>();
-		actors = new ArrayList<Actor>();
-		enemies = new ArrayList<Enemy>();
-		bullet = new ArrayList<Bullet>();
-		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
-		missiles = new ArrayList<Missile>();
-		player = new Player(100,100);
-		
-		
-		actors.add(player);
+
 
 	}
 
