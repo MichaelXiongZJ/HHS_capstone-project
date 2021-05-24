@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import Enemy.Enemy;
+import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
 import processing.core.PApplet;
@@ -28,7 +29,7 @@ public class PlayerBullet extends Bullet{
 		super.actProjectile(other, surface, time);
 		
 		for(int a = 0; a < other.size(); a++) {
-			if(intersects(other.get(a))) {
+			if(other.get(a).intersects(this)) {
 				if(!(other.get(a) instanceof Player) && !(other.get(a) instanceof PlayerBullet)) {
 					if(getCancelBullet()) {
 						setHp(getHp()-1);
@@ -36,6 +37,8 @@ public class PlayerBullet extends Bullet{
 					}else if(!(other.get(a) instanceof Projectile)){
 						setHp(getHp()-1);
 						other.get(a).setHp(other.get(a).getHp()-1);
+					}else if(other.get(a) instanceof Wall) {
+						bounce();
 					}
 				}
 				continue;

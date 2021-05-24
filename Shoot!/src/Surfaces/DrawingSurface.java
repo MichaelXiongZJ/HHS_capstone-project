@@ -16,6 +16,7 @@ import Projectile.Projectile;
 import Reactable.Buff;
 import Reactable.CancellableBullet;
 import Reactable.Medkit;
+import Reactable.StrongBullet;
 import Reactable.Wall;
 import actor.Actor;
 import actor.Player;
@@ -102,13 +103,14 @@ public class DrawingSurface extends PApplet{
 		enemies.add(new LoopingShooter(600, 400));
 		buffs.add(new Medkit(200, 200));
 		buffs.add(new CancellableBullet(200, 300));
+		buffs.add(new StrongBullet(200, 400));
 //		actors.add(new Turret(300,300));
 //		actors.add(new Turret(400,300));
 //		actors.add(new Turret(300,400));
 //		actors.add(new Turret(400,400));
 //		actors.add(new LoopingShooter(500, 300));
 //		actors.add(new LoopingShooter(500, 400));
-		
+		actors.add(new Wall(400, 50, 700, 20));
 		actors.add(player);
 		actors.addAll(enemies);
 //		actors.add(new Wall(400, 50, 700, 20));

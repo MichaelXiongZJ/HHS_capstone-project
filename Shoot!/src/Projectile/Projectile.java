@@ -95,6 +95,13 @@ public abstract class Projectile extends Actor{
 		return true;
 	}
 	
+	public boolean bounce() {
+		setvx(-getvx());
+		setvy(-getvy());
+		setHp(getHp()-1);
+		return true;
+	}
+	
 	
 	public void bounceOffWindow(PApplet surface) {
 		if(getX() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2) {
