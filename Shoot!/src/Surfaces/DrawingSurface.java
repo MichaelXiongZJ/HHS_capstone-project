@@ -118,7 +118,7 @@ public class DrawingSurface extends PApplet{
 		enemies.add(new Turret(250, 400));
 		enemies.add(new Turret(750, 400));
 		
-		enemies.add(new LoopingShooter(550, 500));
+		enemies.add(new LoopingShooter(525, 500));
 		
 		buffs.add(new CancellableBullet(100, 400));
 		buffs.add(new StrongBullet(900, 400));
@@ -141,9 +141,9 @@ public class DrawingSurface extends PApplet{
 		missiles = new ArrayList<Missile>();
 		player = new Player(900,20);
 
-		for(int a = 0; a < 8; a++) {
-			for(int b = 0; b < 8; b++) {
-				enemies.add(new Turret(100 + 100*a, 100 + 100*b));
+		for(int a = 0; a < 6; a++) {
+			for(int b = 0; b < 6; b++) {
+				enemies.add(new LoopingShooter(200 + 100*a, 100 + 100*b));
 			}
 		}
 
@@ -243,6 +243,7 @@ public class DrawingSurface extends PApplet{
 		text("Use WASD keys to move around",200, 50);
 		text("Point your mouse at the direction of the target, and mouse click to shoot",200, 65);
 		text("Click B key to swich to missile weapon type",200, 80);
+		text("The colorful thingys are Buffs!",200, 95);
 		text("Player HP: " + player.getHp(), 800, 100);
 		if(level == 1) {
 			text(10 - killCount + " kills away from next level", 800, 150);
