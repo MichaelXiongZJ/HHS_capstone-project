@@ -54,7 +54,7 @@ public class FirstMap extends Screen {
 //		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 //			surface.switchScreen(ScreenSwitcher.SCREEN1);
 //		}
-		surface.scale((float)(surface.width/1000.0), (float)(surface.height/800.0));
+//		surface.scale((float)(surface.width/1000.0), (float)(surface.height/800.0));
 		surface.draw2();
 		surface.pushStyle();
 		surface.fill(0);

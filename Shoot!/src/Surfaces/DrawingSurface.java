@@ -169,7 +169,7 @@ public class DrawingSurface extends PApplet{
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 
 		pushMatrix();
-		scale(ratioX, ratioY);
+//		scale(ratioX, ratioY);
 		popMatrix();
 		
 		activeScreen.draw();
@@ -179,7 +179,7 @@ public class DrawingSurface extends PApplet{
 //		cursor(cursor);
 		time = millis();
 		background(129, 199, 212);
-		scale((float)(width/1000.0), (float)(height/800.0));
+//		scale((float)(width/1000.0), (float)(height/800.0));
 		
 		if(killCount == 10) {
 			init2();
