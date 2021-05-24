@@ -28,6 +28,10 @@ public class PlayerBullet extends Bullet{
 	public void act(ArrayList<Actor> other, PApplet surface, int time) {
 		super.actProjectile(other, surface, time);
 		
+		actPlayerBullet(other);
+	}
+	
+	public void actPlayerBullet(ArrayList<Actor> other) {
 		for(int a = 0; a < other.size(); a++) {
 			if(other.get(a).intersects(this)) {
 				if(!(other.get(a) instanceof Player) && !(other.get(a) instanceof PlayerBullet)) {
@@ -45,10 +49,6 @@ public class PlayerBullet extends Bullet{
 			}
 		
 		}
-	}
-	
-	public void actPlayerBullet() {
-		
 	}
 	
 	public boolean getCancelBullet() {
