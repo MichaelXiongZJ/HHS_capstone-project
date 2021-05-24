@@ -92,7 +92,6 @@ public class DrawingSurface extends PApplet{
 		screens.add(screen1);
 		screens.add(screen2);
 		screens.add(screen3);
-
 	}
 	
 	public void init2() {
@@ -245,6 +244,14 @@ public class DrawingSurface extends PApplet{
 		text("Point your mouse at the direction of the target, and mouse click to shoot",200, 65);
 		text("Click B key to swich to missile weapon type",200, 80);
 		text("Player HP: " + player.getHp(), 800, 100);
+		if(level == 1) {
+			text(10 - killCount + " kills away from next level", 800, 150);
+		}else if(level == 2) {
+			text(30 - killCount + " kills away from next level", 800, 150);
+		}else {
+			text("Endless Pain", 800, 200);
+		}
+
 		//debug
 	//	displayInfo();
 		popMatrix();
