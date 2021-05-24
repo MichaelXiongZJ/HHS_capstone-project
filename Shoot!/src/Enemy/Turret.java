@@ -24,6 +24,7 @@ public class Turret extends Enemy{
 
 	/**
 	 * Turret's moveAround() don't do anything
+	 * @author Michael
 	 */
 	public void moveAround(int time) {
 		

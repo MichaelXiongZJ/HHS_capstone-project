@@ -73,6 +73,7 @@ public abstract class Enemy extends Actor{
 	
 	/**
 	 * Update color based on hp
+	 * @author Michael
 	 */
 	public void updateColor() {
 		int temp = getHp();

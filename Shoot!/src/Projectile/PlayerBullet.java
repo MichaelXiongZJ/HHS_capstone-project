@@ -14,6 +14,14 @@ public class PlayerBullet extends Bullet{
 	private static int health = 1;
 	private static boolean cancelBullet;
 	
+	/**
+	 * 
+	 * @param x x loc
+	 * @param y y loc
+	 * @param vx
+	 * @param vy
+	 * @param ignorePlayer
+	 */
 	public PlayerBullet(double x, double y, double vx, double vy, boolean ignorePlayer) {	
 		super(x, y, vx, vy);
 		super.setSpeed(8);
