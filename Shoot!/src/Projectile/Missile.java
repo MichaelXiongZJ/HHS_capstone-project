@@ -16,7 +16,7 @@ public class Missile extends PlayerBullet {
 	
 	public Missile(double x, double y, double vx, double vy) {
 		super(x, y, vx, vy, true);
-		super.setSpeed(1.5);
+		super.setSpeed(3);
 		setFill(new Color(153, 70, 57));
 		setRadius(25);
 	}

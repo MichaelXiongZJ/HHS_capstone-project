@@ -141,8 +141,8 @@ public class DrawingSurface extends PApplet{
 		missiles = new ArrayList<Missile>();
 		player = new Player(900,20);
 
-		for(int a = 0; a < 6; a++) {
-			for(int b = 0; b < 6; b++) {
+		for(int a = 0; a < 7; a++) {
+			for(int b = 0; b < 7; b++) {
 				enemies.add(new LoopingShooter(200 + 100*a, 100 + 100*b));
 			}
 		}
