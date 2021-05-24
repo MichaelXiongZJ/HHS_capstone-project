@@ -99,7 +99,7 @@ public class DrawingSurface extends PApplet{
 		buffs = new ArrayList<Buff>();
 		walls = new ArrayList<Wall>();
 		missiles = new ArrayList<Missile>();
-		player = new Player(100,100);
+		player = new Player(300,300);
 		isMissile = false;
 		
 		enemies.add(new Turret(300,300));
@@ -112,19 +112,10 @@ public class DrawingSurface extends PApplet{
 		buffs.add(new CancellableBullet(200, 300));
 		buffs.add(new StrongBullet(200, 400));
 		walls.add(new Wall(500, 500, 500, 20));
-//		actors.add(new Turret(300,300));
-//		actors.add(new Turret(400,300));
-//		actors.add(new Turret(300,400));
-//		actors.add(new Turret(400,400));
-//		actors.add(new LoopingShooter(500, 300));
-//		actors.add(new LoopingShooter(500, 400));
 		actors.add(player);
 		actors.addAll(walls);
 		actors.addAll(enemies);
-//		actors.add(new Wall(400, 50, 700, 20));
-//		actors.add(new Wall(400, 750, 700, 20));
-//		actors.add(new Wall(50, 400, 20, 700));
-//		actors.add(new Wall(750, 400, 20, 700));
+
 		PlayerBullet.setCancelBullet(false);
 		PlayerBullet.setHealth(1);
 		
@@ -136,6 +127,38 @@ public class DrawingSurface extends PApplet{
 		screens.add(screen1);
 		screens.add(screen2);
 		screens.add(screen3);
+
+	}
+	
+	public void init2() {
+		keys = new ArrayList<Integer>();
+		actors = new ArrayList<Actor>();
+		enemies = new ArrayList<Enemy>();
+		bullet = new ArrayList<Bullet>();
+		playerBullets = new ArrayList<PlayerBullet>();
+		buffs = new ArrayList<Buff>();
+		walls = new ArrayList<Wall>();
+		missiles = new ArrayList<Missile>();
+		player = new Player(100,100);
+		
+		
+		actors.add(player);
+
+	}
+	
+	public void init3() {
+		keys = new ArrayList<Integer>();
+		actors = new ArrayList<Actor>();
+		enemies = new ArrayList<Enemy>();
+		bullet = new ArrayList<Bullet>();
+		playerBullets = new ArrayList<PlayerBullet>();
+		buffs = new ArrayList<Buff>();
+		walls = new ArrayList<Wall>();
+		missiles = new ArrayList<Missile>();
+		player = new Player(100,100);
+		
+		
+		actors.add(player);
 
 	}
 
@@ -166,6 +189,13 @@ public class DrawingSurface extends PApplet{
 		time = millis();
 		background(129, 199, 212);
 		
+		if(killCount == 10) {
+			init2();
+			killCount++;
+		}else if(killCount == 25) {
+			init3();
+		}
+
 		for(int a = actors.size() - 1; a >= 0; a--) {
 			actors.get(a).setWindowSizeActor(width, height);
 	//		actors.get(a).act(actors, this, time);
