@@ -117,6 +117,8 @@ public class DrawingSurface extends PApplet{
 //		actors.add(new Wall(400, 750, 700, 20));
 //		actors.add(new Wall(50, 400, 20, 700));
 //		actors.add(new Wall(750, 400, 20, 700));
+		PlayerBullet.setCancelBullet(false);
+		PlayerBullet.setHealth(1);
 		
 		screens = new ArrayList<Screen>();
 		MenuScreen screen1 = new MenuScreen(this);

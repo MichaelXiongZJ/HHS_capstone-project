@@ -51,6 +51,10 @@ public class PlayerBullet extends Bullet{
 		return cancelBullet;
 	}
 	
+	public static void setCancelBullet(boolean a) {
+		cancelBullet = a;
+	}
+	
 	public static void cancelBullet() {
 		cancelBullet = true;
 	}
