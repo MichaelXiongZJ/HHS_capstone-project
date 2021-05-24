@@ -45,9 +45,9 @@ public class MenuScreen extends Screen {
 	
 	public void buttonPressed() {
 		Point p = /* surface.actualCoordinatesToAssumed( */new Point(surface.mouseX, surface.mouseY);
-			if (startButton.contains(p) && surface.getActiveScreen() instanceof MenuScreen)
+			if (startButton.contains(p))
 				surface.switchScreen(ScreenSwitcher.FIRST_MAP);
-			if (howToPlayButton.contains(p) && surface.getActiveScreen() instanceof MenuScreen)
+			if (howToPlayButton.contains(p))
 				surface.switchScreen(ScreenSwitcher.HOW_TO_PLAY);
 	}
 	
