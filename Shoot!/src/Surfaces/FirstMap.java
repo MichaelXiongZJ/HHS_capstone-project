@@ -72,7 +72,7 @@ public class FirstMap extends Screen {
 	public void mousePressed() {
 		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
 		if (button.contains(p)) {
-			surface.switchScreen(ScreenSwitcher.SCREEN1);
+			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
 		}
 	}
 	

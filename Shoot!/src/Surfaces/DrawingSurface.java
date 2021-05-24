@@ -117,8 +117,12 @@ public class DrawingSurface extends PApplet{
 		screens = new ArrayList<Screen>();
 		MenuScreen screen1 = new MenuScreen(this);
 		FirstMap screen2 = new FirstMap(this);
+		HowToPlay screen3 = new HowToPlay(this);
+		
 		screens.add(screen1);
 		screens.add(screen2);
+		screens.add(screen3);
+		
 		activeScreen = screens.get(0);
 	}
 
