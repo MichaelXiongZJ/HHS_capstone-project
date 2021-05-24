@@ -431,13 +431,17 @@ public class DrawingSurface extends PApplet{
 				turretY = Math.random() * height;
 				Turret test = new Turret(turretX, turretY);
 				for (Actor a : actors) {
-					if (test.intersects(a)) {
+					if (a.intersects(test)) {
 						isEnoughSpace = false;
 					}
 				}
 				test = null;
 				if (isEnoughSpace) {
-					enemies.add(new Turret(turretX, turretY));
+					int randSpawn = (int) (Math.random()*4 + 0.5);
+					if(randSpawn == 4)
+						enemies.add(new LoopingShooter(turretX, turretY));
+					else
+						enemies.add(new Turret(turretX, turretY));
 					actors.add(enemies.get(enemies.size() - 1));
 				} else
 					j--;
