@@ -1,8 +1,10 @@
 package Reactable;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
+import Projectile.PlayerBullet;
 import Projectile.Projectile;
 import actor.Actor;
 import actor.Player;
@@ -39,7 +41,7 @@ public class Wall extends Actor{
 	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
-		marker.rect((float)(getX()-width/2),(float)(getY()-height/2),(float)width, (float)height);
+		marker.rect((float)(getX()),(float)(getY()),(float)width, (float)height);
 	}
 	
 	/**
@@ -51,8 +53,8 @@ public class Wall extends Actor{
 		
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a))) {
-				if(!(actors.get(a) == this || actors.get(a) instanceof Projectile)) {
-					actors.get(a).bounce(this);
+				if(!(actors.get(a) == this)) {
+					bounceOnWall(actors.get(a));
 				}
 				continue;
 			}
@@ -61,16 +63,33 @@ public class Wall extends Actor{
 	
 	
 	public boolean intersects(Actor other) {
-		if(((other.getX()+other.getRadius()/2) >= (this.getX()-width/2)) && 
-			((other.getX()-other.getRadius()/2) <= (this.getX()+width/2)) && 
-				((other.getY()+other.getRadius()/2) >= (this.getY()-height/2)) && 
-					((other.getY()-other.getRadius()/2) <= (this.getY()+height/2))){
+//		if(((other.getX()+other.getRadius()/2) >= (this.getX()-width/2)) && 
+//			((other.getX()-other.getRadius()/2) <= (this.getX()+width/2)) && 
+//			((other.getY()+other.getRadius()/2) >= (this.getY()-height/2)) && 
+//			((other.getY()-other.getRadius()/2) <= (this.getY()+height/2))){
+		Rectangle bounds = new Rectangle((int)(getX()),(int)(getY()),(int)width, (int)height);
+		if(bounds.contains(other.getX(), other.getY())) {
 			if(other instanceof Player) {
-				System.out.println("wall");
+				System.out.println("player hit wall");
 			}
 			return true;
 		}else {
 			return false;	
+		}
+	}
+	
+	
+	public void bounceOnWall(Actor other) {
+		if(width>height) {	//horizontal wall
+			if(getX() <= other.getX() && getX()+width >= other.getX()) {
+				other.setvy(-other.getvy());
+				other.setY(getY()+other.getvy());
+			}
+		}else {	//vertical wall
+			if(getY() <= other.getY() && getY()+height >= other.getY()) {
+				other.setvx(-other.getvx());
+				other.setX(getX()+other.getvx());
+			}
 		}
 	}
 }

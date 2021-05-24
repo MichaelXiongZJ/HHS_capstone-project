@@ -32,6 +32,7 @@ public class DrawingSurface extends PApplet{
 	private ArrayList<Integer> keys;
 	private ArrayList<Enemy> enemies;
 	private ArrayList<Buff> buffs;
+	private ArrayList<Wall> walls;
 	private PImage cursor;
 	private int time;
 	private int killCount = 0;
@@ -93,6 +94,7 @@ public class DrawingSurface extends PApplet{
 		bullet = new ArrayList<Bullet>();
 		playerBullets = new ArrayList<PlayerBullet>();
 		buffs = new ArrayList<Buff>();
+		walls = new ArrayList<Wall>();
 		player = new Player(100,100);
 		
 		enemies.add(new Turret(300,300));
@@ -104,6 +106,7 @@ public class DrawingSurface extends PApplet{
 		buffs.add(new Medkit(200, 200));
 		buffs.add(new CancellableBullet(200, 300));
 		buffs.add(new StrongBullet(200, 400));
+		walls.add(new Wall(500, 500, 500, 20));
 //		actors.add(new Turret(300,300));
 //		actors.add(new Turret(400,300));
 //		actors.add(new Turret(300,400));
@@ -111,7 +114,7 @@ public class DrawingSurface extends PApplet{
 //		actors.add(new LoopingShooter(500, 300));
 //		actors.add(new LoopingShooter(500, 400));
 		actors.add(player);
-		actors.add(new Wall(400, 50, 700, 20));
+		actors.addAll(walls);
 		actors.addAll(enemies);
 //		actors.add(new Wall(400, 50, 700, 20));
 //		actors.add(new Wall(400, 750, 700, 20));
@@ -162,6 +165,10 @@ public class DrawingSurface extends PApplet{
 			actors.get(a).setWindowSizeActor(width, height);
 	//		actors.get(a).act(actors, this, time);
 			actors.get(a).draw(this);
+		}
+		
+		for(int a = 0; a < walls.size(); a++) {
+			walls.get(a).act(actors, this, time);
 		}
 		
 		for(int a = enemies.size()-1; a >=0; a--) {
