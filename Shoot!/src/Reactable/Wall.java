@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Projectile.Projectile;
 import actor.Actor;
+import actor.Player;
 import processing.core.PApplet;
 
 public class Wall extends Actor{
@@ -64,6 +65,9 @@ public class Wall extends Actor{
 			((other.getX()-other.getRadius()/2) <= (this.getX()+width/2)) && 
 				((other.getY()+other.getRadius()/2) >= (this.getY()-height/2)) && 
 					((other.getY()-other.getRadius()/2) <= (this.getY()+height/2))){
+			if(other instanceof Player) {
+				System.out.println("wall");
+			}
 			return true;
 		}else {
 			return false;	
