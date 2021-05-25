@@ -64,7 +64,10 @@ public class Wall extends Actor{
 		}
 	}
 	
-	
+	/**
+	 * Check if this wall intersects with another actor
+	 * @author Michael
+	 */
 	public boolean intersects(Actor other) {
 //		if(((other.getX()+other.getRadius()/2) >= (this.getX()-width/2)) && 
 //			((other.getX()-other.getRadius()/2) <= (this.getX()+width/2)) && 
@@ -78,7 +81,11 @@ public class Wall extends Actor{
 		}
 	}
 	
-	
+	/**
+	 * Bouce other objects off this wall
+	 * @author Michael
+	 * @param other the other object
+	 */
 	public void bounceOnWall(Actor other) {
 		if(width>height) {	//horizontal wall
 			if(getX() < other.getX() && getX()+width > other.getX()) {

@@ -11,12 +11,22 @@ public class Medkit extends Buff{
 
 	private int healthAmount;
 	
+	/**
+	 * Construct a medkit object
+	 * @author Michael
+	 * @param x x loc
+	 * @param y y loc
+	 */
 	public Medkit(int x, int y) {
 		super(x, y);
 		healthAmount = 5;
 		setFill(Color.GREEN);
 	}
 	
+	/**
+	 * Actions of a medkit
+	 * @author Michael
+	 */
 	public void act(ArrayList<Actor> actors) {
 		for(int a = 0; a < actors.size(); a++) {
 			if(intersects(actors.get(a)) && actors.get(a) instanceof Player) {
@@ -26,7 +36,10 @@ public class Medkit extends Buff{
 		}
 	}
 	
-	
+	/**
+	 * Draws the medkit
+	 * @author Michael
+	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);
 		float x = (float) (getX()-getRadius()/2+3);

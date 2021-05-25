@@ -13,6 +13,7 @@ public class LoopingShooter extends Enemy{
 	
 	/**
 	 * An enemy that shoots and moves in circle
+	 * @author Michael
 	 * @param x x coord
 	 * @param y y coord
 	 */

@@ -102,7 +102,10 @@ public abstract class Projectile extends Actor{
 		return true;
 	}
 	
-	
+	/**
+	 * let any projectile Bounce off window
+	 * @author Michael
+	 */
 	public void bounceOffWindow(PApplet surface) {
 		if(getX() < getRadius()/2 || getX() > surface.displayWidth - getRadius()/2) {
 			bounceX();

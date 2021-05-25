@@ -54,6 +54,10 @@ public class DrawingSurface extends PApplet{
 		activeScreen = screens.get(0);
 	}
 	
+	/**
+	 * Draw the first level
+	 * @author Nont & Michael
+	 */
 	public void init() {
 		level = 1;
 		keys = new ArrayList<Integer>();
@@ -94,6 +98,10 @@ public class DrawingSurface extends PApplet{
 		screens.add(screen3);
 	}
 	
+	/**
+	 * Draw the second level
+	 * @author Nont & Michael
+	 */
 	public void init2() {
 		level = 2;
 		keys = new ArrayList<Integer>();
@@ -129,6 +137,10 @@ public class DrawingSurface extends PApplet{
 		actors.addAll(enemies);
 	}
 	
+	/**
+	 * Draw the third level
+	 * @author Nont & Michael
+	 */
 	public void init3() {
 		level = 3;
 		keys = new ArrayList<Integer>();
@@ -319,6 +331,7 @@ public class DrawingSurface extends PApplet{
 	
 	/**
 	 * Check if the HP of each actors is 0, if it is then remove from arraylist
+	 * @author Michael
 	 */
 	public void checkDeath() {
 		if(player.getHp() <= 0) {

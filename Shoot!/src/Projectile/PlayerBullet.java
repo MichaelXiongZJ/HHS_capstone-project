@@ -15,7 +15,8 @@ public class PlayerBullet extends Bullet{
 	private static boolean cancelBullet;
 	
 	/**
-	 * 
+	 * Construct a playerBullet
+	 * @author Michael
 	 * @param x x loc
 	 * @param y y loc
 	 * @param vx
@@ -32,13 +33,20 @@ public class PlayerBullet extends Bullet{
 	}
 	
 	
-	
+	/**
+	 * Action of playerBullet
+	 * @author Michael
+	 */
 	public void act(ArrayList<Actor> other, PApplet surface, int time) {
 		super.actProjectile(other, surface, time);
-		
 		actPlayerBullet(other);
 	}
 	
+	/**
+	 * The special action of playerBullet
+	 * @author Michael 
+	 * @param other
+	 */
 	public void actPlayerBullet(ArrayList<Actor> other) {
 		for(int a = 0; a < other.size(); a++) {
 			if(other.get(a).intersects(this)) {
@@ -57,18 +65,34 @@ public class PlayerBullet extends Bullet{
 		}
 	}
 	
+	/**
+	 * @author Michael
+	 * @return canelBullet
+	 */
 	public boolean getCancelBullet() {
 		return cancelBullet;
 	}
 	
+	/**
+	 * @author Michael
+	 * @param a the new state of cancelBullet
+	 */
 	public static void setCancelBullet(boolean a) {
 		cancelBullet = a;
 	}
 	
+	/**
+	 * set cancelBullet to true
+	 * @author Michael
+	 */
 	public static void cancelBullet() {
 		cancelBullet = true;
 	}
 	
+	/**
+	 * set the health of the playerBullet
+	 * @param a new health
+	 */
 	public static void setHealth(int a) {
 		health = a;
 	}
