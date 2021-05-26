@@ -59,6 +59,12 @@ public class Bullet extends Projectile{
 		}
 	}
 	
+	/**
+	 * Act method of projectile class for other subclasses to use
+	 * @param other other Actors in the field
+	 * @param surface the place Actor is drawn on
+	 * @param time current game time
+	 */
 	public void actProjectile(ArrayList<Actor> other, PApplet surface, int time) {
 		super.act(other, surface, time);
 	}
@@ -68,6 +74,7 @@ public class Bullet extends Projectile{
 	/**
 	 * Draw the bullets
 	 * @author Nont
+	 * @param marker the place bullet is drawn on
 	 */
 	public void draw(PApplet marker) {
 		super.draw(marker);

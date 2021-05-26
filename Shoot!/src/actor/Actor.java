@@ -65,6 +65,9 @@ public abstract class Actor {
 	
 	/**
 	 * indicates action of the actor in 1 frame
+	 * @param other other Actors in the field
+	 * @param surface the place Actor is drawn on
+	 * @param time current game time
 	 * @author Michael
 	 */
 	public void act(ArrayList<Actor> actors, PApplet surface, int time) { //physical behavior

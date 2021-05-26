@@ -12,6 +12,11 @@ public class HowToPlay extends Screen {
 	
 	private Rectangle button;
 
+	/**
+	 * Constructor of the HowToPlay class
+	 * @author Nont (Based on Mr. Shelby's code)
+	 * @param surface place where how to play screen is drawn
+	 */
 	public HowToPlay(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -20,6 +25,10 @@ public class HowToPlay extends Screen {
 	}
 
 
+	/**
+	 * Draw the how to play screen
+	 * @author Nont
+	 */
 	public void draw() {
 		surface.scale((float)(surface.width/1000.0), (float)(surface.height/800.0));
 		surface.pushStyle();
@@ -46,9 +55,10 @@ public class HowToPlay extends Screen {
 		surface.popStyle();
 	}
 
-
-
-	
+	/**
+	 * What to do if button is pressed.
+	 * @author Nont (Based on Mr. Shelby's code)
+	 */
 	public void buttonPressed() {
 		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
 		if (button.contains(p))

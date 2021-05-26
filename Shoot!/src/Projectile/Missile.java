@@ -14,6 +14,14 @@ public class Missile extends PlayerBullet {
 //		super();
 //	}
 	
+	/**
+	 * Constructor for missile class
+	 * @author Nont
+	 * @param x
+	 * @param y
+	 * @param vx
+	 * @param vy
+	 */
 	public Missile(double x, double y, double vx, double vy) {
 		super(x, y, vx, vy, true);
 		super.setSpeed(3);
@@ -34,6 +42,12 @@ public class Missile extends PlayerBullet {
 //		setRadius(5);
 //	}
 	
+	/**
+	 * @author Nont
+	 * @param other other Actors in the field
+	 * @param surface place where missile is drawn on
+	 * @param time current gametime
+	 */
 	public void act(ArrayList<Actor> other, PApplet surface, int time) {
 		super.moveTowards(surface.mouseX, surface.mouseY);
 		super.act(other, surface, time);
@@ -43,6 +57,7 @@ public class Missile extends PlayerBullet {
 	/**
 	 * Draw the missile
 	 * @author Nont
+	 * @param marker place where missile is drawn on
 	 */
 	public void draw(PApplet marker) {
 		//super.draw(marker);
@@ -56,6 +71,12 @@ public class Missile extends PlayerBullet {
 		marker.pop();
 	}
 	
+	/**
+	 * Turn towards direction
+	 * @author Michael
+	 * @param x x coord of place to turn to
+	 * @param y y coord of place to turn to
+	 */
 	public void turnToward(int x, int y) {
 		dir = Math.atan(((double)getY()-y)/(getX()-x));
 		if (getX() > x)

@@ -6,7 +6,10 @@ import processing.core.PApplet;
 
 public class LoopingShooter extends Enemy{
 	
-	
+	/**
+	 * Default constructor
+	 * @author Michael
+	 */
 	public LoopingShooter() {
 		super();
 	}

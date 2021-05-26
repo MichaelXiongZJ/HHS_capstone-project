@@ -9,9 +9,13 @@ import java.awt.event.*;
 public class FirstMap extends Screen {
 	
 	private DrawingSurface surface;
-	
 	private Rectangle button;
 
+	/**
+	 * Constructor of the FirstMap class
+	 * @author Nont (Based on Mr. Shelby's code)
+	 * @param surface place where map is drawn
+	 */
 	public FirstMap(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -19,6 +23,10 @@ public class FirstMap extends Screen {
 		button = new Rectangle(0,0,50,25);
 	}
 	
+	/**
+	 * draw the map
+	 * @author Nont
+	 */
 	public void draw() {
 		
 //		// Draw stuff
@@ -68,6 +76,10 @@ public class FirstMap extends Screen {
 		surface.popStyle();
 	}
 	
+	/**
+	 * What to do if button is pressed.
+	 * @author Nont (Based on Mr. Shelby's code)
+	 */
 	public void buttonPressed() {
 		Point p = /*surface.actualCoordinatesToAssumed(*/new Point(surface.mouseX,surface.mouseY);
 		if (button.contains(p)) {

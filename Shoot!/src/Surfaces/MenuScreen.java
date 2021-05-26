@@ -12,6 +12,11 @@ public class MenuScreen extends Screen {
 	
 	private Rectangle startButton, howToPlayButton;
 
+	/**
+	 * Constructor of the MenuScreen class
+	 * @author Nont (Based on Mr. Shelby's code)
+	 * @param surface place where menu screen is drawn
+	 */
 	public MenuScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -21,6 +26,10 @@ public class MenuScreen extends Screen {
 	}
 
 
+	/**
+	 * Draw the menu screen
+	 * @author Nont
+	 */
 	public void draw() {
 
 		surface.scale((float)(surface.width/1000.0), (float)(surface.height/800.0));
@@ -49,9 +58,10 @@ public class MenuScreen extends Screen {
 		surface.popStyle();
 	}
 
-
-
-	
+	/**
+	 * What to do if button is pressed.
+	 * @author Nont (Based on Mr. Shelby's code)
+	 */
 	public void buttonPressed() {
 		Point p = /* surface.actualCoordinatesToAssumed( */new Point(surface.mouseX, surface.mouseY);
 			if (startButton.contains(p))

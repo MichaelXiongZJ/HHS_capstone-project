@@ -13,6 +13,9 @@ public abstract class Projectile extends Actor{
 	private boolean ignorePlayer;
 	private double speed;
 	
+	/**
+	 * Default constructor of Projectile class
+	 */
 	public Projectile() {
 		super();
 	}
@@ -80,7 +83,7 @@ public abstract class Projectile extends Actor{
 	
 
 	/**
-	 * Bounce bullet, and -1 hp at the same time.
+	 * Bounce bullet x direction, and -1 hp at the same time.
 	 * @author Michael
 	 */
 	public boolean bounceX() {
@@ -89,12 +92,20 @@ public abstract class Projectile extends Actor{
 		return true;
 	}
 	
+	/**
+	 * Bounce bullet y direction, and -1 hp at the same time.
+	 * @author Michael
+	 */
 	public boolean bounceY() {
 		setvy(-getvy());
 		setHp(getHp()-1);
 		return true;
 	}
 	
+	/**
+	 * Bounce bullet, and -1 hp at the same time.
+	 * @author Michael
+	 */
 	public boolean bounce() {
 		setvx(-getvx());
 		setvy(-getvy());
@@ -150,11 +161,19 @@ public abstract class Projectile extends Actor{
 		return speed;
 	}
 	
+	/**
+	 * getter for ignorePlayer field
+	 * @return whether or not this projectile ignores player
+	 */
 	public boolean getIgnore() {
 		return ignorePlayer;
 	}
 	
-	public void setIgnorePlayer(boolean a) {
-		ignorePlayer = a;
+	/**
+	 * setter for ignorePlayer field
+	 * @param isIgnorePlayer whether or not this projectile ignores player
+	 */
+	public void setIgnorePlayer(boolean isIgnorePlayer) {
+		ignorePlayer = isIgnorePlayer;
 	}
 }

@@ -186,6 +186,11 @@ public class DrawingSurface extends PApplet{
 		
 		activeScreen.draw();
 	}
+	
+	/**
+	 * draw the map of the game
+	 * @author Nont & Michael
+	 */
 	public void draw2() {
 //		cursor = super.loadImage("src/bullseye.png");
 //		cursor(cursor);
@@ -272,7 +277,7 @@ public class DrawingSurface extends PApplet{
 	
 	/**
 	 * Called every time mouse is pressed
-	 * shoots the bullet from player
+	 * shoots the bullet from player, or reset the map if in menu
 	 * @author Nont
 	 */
 	public void mousePressed() {
@@ -491,15 +496,28 @@ public class DrawingSurface extends PApplet{
 			}
 		}
 	}
-	
+	/**
+	 * @author Nont (copied sample from Mr. Shelby)
+	 * @param assumed the assumed coordinate 
+	 * @return new actual point
+	 */
 	public Point assumedCoordinatesToActual(Point assumed) {
 		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
 	}
 
+	/**
+	 * @author Nont (copied sample from Mr. Shelby)
+	 * @param actual the actual coordinate
+	 * @return new assumed point
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 	
+	/**
+	 * @author Nont (copied sample from Mr. Shelby)
+	 * @param i number of screen
+	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}
